@@ -18,6 +18,8 @@ config :live_deck, LiveDeck.Repo,
 config :live_deck, LiveDeckWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
+  secret_key_base: "somesecretkey",
+  live_view: [signing_salt: "thisisasaltfordevenvironmentonly"],
   code_reloader: true,
   check_origin: false,
   watchers: [

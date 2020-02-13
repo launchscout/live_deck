@@ -1,150 +1,101 @@
 version: 2
+defaults: &defaults
+  working_directory: ~/app
+  docker:
+      - image: elixir:1.10
+        environment:
+          MIX_ENV: test
+      - image: circleci/postgres:10.1-alpine
 jobs:
   build:
-    parallelism: 1
-    docker:
-      - image: elixir:1.9
-        environment:
-          MIX_ENV: test
-      - image: circleci/postgres:10.1-alpine
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: poker_ex_test
-          POSTGRES_PASSWORD: $POSTGRES_PASS
-
-    working_directory: ~/app
-
+    <<: *defaults
     steps:
       - checkout
+
       - restore_cache:
           keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-            - v1-mix-cache-{{ .Branch }}
-            - v1-mix-cache
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-            - v1-build-cache
+            - v2-deps-cache-{{ checksum "mix.lock" }}
+            - v2-deps-cache
       - run: mix local.hex --force
       - run: mix local.rebar --force
-      - run: mix do deps.get, compile
+      - run: mix deps.get
+      - run: mix compile
       - save_cache:
-          key: v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-          paths: "deps"
-      - save_cache:
-          key: v1-build-cache-{{ .Branch }}
-          paths: "_build"
-
+          key: v2-deps-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - deps
+            - ~/.mix
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - app
+            - .mix
   test:
-    parallelism: 1
-    docker:
-      - image: elixir:1.9
-        environment:
-          MIX_ENV: test
-      - image: circleci/postgres:10.1-alpine
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: poker_ex_test
-          POSTGRES_PASSWORD: $POSTGRES_PASS
-
-    working_directory: ~/app
-
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-            - v1-mix-cache-{{ .Branch }}
-            - v1-mix-cache
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-            - v1-build-cache
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
+      - attach_workspace:
+          at: ~/
       - run:
-          name: install dockerize
+          name: Install dockerize
           command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: mix coveralls --trace
+      - run: mix coveralls.circle
       - store_test_results:
           path: _build/test/lib/results
-
+  credo:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Run Credo
+          command: mix credo
   format:
-    parallelism: 1
-    docker:
-      - image: elixir:1.9
-    working_directory: ~/app
-
+    <<: *defaults
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-            - v1-mix-cache-{{ .Branch }}
-            - v1-mix-cache
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-            - v1-build-cache
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
-      - run: mix format
-
-  lint:
-    parallelism: 1
-    docker:
-      - image: elixir:1.9
-    working_directory: ~/app
-
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
-      - run: mix credo --only warning
-
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: Mix Format
+          command: mix format --check-formatted
   dialyzer:
-    parallelism: 1
-    docker:
-      - image: elixir:1.9
-    working_directory: ~/app
-
+    <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/
       - restore_cache:
           keys:
-            - v1-mix-cache-{{ .Branch }}-{{ checksum "mix.lock" }}
-      - restore_cache:
-          keys:
-            - v1-build-cache-{{ .Branch }}
-      - run: mix local.hex --force
-      - run: mix local.rebar --force
-      - run: mix dialyzer
+            - v1-plt-cache-{{ checksum "mix.lock" }}
+            - v1-plt-cache
+      - run: mix dialyzer --plt
+      - save_cache:
+          key: v1-plt-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - ~/.mix
+      - run:
+          name: Run Dialyzer
+          command: mix dialyzer
 
 workflows:
   version: 2
-  build_test_docker_push:
+  continuous_integration:
     jobs:
       - build
       - test:
           requires:
             - build
-      - format:
-          requires:
-            - build
-      - lint:
+      - credo:
           requires:
             - build
       - dialyzer:
+          requires:
+            - build
+      - format:
           requires:
             - build

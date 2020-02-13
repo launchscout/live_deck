@@ -5,7 +5,6 @@ defmodule LiveDeck.Presentations do
   """
   alias LiveDeck.Presentations.Slide
 
-
   @doc """
   Returns a list of all available slides by
   title (the path to the file)

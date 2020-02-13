@@ -14,11 +14,11 @@ defmodule LiveDeckWeb.Endpoint do
     websocket: true,
     longpoll: false
 
-    socket "/live", Phoenix.LiveView.Socket,
+  socket "/live", Phoenix.LiveView.Socket,
     websocket: [
       timeout: 45_000,
       check_origin: [
-        "//localhost",
+        "//localhost"
       ]
     ],
     longpoll: false
