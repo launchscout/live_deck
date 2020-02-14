@@ -3,7 +3,6 @@ defmodule LiveDeck.Fakes.Path do
   Mimics the Standard Lib Path module for
   the purposes of testing
   """
-  @fake_slides ~w(slide_1 slide_2 slide_3 slide_4)
 
   @doc false
   def relative_to_cwd(path) do
@@ -11,7 +10,5 @@ defmodule LiveDeck.Fakes.Path do
   end
 
   @doc false
-  def wildcard(_arg) do
-    @fake_slides
-  end
+  def expand(path, _dir), do: path
 end
