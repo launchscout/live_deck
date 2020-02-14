@@ -4,7 +4,9 @@ defmodule LiveDeck.PresentationsTest do
 
   describe "list_slides/0" do
     test "returns a list of all slides" do
-      assert length(Presentations.list_slides()) == 4
+      for slide <- Presentations.list_slides() do
+        assert String.ends_with?(slide, ".html")
+      end
     end
   end
 end
