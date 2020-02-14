@@ -11,9 +11,9 @@ defmodule LiveDeck.Presentations.Presentation do
             last_slide: nil
 
   @type t() :: %__MODULE__{
-    slides: list(String.t()),
-    last_slide: non_neg_integer()
-  }
+          slides: list(String.t()),
+          last_slide: non_neg_integer()
+        }
 
   @doc """
   Instantiates a new Presentation.
