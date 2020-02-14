@@ -5,7 +5,7 @@ defmodule LiveDeck.Presentations.Slide do
   """
   @path Application.get_env(:live_deck, :path_module) || Path
   @slides (for slide <- "lib/live_deck_web/templates/slide/*.html.*eex" |> @path.wildcard() do
-             @external_resouce @path.relative_to_cwd(slide)
+             @external_resource @path.relative_to_cwd(slide)
              slide
            end)
 
