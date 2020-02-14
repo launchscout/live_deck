@@ -1,4 +1,4 @@
-defmodule LiveDeckWeb.PageControllerTest do
+defmodule LiveDeckWeb.PresentationControllerTest do
   use LiveDeckWeb.ConnCase
 
   test "GET /", %{conn: conn} do
