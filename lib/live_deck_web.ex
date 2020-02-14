@@ -23,6 +23,7 @@ defmodule LiveDeckWeb do
 
       import Plug.Conn
       import LiveDeckWeb.Gettext
+      import Phoenix.LiveView.Controller
       alias LiveDeckWeb.Router.Helpers, as: Routes
     end
   end
@@ -39,6 +40,8 @@ defmodule LiveDeckWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
+      import Phoenix.LiveView.Helpers
+
       import LiveDeckWeb.ErrorHelpers
       import LiveDeckWeb.Gettext
       alias LiveDeckWeb.Router.Helpers, as: Routes
@@ -50,6 +53,7 @@ defmodule LiveDeckWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
