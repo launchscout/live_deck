@@ -4,10 +4,16 @@ defmodule LiveDeck.Presentations.Slide do
   with Slides.
   """
   @slides_dir "../../live_deck_web/templates/slide/" |> Path.expand(__DIR__)
-  @slides (for slide <- @slides_dir |> File.ls!() do
+  @slides (
+  if {:ok, slides} = File.ls(@slides_dir) do
+    slides
+  else
+    File.mkdir_p(@slides_dir)
+    for slide <- @slides_dir |> File.ls!() do
              @external_resource Path.relative_to_cwd(@slides_dir <> slide)
              String.replace(slide, ".eex", "")
-           end)
+    end
+  end)
 
   @type title :: String.t()
 
