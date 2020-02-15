@@ -4,7 +4,7 @@ defmodule LiveDeck.Presentations.Slide do
   with Slides.
   """
   @type title :: String.t()
-  @slides_dir "../../live_deck_web/templates/slide/" |> Path.expand(__DIR__)
+  @slides_dir "../../live_deck_web/templates/view/presentation" |> Path.expand(__DIR__)
 
   def all do
     case File.ls(@slides_dir) do
