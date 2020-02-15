@@ -16,9 +16,11 @@ defmodule LiveDeck.PresentationsTest do
 
   defp create_temp_slides(_) do
     path = Path.expand("../lib/live_deck_web/templates/slide/", __DIR__)
+
     for slide <- @temp_slides do
       File.write("#{path}#{slide}", "<div>This is slide: #{slide}</div>")
     end
+
     on_exit(fn ->
       for slide <- @temp_slides do
         File.rm_rf("#{path}#{slide}")
