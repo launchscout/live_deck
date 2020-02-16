@@ -1,0 +1,19 @@
+//SCREEN SIZES
+$screen-mobile: 48em;
+$screen-tablet: 62em;
+$screen-desktop: 75em;
+
+//SPACING
+$pad: 2rem;
+$pad-xxs: calc(#{$pad}/3.5);
+$pad-xs: calc(#{$pad}/2.5);
+$pad-sm: calc(#{$pad}/2);
+$pad-lg: calc(#{$pad} * 2);
+$pad-xlg: calc(#{$pad} * 2.5);
+
+//BORDERS AND SHAPES
+$border-radius: 20px;
+$border: solid 3px;
+
+//ANIMATIONS
+$transition: all 0.5s ease;

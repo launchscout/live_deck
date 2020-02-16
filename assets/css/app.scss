@@ -1,3 +1,9 @@
 //BASE STYLES
 @import
-"/base/reset";
+"/base/reset",
+"/base/variables";
+
+//LAYOUT STYLES
+@import
+"/layout/base",
+"/layout/slides";

@@ -1,0 +1,11 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 5vh 90vh 5vh;
+  align-items: center;
+}
+
+header, main, footer {
+  padding: $pad-xs;
+  box-sizing: border-box;;
+}
