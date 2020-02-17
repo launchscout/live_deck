@@ -1,0 +1,31 @@
+//SCREEN SIZES
+$screen-mobile: 48em;
+$screen-tablet: 62em;
+$screen-desktop: 75em;
+
+//SPACING
+$pad: 2rem;
+$pad-xxs: calc(#{$pad}/3.5);
+$pad-xs: calc(#{$pad}/2.5);
+$pad-sm: calc(#{$pad}/2);
+$pad-lg: calc(#{$pad} * 2);
+$pad-xlg: calc(#{$pad} * 2.5);
+
+//BORDERS AND SHAPES
+$border-radius: 20px;
+$border: solid 3px;
+
+//ANIMATIONS
+$transition: all 0.5s ease;
+
+//COLORS
+$color-1: #2b373d;
+$color-2: lighten($color-1, 12%);
+$color-3: #F7F7F7;
+$color-4: lighten($color-3, 2%);
+
+
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Martel:200,300,400,600,700,800,900|Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin-ext');
+$font-primary: 'Martel', serif;
+$font-secondary: 'Nunito Sans', sans-serif;

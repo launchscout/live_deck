@@ -1,0 +1,19 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-size: 14px;
+
+  &__caption {
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  &--left {
+    text-align: left;
+  }
+
+  &--right {
+    text-align: right;
+    font-weight: 400;
+  }
+}

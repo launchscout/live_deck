@@ -18,6 +18,7 @@ defmodule LiveDeckWeb.Router do
     pipe_through :browser
 
     get "/", PresentationController, :index
+    get "/style-guide", StyleGuideController, :index
   end
 
   # Other scopes may use custom stacks.

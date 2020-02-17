@@ -1,0 +1,17 @@
+body {
+  background-color: $color-3;
+  color: $color-1;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 5vh minmax(90vh, auto) 5vh;
+  align-items: center;
+}
+
+header, footer {
+  padding: $pad-xs;
+  box-sizing: border-box;;
+}
+
+main {
+  padding: $pad-xs $pad-xlg;
+}
