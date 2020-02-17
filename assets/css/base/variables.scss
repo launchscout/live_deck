@@ -17,3 +17,15 @@ $border: solid 3px;
 
 //ANIMATIONS
 $transition: all 0.5s ease;
+
+//COLORS
+$color-1: #2b373d;
+$color-2: lighten($color-1, 12%);
+$color-3: #F7F7F7;
+$color-4: lighten($color-3, 2%);
+
+
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Martel:200,300,400,600,700,800,900|Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin-ext');
+$font-primary: 'Martel', serif;
+$font-secondary: 'Nunito Sans', sans-serif;

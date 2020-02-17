@@ -1,0 +1,174 @@
+CONTAINERS
+.u-contain{
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+//PADDING
+.u-padded {
+  padding: $pad;
+
+  &--none {
+    padding: 0;
+  }
+  &--xs {
+    padding: $pad-xs;
+  }
+  &--sm {
+    padding: $pad-sm;
+  }
+  &--lg {
+    padding: $pad-lg;
+  }
+  &--xlg {
+    padding: $pad-xlg;
+  }
+  &--no-top {
+    padding: 0 $pad $pad;
+  }
+  &--side {
+    padding: 0 $pad;
+  }
+}
+
+//MAARGINS
+.u-push-top {
+  margin-top: $pad;
+
+  &--none {
+    margin-top: 0;
+  }
+  &--xs {
+    margin-top: $pad-xs;
+  }
+  &--sm {
+    margin-top: $pad-sm;
+  }
+  &--lg {
+    margin-top: $pad-lg;
+  }
+  &--xlg {
+    margin-top: $pad-xlg;
+  }
+}
+
+.u-push-bottom {
+  margin-bottom: $pad;
+
+  &--none {
+    margin-bottom: 0;
+  }
+  &--xs {
+    margin-bottom: $pad-xs;
+  }
+  &--sm {
+    margin-bottom: $pad-sm;
+  }
+  &--lg {
+    margin-bottom: $pad-lg;
+  }
+  &--xlg {
+    margin-bottom: $pad-xlg;
+  }
+}
+
+.u-push-left {
+  margin-left: $pad;
+
+  &--none {
+    margin-left: 0;
+  }
+  &--xs {
+    margin-left: $pad-xs;
+  }
+  &--sm {
+    margin-left: $pad-sm;
+  }
+  &--lg {
+    margin-left: $pad-lg;
+  }
+  &--xlg {
+    margin-left: $pad-xlg;
+  }
+}
+
+.u-push-right {
+  margin-right: $pad;
+
+  &--none {
+    margin-right: 0;
+  }
+  &--xs {
+    margin-right: $pad-xs;
+  }
+  &--sm {
+    margin-right: $pad-sm;
+  }
+  &--lg {
+    margin-right: $pad-lg;
+  }
+  &--xlg {
+    margin-right: $pad-xlg;
+  }
+}
+
+//ALIGNMENT
+.u-center {
+  text-align: center;
+
+  &--sm {
+    @media (min-width: $screen-mobile) {
+      text-align: center;
+    }
+  }
+  &--md {
+    @media (min-width: $screen-tablet) {
+      text-align: center;
+    }
+  }
+  &--lg {
+    @media (min-width: $screen-desktop) {
+      text-align: center;
+    }
+  }
+}
+
+.u-left {
+  text-align: left;
+
+  &--sm {
+    @media (min-width: $screen-mobile) {
+      text-align: left;
+    }
+  }
+  &--md {
+    @media (min-width: $screen-tablet) {
+      text-align: left;
+    }
+  }
+  &--lg {
+    @media (min-width: $screen-desktop) {
+      text-align: left;
+    }
+  }
+}
+
+.u-right {
+  text-align: right;
+
+  &--sm {
+    @media (min-width: $screen-mobile) {
+      text-align: right;
+    }
+  }
+  &--md {
+    @media (min-width: $screen-tablet) {
+      text-align: right;
+    }
+  }
+  &--lg {
+    @media (min-width: $screen-desktop) {
+      text-align: right;
+    }
+  }
+}

@@ -1,9 +1,21 @@
 //BASE STYLES
 @import
 "/base/reset",
-"/base/variables";
+"/base/variables",
+"/base/typeography";
 
 //LAYOUT STYLES
 @import
 "/layout/base",
+"/layout/grid",
 "/layout/slides";
+
+//MODULES STYLES
+@import
+"/modules/header",
+"/modules/footer";
+
+//STATES STYLES
+@import
+"/states/colors",
+"/states/utilities";
