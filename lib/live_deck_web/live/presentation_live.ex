@@ -1,4 +1,7 @@
 defmodule LiveDeckWeb.PresentationLive do
+  @moduledoc """
+  Live view for presentation
+  """
   use Phoenix.LiveView
   alias LiveDeck.Presentations
   require Logger

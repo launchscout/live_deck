@@ -1,3 +1,3 @@
-defmodule LiveDeckWeb.View.ControlView do
+defmodule LiveDeckWeb.ControlView do
   use LiveDeckWeb, :view
 end

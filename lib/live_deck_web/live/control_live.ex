@@ -1,4 +1,7 @@
 defmodule LiveDeckWeb.ControlLive do
+  @moduledoc """
+    Live view for control route
+  """
   use Phoenix.LiveView
   alias LiveDeck.Presentations
   require Logger
@@ -9,10 +12,7 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def render(assigns) do
-    ~L"""
-      <button phx-click="prev">Previous!</button>
-      <button phx-click="next">Next!</button>
-    """
+    Phoenix.View.render(LiveDeckWeb.ControlView, "index.html", assigns)
   end
 
   def handle_event("next", _, socket) do
