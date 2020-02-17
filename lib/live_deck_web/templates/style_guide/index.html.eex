@@ -2,9 +2,9 @@
   <h1>Style Guide &#60;h1&#62;</h1>
   <div class="grid grid-2col--lg grid--center u-push-top--sm">
     <div>
-      <h2>&#60;h2&#62; Heading 2 &#60;/h2&#62;</h2>
-      <h3>&#60;h3&#62; Heading 3 &#60;/h3&#62;</h3>
-      <h4 class="u-push-bottom--sm">&#60;h4&#62; Heading 4 &#60;/h4&#62;</h4>
+      <h2>&#60;h2&#62; Heading 2 </h2>
+      <h3>&#60;h3&#62; Heading 3 </h3>
+      <h4 class="u-push-bottom--sm">&#60;h4&#62; Heading 4 </h4>
       <p>&#60;p&#62; Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece. Presentors will be able to engage with their audience and content in exciting ways and integrate real-time data into their deck. &#60;/p&#62;</p>
     </div>
     <div>
@@ -23,8 +23,8 @@
         </div>
       </div>
       <p class="u-push-bottom"><b>Padding Utility</b>: u-padded (--xs, --sm, --lg, --xlg)</p>
-      <p class="u-push-bottom"><b>Margin Utility</b>: u-push (--xs, --sm, --lg, --xlg) | u-push-top (--xs, --sm, --lg, --xlg) | u-push-bottom (--xs, --sm, --lg, --xlg) | u-push-right (--xs, --sm, --lg, --xlg) | u-push-left (--xs, --sm, --lg, --xlg)</p>
-      <p><b>Alignment Utility</b>: u-left (--sm, --md, --lg) | u-right (--sm, --md, --lg) | u-center (--sm, --md, --lg)</p>
+      <p class="u-push-bottom"><b>Alignment Utility</b>: u-left (--sm, --md, --lg) | u-right (--sm, --md, --lg) | u-center (--sm, --md, --lg)</p>
+      <p><b>Margin Utility</b>: u-push (--xs, --sm, --lg, --xlg) | u-push-top (--xs, --sm, --lg, --xlg) | u-push-bottom (--xs, --sm, --lg, --xlg) | u-push-right (--xs, --sm, --lg, --xlg) | u-push-left (--xs, --sm, --lg, --xlg)</p>
     </div>
   </div>
 </section>

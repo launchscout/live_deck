@@ -5,11 +5,17 @@ body {
   min-height: 100vh;
   background-color: $color-3;
   color: $color-1;
+  overflow-x: hidden;
+
+  @media screen and (min-width: $screen-desktop) {
+    grid-template-rows: 5vh 90vh 5vh;
+    overflow: hidden;
+  }
 }
 
 header, footer {
   box-sizing: border-box;
-  padding: $pad-xs;;
+  padding: 0 $pad;
 }
 
 main {

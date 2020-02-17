@@ -1,0 +1,19 @@
+.template {
+
+  &--2col {
+    align-items: baseline;
+    display: grid;
+    grid-gap: $pad-lg;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--3col {
+    @extend .template--2col;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &--4col {
+    @extend .template--2col;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
