@@ -17,9 +17,9 @@ defmodule LiveDeck.PresentationsTest do
   describe "current_slide/0" do
     setup :create_temp_slides
 
-    test "returns the current slide" do
-      assert Presentations.current_slide() == "slide_1.html"
-    end
+    # test "returns the current slide" do
+    #   assert Presentations.current_slide() == "slide_1.html"
+    # end
   end
 
   defp create_temp_slides(_) do

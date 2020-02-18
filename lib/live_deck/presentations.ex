@@ -21,7 +21,7 @@ defmodule LiveDeck.Presentations do
   """
   @spec current_slide() :: Slide.title()
   def current_slide do
-    Logger.info "slides, #{inspect Slide.all()}, current: #{Presentation.current_slide()}"
+    Logger.info("slides, #{inspect(Slide.all())}, current: #{Presentation.current_slide()}")
     Enum.at(Slide.all(), Presentation.current_slide())
   end
 

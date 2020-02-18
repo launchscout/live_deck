@@ -15,7 +15,7 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("inc", _, socket) do
-    Presentations.increment_slide
+    Presentations.increment_slide()
     {:noreply, socket}
   end
 end

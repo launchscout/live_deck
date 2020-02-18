@@ -7,12 +7,14 @@ defmodule LiveDeck.Presentations.Presentation do
   alias LiveDeck.Presentations.Presentation.CurrentSlide
 
   @slides Slide.all()
-  @enforce_keys [:slides, :last_slide]
+  @enforce_keys [:slides, :current_slide, :last_slide]
   defstruct slides: [],
+            current_slide: nil,
             last_slide: nil
 
   @type t() :: %__MODULE__{
-          slides: list(String.t()),
+          slides: list(Slide.title()),
+          current_slide: Slide.title(),
           last_slide: non_neg_integer()
         }
 
@@ -39,6 +41,7 @@ defmodule LiveDeck.Presentations.Presentation do
   def new do
     %__MODULE__{
       slides: @slides,
+      current_slide: List.first(@slides),
       last_slide: length(@slides) - 1
     }
   end

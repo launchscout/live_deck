@@ -5,10 +5,11 @@ defmodule LiveDeckWeb.PresentationLive do
   use Phoenix.LiveView
   alias LiveDeck.Presentations
   @presentation Presentations.list_slides()
+
   # @current Presentations.current_slide()
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, [presentation: @presentation, current: Presentations.current_slide()])}
+    {:ok, assign(socket, presentation: @presentation, current: Presentations.current_slide())}
   end
 
   def render(assigns) do
