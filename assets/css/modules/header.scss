@@ -1,7 +1,9 @@
 .header {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   font-size: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  z-index: 10;
 
   &__title {
     font-weight: 800;

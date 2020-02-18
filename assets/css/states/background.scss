@@ -1,4 +1,32 @@
 body.back--2 {
   background-color: $color-1;
   color: $color-4;
+
+  aside {
+    background-color: $color-2;
+  }
+}
+body.back--3 {
+  background-color: $color-4;
+  color: $color-1;
+
+  aside {
+    background-color: $color-3;
+  }
+}
+body.back--4 {
+  background-color: $color-2;
+  color: $color-4;
+
+  aside {
+    background-color: $color-1;
+  }
+}
+body.back--5 {
+  background-color: $color-3;
+  color: $color-2;
+
+  aside {
+    background-color: $color-4;
+  }
 }

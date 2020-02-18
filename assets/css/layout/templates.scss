@@ -1,10 +1,10 @@
 .template {
 
   &--2col {
-    align-items: baseline;
-    display: grid;
     grid-gap: $pad-lg;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    align-items: baseline;
   }
 
   &--3col {
@@ -15,5 +15,21 @@
   &--4col {
     @extend .template--2col;
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  &--left-aside {
+    @extend .template--2col;
+    grid-gap: $pad-lg;
+    grid-template-columns: 400px 1fr;
+    align-items: center;
+    margin: 0 $pad-lg 0 0;
+  }
+
+  &--right-aside {
+    @extend .template--2col;
+    grid-gap: $pad-lg;
+    grid-template-columns: 1fr 400px;
+    align-items: center;
+    margin: 0 0 0 $pad-lg;
   }
 }
