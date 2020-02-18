@@ -1,10 +1,10 @@
 .footer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  font-size: 20px;
+  font-size: 14px;
 
   &__caption {
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1;
   }
 
