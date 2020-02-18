@@ -1,3 +1,3 @@
-defmodule LiveDeckWeb.View.PresentationView do
+defmodule LiveDeckWeb.PresentationView do
   use LiveDeckWeb, :view
 end

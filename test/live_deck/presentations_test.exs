@@ -14,6 +14,14 @@ defmodule LiveDeck.PresentationsTest do
     end
   end
 
+  describe "current_slide/0" do
+    setup :create_temp_slides
+
+    test "returns the current slide" do
+      assert Presentations.current_slide() == "slide_1.html"
+    end
+  end
+
   defp create_temp_slides(_) do
     path = Path.expand("../lib/live_deck_web/templates/slide/", __DIR__)
 

@@ -4,18 +4,14 @@ defmodule LiveDeckWeb.PresentationLive do
   """
   use Phoenix.LiveView
   alias LiveDeck.Presentations
-  require Logger
-  @slides Presentations.list_slides()
+  @presentation Presentations.list_slides()
+  # @current Presentations.current_slide()
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, current: 0, slides: @slides)}
+    {:ok, assign(socket, [presentation: @presentation, current: Presentations.current_slide()])}
   end
 
   def render(assigns) do
-    Logger.info(inspect(assigns[:current]))
-
-    ~L"""
-      <p><%= Phoenix.View.render LiveDeckWeb.View.PresentationView, Enum.at(@slides, assigns[:current]), assigns %></p>
-    """
+    Phoenix.View.render(LiveDeckWeb.PresentationView, "index.html", assigns)
   end
 end
