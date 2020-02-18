@@ -4,13 +4,13 @@ defmodule LiveDeck.Presentations.PresentationTest do
 
   describe "new/0" do
     test "creates a Presentation struct" do
-      assert %Presentation{} = presentation = Presentation.new()
+      assert %Presentation{active_index: 0} = Presentation.new()
+    end
+  end
 
-      assert presentation.current_slide ==
-               ""
-               |> LiveDeck.Fake.File.ls!()
-               |> List.first()
-               |> String.replace(".eex", "")
+  describe "next_slide/1" do
+    test "updates current slide if there is a next slide" do
+      assert %Presentation{active_index: 1} = Presentation.new() |> Presentation.next_slide()
     end
   end
 end
