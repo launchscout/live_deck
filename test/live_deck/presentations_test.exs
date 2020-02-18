@@ -3,9 +3,10 @@ defmodule LiveDeck.PresentationsTest do
   alias LiveDeck.Presentations.Presentation
   use ExUnit.Case
 
-  describe "list_slides/0" do
-    test "returns a list of all slides" do
-      for slide <- Presentations.list_slides() do
+  describe "load/0" do
+    test "bootstraps a presentation struct" do
+      presentation = Presentations.load()
+      for slide <- presentation.slides do
         assert String.ends_with?(slide, ".html")
       end
     end
@@ -18,7 +19,7 @@ defmodule LiveDeck.PresentationsTest do
 
     test "is a no-op when the active index is the last index" do
       presentation = %Presentation{
-        slides: LiveDeck.Presentations.list_slides(),
+        slides: Presentations.load().slides,
         active_index: 3,
         last_index: 3
       }

@@ -3,18 +3,16 @@ defmodule LiveDeck.Presentations do
   Exposes an API for working with and
   manipulating presentations.
   """
-  alias LiveDeck.Presentations.Slide
   alias LiveDeck.Presentations.Presentation
   require Logger
 
   @doc """
-  Returns a list of all available slides by
-  title (the path to the file)
+  Bootstraps a presentation struct by loading
+  available slides from the lib/live_deck_web/templates/slide
+  directory.
   """
-  @spec list_slides() :: list(Slide.title())
-  def list_slides do
-    Slide.all()
-  end
+  @spec load() :: Presentation.t()
+  def load(), do: Presentation.new()
 
   @doc """
   Returns the title of the current slide
