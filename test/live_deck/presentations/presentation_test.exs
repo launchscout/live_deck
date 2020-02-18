@@ -9,8 +9,18 @@ defmodule LiveDeck.Presentations.PresentationTest do
   end
 
   describe "next_slide/1" do
-    test "updates current slide if there is a next slide" do
+    test "updates active index if there is a next slide" do
       assert %Presentation{active_index: 1} = Presentation.new() |> Presentation.next_slide()
+    end
+
+    test "is a no-op when the active index is the last index" do
+      presentation = %Presentation{
+        slides: LiveDeck.Presentations.list_slides(),
+        active_index: 3,
+        last_index: 3
+      }
+
+      assert presentation == Presentation.next_slide(presentation)
     end
   end
 end
