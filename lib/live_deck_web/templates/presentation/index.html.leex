@@ -1,5 +1,3 @@
-<%= if @current do %>
-  <%= Phoenix.View.render(LiveDeckWeb.SlideView, @current, assigns) %>
-<% else %>
-  <p>aint got no current slide my guy</p>
-<% end %>
+<section class="slide" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+  <h1>LiveDeck: An Interactive Presentation Deck</h1>
+</section>
