@@ -19,16 +19,16 @@ defmodule LiveDeck.Presentations do
   @doc """
   Returns the title of the current slide
   """
-  @spec current_slide() :: Slide.title()
-  def current_slide do
-    Logger.info("slides, #{inspect(Slide.all())}, current: #{Presentation.current_slide()}")
-    Enum.at(Slide.all(), Presentation.current_slide())
+  @spec current_slide(Presentation.t()) :: Slide.title()
+  def current_slide(presentation) do
+    Presentation.current_slide(presentation)
   end
 
   @doc """
-  Increments current slide forward
+  Navigates to the next slide
   """
-  def increment_slide do
-    Presentation.increment_slide()
+  @spec next_slide(Presentation.t()) :: Presentation.t()
+  def next_slide(presentation) do
+    Presentation.next_slide(presentation)
   end
 end
