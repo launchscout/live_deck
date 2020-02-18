@@ -23,4 +23,11 @@ defmodule LiveDeck.Presentations.PresentationTest do
       assert presentation == Presentation.next_slide(presentation)
     end
   end
+
+  describe "current_slide/1" do
+    test "returns title of slide at active index" do
+      presentation = Presentation.new()
+      assert presentation |> Presentation.current_slide() == List.first(presentation.slides)
+    end
+  end
 end
