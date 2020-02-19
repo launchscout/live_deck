@@ -11,5 +11,4 @@ defmodule LiveDeckWeb.PresentationLive do
   def render(assigns) do
     Phoenix.View.render(LiveDeckWeb.PresentationView, "index.html", assigns)
   end
-
 end
