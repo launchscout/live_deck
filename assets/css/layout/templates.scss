@@ -43,4 +43,24 @@
       margin: 0 $pad-lg;
     }
   }
+
+  &--full-image {
+    margin: 0;
+    overflow: hidden;
+
+    .template__content {
+      color: $color-3;
+      padding: $pad-lg;
+    }
+
+    img {
+      filter: brightness(50%);
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+        top: 0;
+      width: 100vw;
+      z-index: -100;
+    }
+  }
 }
