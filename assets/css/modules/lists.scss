@@ -1,6 +1,49 @@
 ul {
   li {
     margin-left: $pad-xlg;
+    margin-bottom: $pad-lg;
     font-size: 3rem;
+    list-style: none;
+    position: relative;
+    transform: translateX(-4rem);
+    animation: bulletTextIn 1s ease forwards;
+
+    &::before {
+      content: '';
+      height: 100%;
+      width: 10px;
+      margin-right: $pad;
+      background-color: $color-2;
+      opacity: 0;
+      animation: bulletIn 1s ease forwards;
+      position: absolute;
+      left: -3rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@keyframes bulletIn {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes bulletTextIn {
+  0% {
+    transform: translateX(-4rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
