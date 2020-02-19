@@ -13,7 +13,7 @@ defmodule LiveDeck.Presentations.Presentation do
             last_index: nil
 
   @type t() :: %__MODULE__{
-          slides: list(Slide.title),
+          slides: list(Slide.title()),
           active_index: non_neg_integer(),
           last_index: non_neg_integer()
         }
