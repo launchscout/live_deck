@@ -79,4 +79,12 @@
       z-index: -100;
     }
   }
+
+  &--quote {
+    display: grid;
+      align-items: center;
+      grid-gap: $pad;
+      grid-template-columns: max-content 1fr;
+    padding: $pad-lg;
+  }
 }
