@@ -1,0 +1,5 @@
+<%= if @current do %>
+  <%= Phoenix.View.render(LiveDeckWeb.SlideView, @current, assigns) %>
+<% else %>
+  <p>aint got no current slide my guy</p>
+<% end %>

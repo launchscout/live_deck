@@ -13,7 +13,7 @@ defmodule LiveDeck.Application do
       # Start the endpoint when the application starts
       LiveDeckWeb.Endpoint
       # Starts a worker by calling: LiveDeck.Worker.start_link(arg)
-      # {LiveDeck.Worker, arg},
+      # {LiveDeck.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
