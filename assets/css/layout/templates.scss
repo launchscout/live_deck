@@ -32,4 +32,15 @@
     align-items: center;
     margin: 0 0 0 $pad-lg;
   }
+
+  &--side-image {
+    @extend .template--2col;
+    grid-gap: 0;
+    align-items: center;
+    margin: 0;
+
+    .copy {
+      margin: 0 $pad-lg;
+    }
+  }
 }

@@ -1,0 +1,17 @@
+.image {
+  &--fill {
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+
+    img {
+      max-width: none;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
