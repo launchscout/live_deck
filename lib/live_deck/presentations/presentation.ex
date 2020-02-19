@@ -7,13 +7,13 @@ defmodule LiveDeck.Presentations.Presentation do
   alias LiveDeck.Presentations.Presentation.CurrentSlide
 
   @slides Slide.all()
-  @enforce_keys [:slides, :active_index, :last_index]
+  @enforce_keys [:active_index]
   defstruct slides: [],
             active_index: 0,
             last_index: nil
 
   @type t() :: %__MODULE__{
-          slides: list(Slide.title()),
+          slides: list(Slide.title),
           active_index: non_neg_integer(),
           last_index: non_neg_integer()
         }
@@ -28,6 +28,16 @@ defmodule LiveDeck.Presentations.Presentation do
 
   def next_slide(%__MODULE__{slides: slides, active_index: index} = presentation) do
     %__MODULE__{presentation | active_index: index + 1}
+  end
+
+  @doc """
+  Moves to the previous slide of the Presentation.
+  """
+  @spec prev_slide(t()) :: t()
+  def prev_slide(%__MODULE__{active_index: 0} = presentation), do: presentation
+
+  def prev_slide(%__MODULE__{slides: slides, active_index: index} = presentation) do
+    %__MODULE__{presentation | active_index: index - 1}
   end
 
   @doc """

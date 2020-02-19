@@ -3,7 +3,7 @@ defmodule LiveDeck.Presentations do
   Exposes an API for working with and
   manipulating presentations.
   """
-  alias LiveDeck.Presentations.Presentation
+  alias LiveDeck.Presentations.{Presentation, Slide}
   require Logger
 
   @doc """
@@ -28,5 +28,13 @@ defmodule LiveDeck.Presentations do
   @spec next_slide(Presentation.t()) :: Presentation.t()
   def next_slide(presentation) do
     Presentation.next_slide(presentation)
+  end
+
+  @doc """
+  Navigates to the previous slide
+  """
+  @spec prev_slide(Presentation.t()) :: Presentation.t()
+  def prev_slide(presentation) do
+    Presentation.prev_slide(presentation)
   end
 end
