@@ -17,6 +17,22 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  &--split {
+    @extend .template--2col;
+    grid-gap: $pad-lg;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 0;
+
+    & > div {
+      margin: $pad-lg;
+    }
+
+    aside {
+      text-align: inherit;
+    }
+  }
+
   &--left-aside {
     @extend .template--2col;
     grid-gap: $pad-lg;
