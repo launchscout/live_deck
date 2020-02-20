@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.scss") %>"/>
     <%= csrf_meta_tag() %>
   </head>
-  <body class="back--1">
+  <body id="theme--live-deck" class="back--1">
     <header class="header">
       <p class="header__title">Live<span class="thin">Deck</span></p>
       <p class="header__date">Jan 5th, 2020</p>
