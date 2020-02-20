@@ -65,7 +65,14 @@ $gradient-5: linear-gradient(160deg, rgb(247,170,30), rgb(244,46,88));
   }
 
   aside {
-    background: $gradient-5;
+    background: linear-gradient(-45deg, rgb(23,233,201), rgb(16,94,237), rgb(76,20,227), rgb(218,81,246), rgb(11,208,125), rgb(235,236,80), rgb(247,170,30), rgb(244,46,88));
+    background-size: 3200% 3200%;
+    animation: gradientBG 35s ease infinite;
+
+    h2, h3, h4, h5 {
+      -webkit-text-fill-color: $color-3;
+      color: $color-3;
+    }
   }
 
   .header {
@@ -89,5 +96,16 @@ $gradient-5: linear-gradient(160deg, rgb(247,170,30), rgb(244,46,88));
       -webkit-text-fill-color: transparent;
     }
   }
+}
 
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
