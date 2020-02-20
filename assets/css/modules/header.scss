@@ -1,7 +1,9 @@
 .header {
   display: grid;
+  font-size: 18px;
   grid-template-columns: repeat(2, 1fr);
-  font-size: 14px;
+  position: relative;
+  z-index: 10;
 
   &__title {
     font-weight: 800;
@@ -10,7 +12,7 @@
   }
 
   &__date {
-    font-weight: 800;
+    font-weight: 200;
     line-height: 1;
     text-align: right;
   }

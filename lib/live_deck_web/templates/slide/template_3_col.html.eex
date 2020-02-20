@@ -1,0 +1,14 @@
+<section class="slide template--3col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+  <div>
+    <h3>Easily Share Your Deck</h3>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+  </div>
+  <div>
+    <h3>Display Live Data</h3>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+  </div>
+  <div>
+    <h3>Engage Your Audience</h3>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+  </div>
+</section>

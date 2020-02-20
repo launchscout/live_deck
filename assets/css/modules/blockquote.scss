@@ -1,0 +1,36 @@
+blockquote,
+.blockquote {
+  padding-left: 3rem;
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 100%;
+    width: 10px;
+    margin-right: $pad;
+    background-color: $color-2;
+    opacity: 0;
+    animation: bulletIn 1s ease forwards;
+    position: absolute;
+    left: 0;
+  }
+
+  &__image {
+    border-radius: 50%;
+    height: 200px;
+    overflow: hidden;
+    width: 200px;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  &__author {
+    font-size: $font-size-sm;
+    font-weight: 300;
+    margin-top: $pad-sm;
+  }
+}

@@ -1,0 +1,10 @@
+<section class="slide template--2col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+  <div>
+    <h3>Share Deck on Multipule Devices</h3>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+  </div>
+  <div>
+    <h3>Column Title</h3>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+  </div>
+</section>

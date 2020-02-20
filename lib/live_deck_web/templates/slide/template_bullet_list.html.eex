@@ -1,0 +1,8 @@
+<section class="slide" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+  <h2>LiveDeck: An Interactive Presentation Deck</h2>
+  <ul>
+    <li>First thing in the list that will be listed first</li>
+    <li>Second thing in the list that will be listed second</li>
+    <li>Third thing in the list that will be listed third</li>
+  </ul>
+</section>

@@ -1,0 +1,11 @@
+aside {
+  align-items: center;
+  background-color: $color-4;
+  display: grid;
+  height: 100vh;
+  padding: 5vh $pad-lg;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 5;
+}

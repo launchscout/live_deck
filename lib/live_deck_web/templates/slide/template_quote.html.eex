@@ -1,0 +1,9 @@
+<section class="slide template--quote" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+  <div class="blockquote__image">
+    <img src="/images/josie.jpg" alt="josie" />
+  </div>
+  <blockquote>
+    A quote that says something epic, but also has deep meaning and purpose.
+    <p class="blockquote__author">Josie Pohlman, Greatest Dog Ever</p>
+  </blockquote>
+</section>

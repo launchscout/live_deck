@@ -1,17 +1,23 @@
 body {
-  background-color: $color-3;
-  color: $color-1;
-  min-height: 100vh;
   display: grid;
   grid-template-rows: 5vh minmax(90vh, auto) 5vh;
   align-items: center;
+  min-height: 100vh;
+  background-color: $color-3;
+  color: $color-1;
+  overflow-x: hidden;
+
+  @media screen and (min-width: $screen-desktop) {
+    grid-template-rows: 5vh 90vh 5vh;
+    overflow: hidden;
+  }
 }
 
 header, footer {
-  padding: $pad-xs;
-  box-sizing: border-box;;
+  box-sizing: border-box;
+  padding: 0 $pad;
 }
 
 main {
-  padding: $pad-xs $pad-xlg;
+  
 }

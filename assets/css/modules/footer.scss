@@ -1,10 +1,12 @@
 .footer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   font-size: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  z-index: 10;
 
   &__caption {
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1;
   }
 
@@ -13,7 +15,7 @@
   }
 
   &--right {
-    text-align: right;
     font-weight: 400;
+    text-align: right;
   }
 }
