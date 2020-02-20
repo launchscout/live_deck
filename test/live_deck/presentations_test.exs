@@ -57,7 +57,6 @@ defmodule LiveDeck.PresentationsTest do
     test "subscribes the current process to the presentations:lobby pubsub topic" do
       Presentations.subscribe()
       LiveDeckWeb.Endpoint.broadcast("presentations:lobby", "some_event", %{message: "test"})
-      Control.navigate(:prev)
 
       assert_receive %Phoenix.Socket.Broadcast{
         event: "some_event",
