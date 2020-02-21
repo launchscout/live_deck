@@ -10,7 +10,7 @@ defmodule LiveDeck.ControlsTest do
 
   describe "Controls" do
     test "initializes state to a new Presentation struct" do
-      assert Presentations.load() == Agent.get(Controls, fn state -> state end)
+      assert Presentations.load() == Agent.get(Controls.Control, fn state -> state end)
     end
   end
 
