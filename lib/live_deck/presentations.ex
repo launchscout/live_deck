@@ -8,6 +8,8 @@ defmodule LiveDeck.Presentations do
 
   @presentations_topic "presentations:lobby"
 
+  @type presentation :: Presentation.t()
+
   @doc """
   Bootstraps a presentation struct by loading
   available slides from the lib/live_deck_web/templates/slide

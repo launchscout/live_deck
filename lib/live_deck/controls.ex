@@ -3,14 +3,18 @@ defmodule LiveDeck.Controls do
   Context module for manipulating presentation
   controls.
   """
-  use Agent
+  alias LiveDeck.Controls.Control
   alias LiveDeck.Presentations
 
-  def start_link do
-    Agent.start_link(fn -> Presentations.load() end, name: __MODULE__)
-  end
+  @doc """
+  Ensures the Control process is started.
+  """
+  @spec start() :: Agent.on_start()
+  def start, do: Control.start_link()
 
-  def get_presentation do
-    Agent.get(__MODULE__, & &1)
-  end
+  @doc """
+  Returns the current presentation.
+  """
+  @spec get_presentation() :: Presentations.presentation()
+  def get_presentation, do: Control.get_presentation()
 end

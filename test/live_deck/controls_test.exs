@@ -4,7 +4,7 @@ defmodule LiveDeck.ControlsTest do
   alias LiveDeck.Presentations.Presentation
 
   setup do
-    Controls.start_link
+    Controls.start()
     :ok
   end
 
@@ -26,7 +26,8 @@ defmodule LiveDeck.ControlsTest do
     end
 
     test "decrements current slide of presentation when passed :prev" do
-      Controls.navigate(:next) # this is lazy test setup
+      # this is lazy test setup
+      Controls.navigate(:next)
       assert %Presentation{active_index: 0} = Controls.navigate(:prev)
     end
   end
