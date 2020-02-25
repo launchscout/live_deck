@@ -5,13 +5,16 @@ $gradient-4: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84));
 $gradient-5: linear-gradient(160deg, rgb(247,170,30), rgb(244,46,88));
 
 #theme--live-deck {
-  background-color: #2b373d;
+  background-color: #1c272d;
+  background: url(/images/themes/live-deck-theme/wave-background.svg);
   color: $color-4;
 
   h1 {
-    background: $gradient-4;
+      background: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84), rgb(241,79,239));
+      background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+      animation: gradientBG 8s ease infinite;
   }
 
   h2 {
