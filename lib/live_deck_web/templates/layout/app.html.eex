@@ -10,7 +10,9 @@
   </head>
   <body id="theme--live-deck" class="back--1">
     <header class="header">
-      <p class="header__title">Live<span class="thin">Deck</span></p>
+      <div class="header__title">
+        <img src="/images/live-deck-logo-white.svg" alt="Live Deck" />
+      </div>
       <p class="header__date">Jan 5th, 2020</p>
     </header>
     <main role="main" class="container">

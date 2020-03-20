@@ -4,10 +4,19 @@ $gradient-3: linear-gradient(160deg, rgb(235,236,80), rgb(11,208,125));
 $gradient-4: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84));
 $gradient-5: linear-gradient(160deg, rgb(247,170,30), rgb(244,46,88));
 
+//FONTS
+@import url('https://fonts.googleapis.com/css?family=Signika:300,400,600,700&display=swap');
+$live-deck-header: 'Signika', sans-serif;
+
 #theme--live-deck {
   background-color: #1c272d;
   background: url(/images/themes/live-deck-theme/wave-background.svg);
   color: $color-4;
+
+  h1, h2, h3, h4, h5 {
+    font-family: $live-deck-header;
+    line-height: 1;
+  }
 
   h1 {
       background: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84), rgb(241,79,239));
