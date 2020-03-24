@@ -109,7 +109,6 @@ $live-deck-main: 'Inter', sans-serif;
 //GLOABL DECK OVERIDES
   .header {
     &__title {
-      color: $color-3;
     }
 
     &__date {
@@ -119,7 +118,7 @@ $live-deck-main: 'Inter', sans-serif;
 
   .footer {
     &__caption {
-      color: $color-3;
+      color: $color-5;
     }
   }
 
