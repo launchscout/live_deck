@@ -5,7 +5,7 @@ defmodule LiveDeckWeb.PresentationLive do
   use Phoenix.LiveView
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, background: "back--3")}
+    {:ok, assign(socket, background: "back--1")}
   end
 
   def render(assigns) do
