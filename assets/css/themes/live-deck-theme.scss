@@ -1,47 +1,77 @@
-$gradient-1: linear-gradient(160deg, rgb(218,81,246), rgb(76,20,227));
-$gradient-2: linear-gradient(160deg, rgb(23,233,201), rgb(16,94,237));
-$gradient-3: linear-gradient(160deg, rgb(235,236,80), rgb(11,208,125));
-$gradient-4: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84));
-$gradient-5: linear-gradient(160deg, rgb(247,170,30), rgb(244,46,88));
+//LIVEDCK THEME
+//COLOR OVERRIDES
+$color-1: #1c272d;
+$color-2: #F7F7F7;
+$color-3: rgb(218,81,246);
+$color-4: rgb(76,20,227);
+$color-5: rgb(23,233,201);
+$color-6: rgb(16,94,237);
+$color-7: rgb(235,236,80);
+$color-8: rgb(11,208,125);
+$color-9: rgb(241,79,239);
+$color-10: rgb(228,13,84);
+$color-11: rgb(247,170,30);
+$color-12: rgb(244,46,88);
 
-//FONTS
+$gradient-1: linear-gradient(160deg, $color-3, $color-4);
+$gradient-2: linear-gradient(160deg, $color-5, $color-6);
+$gradient-3: linear-gradient(160deg, $color-7, $color-8);
+$gradient-4: linear-gradient(160deg, $color-9, $color-10);
+$gradient-5: linear-gradient(160deg, $color-11, $color-12);
+
+$gradient-animation-1: linear-gradient(160deg, $color-3, $color-4, $color-3);
+$gradient-animation-2: linear-gradient(160deg, $color-5, $color-6, $color-5);
+$gradient-animation-3: linear-gradient(160deg, $color-7, $color-8, $color-7);
+$gradient-animation-4: linear-gradient(160deg, $color-9, $color-10, $color-9);
+$gradient-animation-4: linear-gradient(160deg, $color-11, $color-12, $color-11);
+
+
+//FONTS OVERRIDES
 @import url('https://fonts.googleapis.com/css?family=Signika:300,400,600,700&display=swap');
 $live-deck-header: 'Signika', sans-serif;
+$live-deck-main: 'Inter', sans-serif;
 
 #theme--live-deck {
-  background-color: #1c272d;
   background: url(/images/themes/live-deck-theme/wave-background.svg);
-  color: $color-4;
+  background-color: $color-1;
+  color: $color-2;
+
+  //TYPE OVERIDES
+  body {
+    font-family: $live-deck-main;
+    font-weight: 500;
+  }
 
   h1, h2, h3, h4, h5 {
-    font-family: $live-deck-header;
+    font-family: $live-deck-main;
     line-height: 1;
   }
 
   h1 {
-      background: linear-gradient(160deg, rgb(241,79,239), rgb(228,13,84), rgb(241,79,239));
+    animation: gradientBG 8s ease infinite;
+    background: $gradient-animation-4;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-      animation: gradientBG 8s ease infinite;
+    font-weight: 200;
   }
 
   h2 {
     background: $gradient-2;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
   }
 
   h3 {
     background: $gradient-3;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
   }
 
   h4 {
     background: $gradient-5;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
   }
 
   ul {
@@ -76,40 +106,37 @@ $live-deck-header: 'Signika', sans-serif;
     }
   }
 
+//GLOABL DECK OVERIDES
+  .header {
+    &__title {
+      color: $color-3;
+    }
+
+    &__date {
+      color: $color-3;
+    }
+  }
+
+  .footer {
+    &__caption {
+      color: $color-3;
+    }
+  }
+
+//TEMPLATE OVERIDES
   aside {
-    background: linear-gradient(-45deg, rgb(23,233,201), rgb(16,94,237), rgb(76,20,227), rgb(218,81,246), rgb(11,208,125), rgb(235,236,80), rgb(247,170,30), rgb(244,46,88));
-    background-size: 3200% 3200%;
     animation: gradientBG 35s ease infinite;
+    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+    background-size: 3200% 3200%;
 
     h2, h3, h4, h5 {
       -webkit-text-fill-color: $color-3;
       color: $color-3;
     }
   }
-
-  .header {
-    &__title {
-      background: $gradient-2;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    &__date {
-      background: $gradient-3;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
-
-  .footer {
-    &__caption {
-      background: $gradient-2;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  }
 }
 
+//THEME ANIMATIONS
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%;
