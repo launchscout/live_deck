@@ -27,110 +27,211 @@ $gradient-animation-4: linear-gradient(160deg, $color-11, $color-12, $color-11);
 
 
 //FONTS OVERRIDES
-@import url('https://fonts.googleapis.com/css?family=Signika:300,400,600,700&display=swap');
-$live-deck-header: 'Signika', sans-serif;
 $live-deck-main: 'Inter', sans-serif;
 
-#theme--live-deck {
-  background: url(/images/themes/live-deck-theme/wave-background.svg);
+body {
+  //background: url(/images/themes/live-deck-theme/wave-background.svg);
+  background-color: $color-2;
+  color: $color-1;
+  font-family: $live-deck-main;
+  font-weight: 500;
+}
+
+//TYPE OVERIDES
+h1, h2, h3, h4, h5 {
+  font-family: $live-deck-main;
+  line-height: 1;
+}
+
+h1 {
+  animation: gradientBG 8s ease infinite;
+  background: $gradient-animation-4;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 300% 300%;
+  font-weight: 200;
+}
+
+h2 {
+  background: $gradient-2;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h3 {
+  background: $gradient-3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h4 {
+  background: $gradient-5;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+ul {
+  li {
+    &::before {
+      background: $gradient-1;
+    }
+
+    &:nth-child(2) {
+      &::before {
+        background: $gradient-4;
+      }
+    }
+
+    &:nth-child(3) {
+      &::before {
+        background: $gradient-5;
+      }
+    }
+
+    &:nth-child(4) {
+      &::before {
+        background: $gradient-3;
+      }
+    }
+
+    &:nth-child(5) {
+      &::before {
+        background: $gradient-2;
+      }
+    }
+  }
+}
+
+//GLOABL DECK OVERIDES
+.header {
+  z-index: 50;
+
+  &__title {
+    svg {
+      fill: $color-12;
+    }
+  }
+
+  &__date {
+    color: $color-3;
+  }
+}
+
+.footer {
+  z-index: 50;
+
+  &__caption {
+    color: $color-5;
+  }
+}
+
+//TEMPLATE OVERIDES
+aside {
   background-color: $color-1;
-  color: $color-2;
+  color: $color-5;
+}
 
-  //TYPE OVERIDES
-  body {
-    font-family: $live-deck-main;
-    font-weight: 500;
+.template--full-image {
+
+  img {
+    filter: brightness(50%) grayscale(100%);
+  }
+  .template__content {
+    background: transparent;
+    position: relative;
+    z-index: 50;
+
+    h1, h2, h3, h4, h5 {
+      background: transparent;
+        -webkit-text-fill-color: unset;
+      color: $color-2;
+    }
   }
 
-  h1, h2, h3, h4, h5 {
-    font-family: $live-deck-main;
-    line-height: 1;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+    animation: gradientBG 35s ease infinite;
+    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+    background-size: 3200% 3200%;
+    z-index: 20;
+  }
+}
+
+.template--quote-alt {
+  .blockquote__top::before {
+    animation: gradientBG 35s ease infinite;
+    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+    background-size: 3200% 3200%;
+  }
+}
+
+//BACKGROUND OPTIONS
+.back--2 {
+  animation: gradientBG 35s ease infinite;
+  background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+  background-size: 3200% 3200%;
+
+  h1, h2, h3, h4, h5, p {
+    background: transparent;
+      -webkit-text-fill-color: unset;
+    color: $color-2;
   }
 
-  h1 {
-    animation: gradientBG 8s ease infinite;
-    background: $gradient-animation-4;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-size: 300% 300%;
-    font-weight: 200;
+  .header {
+    &__title {
+      svg {
+        fill: $color-2;
+      }
+    }
   }
 
-  h2 {
-    background: $gradient-2;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-  }
+  aside {
+    animation: none;
+    background: $color-1;
 
-  h3 {
-    background: $gradient-3;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-  }
-
-  h4 {
-    background: $gradient-5;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    h2, h3, h4, h5 {
+      -webkit-text-fill-color: unset;
+      color: $color-1;
+    }
   }
 
   ul {
     li {
       &::before {
-        background: $gradient-1;
-      }
-
-      &:nth-child(2) {
-        &::before {
-          background: $gradient-4;
-        }
-      }
-
-      &:nth-child(3) {
-        &::before {
-          background: $gradient-5;
-        }
-      }
-
-      &:nth-child(4) {
-        &::before {
-          background: $gradient-3;
-        }
-      }
-
-      &:nth-child(5) {
-        &::before {
-          background: $gradient-2;
-        }
+        background: $color-2;
       }
     }
   }
+}
 
-//GLOABL DECK OVERIDES
+body.back--3 {
+  background-color: $color-1;
+  color: $color-2;
+
   .header {
     &__title {
-    }
-
-    &__date {
-      color: $color-3;
-    }
-  }
-
-  .footer {
-    &__caption {
-      color: $color-5;
+      svg {
+        fill: $color-2;
+      }
     }
   }
+  .template--left-aside, .template--right-aside {
+    aside {
+      animation: gradientBG 35s ease infinite;
+      background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+      background-size: 3200% 3200%;
+      color: $color-2;
+    }
 
-//TEMPLATE OVERIDES
-  aside {
-    animation: gradientBG 35s ease infinite;
-    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
-    background-size: 3200% 3200%;
-
-    h2, h3, h4, h5 {
-      -webkit-text-fill-color: $color-3;
-      color: $color-3;
+    h1, h2, h3, h4, h5 {
+      -webkit-text-fill-color: unset;
+      color: $color-2;
     }
   }
 }
