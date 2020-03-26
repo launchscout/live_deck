@@ -12,6 +12,15 @@ defmodule LiveDeckWeb.ControlLiveTest do
     test "renders the current slide index", %{html: html} do
       assert html =~ "data-current-slide=\"1\""
     end
+
+    test "clicking the next button increment the current slide", %{view: view} do
+      assert render_click(view, "next") =~ "data-current-slide=\"2\""
+    end
+
+    test "clicking the prev button decrements the current slide", %{view: view} do
+      render_click(view, "next")
+      assert render_click(view, "prev") =~ "data-current-slide=\"1\""
+    end
   end
 
   defp mount(context) do
