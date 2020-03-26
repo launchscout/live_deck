@@ -52,4 +52,17 @@ defmodule LiveDeck.PresentationsTest do
       assert presentation |> Presentations.current_slide() == List.first(presentation.slides)
     end
   end
+
+  describe "subscribe/0" do
+    test "subscribes the current process to the presentations:lobby pubsub topic" do
+      Presentations.subscribe()
+      LiveDeckWeb.Endpoint.broadcast("presentations:lobby", "some_event", %{message: "test"})
+
+      assert_receive %Phoenix.Socket.Broadcast{
+        event: "some_event",
+        payload: %{message: "test"},
+        topic: "presentations:lobby"
+      }
+    end
+  end
 end

@@ -6,6 +6,10 @@ defmodule LiveDeck.Presentations do
   alias LiveDeck.Presentations.{Presentation, Slide}
   require Logger
 
+  @presentations_topic "presentations:lobby"
+
+  @type presentation :: Presentation.t()
+
   @doc """
   Bootstraps a presentation struct by loading
   available slides from the lib/live_deck_web/templates/slide
@@ -13,6 +17,12 @@ defmodule LiveDeck.Presentations do
   """
   @spec load() :: Presentation.t()
   def load(), do: Presentation.new()
+
+  @doc """
+  Subscribes to the presentations:lobby pubsub topic
+  """
+  @spec subscribe() :: :ok | no_return()
+  def subscribe(), do: LiveDeckWeb.Endpoint.subscribe(@presentations_topic)
 
   @doc """
   Returns the title of the current slide
