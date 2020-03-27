@@ -1,0 +1,28 @@
+.btn {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: $pad-sm $pad;
+    background-color: $color-5;
+    font-size: 1.5rem;
+    color: $color-3;
+    border-radius: 5px;
+    transition: all 0.5s ease;
+    transform: scale(1.0, 1.0);
+
+    img {
+      display: inline-block;
+      max-width: 1.5em;
+      vertical-align: middle;
+    }
+
+    p{
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: $color-6;
+      transform: scale(0.9, 0.9);
+      cursor: pointer;
+    }
+}

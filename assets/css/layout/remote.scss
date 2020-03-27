@@ -1,0 +1,154 @@
+.remote {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  margin: -5vh 0 -5vh;
+  align-items: center;
+
+  &__header {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    z-index: 50;
+    grid-template-columns: 15vw 1fr 15vw;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    padding: $pad-sm;
+    background: $color-3;
+  }
+
+  &__logo {
+    img {
+      max-width: none;
+      max-height: 10vh;
+    }
+  }
+
+  &__title{
+    text-align: center;
+
+    h1 {
+      color: $color-1;
+      font-size: 2rem;
+      -webkit-text-fill-color: unset;
+    }
+  }
+
+  &__menu-icon {
+    text-align: center;
+    svg {
+       fill: $color-5;
+       max-width: 50px;
+       margin: 0 auto;
+    }
+  }
+
+  &__body {
+    text-align: center;
+  }
+
+  &__nav {
+    font-size: 5rem;
+    margin: $pad auto;
+    height: auto;
+    transition: all 0.5 ease;
+
+    svg {
+      margin-top: 5rem;
+      width: 70%;
+      margin: 0 auto;
+      transition: all 0.5 ease;
+      transform: scale(1.0, 1.0);
+
+      .outline {
+        fill: $color-5;
+      }
+
+      .circle {
+        fill: $color-5;
+        transform: translateX(-220px) translateY(90px);
+        transition: all 0.5s ease;
+      }
+    }
+
+    button {
+      display: inline-block;
+      box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 35px rgba(146, 145, 145, 0.23);
+      border-radius: 50%;
+      width: 280px;
+      height: 280px;
+      padding: 0.3em;
+      transform: scale(1.0, 1.0);
+      transition: all 0.5s ease;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.95, 0.95);
+        box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.15), inset 0px 0px 35px rgba(146, 145, 145, 0.23);
+
+        svg {
+        transform: scale(1.0, 1.0);
+
+          .outline {
+            fill: lighten($color-5, 5%);
+          }
+
+          .circle {
+            fill: $color-6;
+            transform: translateX(0) translateY(0);
+            transition: all 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+
+  &__sub-nav {
+    .btn {
+      min-width: 230px;
+    }
+  }
+
+  &__footer {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    z-index: 100;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    padding: $pad-sm;
+    background: $color-3;
+  }
+
+  &__slides {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .title {
+    &--next {
+      h2 {
+        font-size: 2rem;
+        font-weight: 400;
+        word-break: break-word;
+        color: $color-1;
+        -webkit-text-fill-color: unset;
+        margin-bottom: $pad;
+      }
+    }
+
+    &--prev {
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        word-break: break-word;
+        margin-bottom: $pad-xlg;
+        color: $color-1;
+        -webkit-text-fill-color: unset;
+      }
+    }
+  }
+}
