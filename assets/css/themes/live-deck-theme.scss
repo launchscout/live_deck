@@ -25,6 +25,8 @@ $gradient-animation-3: linear-gradient(160deg, $color-7, $color-8, $color-7);
 $gradient-animation-4: linear-gradient(160deg, $color-9, $color-10, $color-9);
 $gradient-animation-4: linear-gradient(160deg, $color-11, $color-12, $color-11);
 
+$full--color-gradient: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+
 
 //FONTS OVERRIDES
 $live-deck-main: 'Inter', sans-serif;
@@ -68,6 +70,14 @@ h4 {
   background: $gradient-5;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+blockquote,
+.blockquote {
+
+  &::before {
+    background: $gradient-1;
+  }
 }
 
 ul {
@@ -134,7 +144,7 @@ aside {
 .template--full-image {
 
   img {
-    filter: brightness(50%) grayscale(100%);
+    filter: brightness(50%) grayscale(10%);
   }
   .template__content {
     background: transparent;
@@ -155,9 +165,9 @@ aside {
     height: 100vh;
     top: 0;
     left: 0;
-    opacity: 0.7;
+    opacity: 0.6;
     animation: gradientBG 35s ease infinite;
-    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+    background: $full--color-gradient;
     background-size: 3200% 3200%;
     z-index: 20;
   }
@@ -166,7 +176,7 @@ aside {
 .template--quote-alt {
   .blockquote__top::before {
     animation: gradientBG 35s ease infinite;
-    background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+    background: $full--color-gradient;
     background-size: 3200% 3200%;
   }
 }
@@ -174,7 +184,7 @@ aside {
 //BACKGROUND OPTIONS
 .back--2 {
   animation: gradientBG 35s ease infinite;
-  background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+  background: $full--color-gradient;
   background-size: 3200% 3200%;
 
   h1, h2, h3, h4, h5, p {
@@ -224,7 +234,7 @@ body.back--3 {
   .template--left-aside, .template--right-aside {
     aside {
       animation: gradientBG 35s ease infinite;
-      background: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+      background: $full--color-gradient;
       background-size: 3200% 3200%;
       color: $color-2;
     }
