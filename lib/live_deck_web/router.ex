@@ -19,7 +19,7 @@ defmodule LiveDeckWeb.Router do
 
     get "/style-guide", StyleGuideController, :index
     live "/", PresentationLive
-    live "/controls", ControlLive
+    live "/remote", ControlLive
   end
 
   # Other scopes may use custom stacks.

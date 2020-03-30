@@ -31,16 +31,16 @@
     h1 {
       color: $color-1;
       font-size: 2rem;
+      font-weight: 400;
       -webkit-text-fill-color: unset;
     }
   }
 
-  &__menu-icon {
+  &__menu {
     text-align: center;
-    svg {
-       fill: $color-5;
-       max-width: 50px;
-       margin: 0 auto;
+
+    button {
+      width: 80px;
     }
   }
 
@@ -54,27 +54,9 @@
     height: auto;
     transition: all 0.5 ease;
 
-    svg {
-      margin-top: 5rem;
-      width: 70%;
-      margin: 0 auto;
-      transition: all 0.5 ease;
-      transform: scale(1.0, 1.0);
-
-      .outline {
-        fill: $color-5;
-      }
-
-      .circle {
-        fill: $color-5;
-        transform: translateX(-220px) translateY(90px);
-        transition: all 0.5s ease;
-      }
-    }
-
     button {
       display: inline-block;
-      box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 35px rgba(146, 145, 145, 0.23);
+      box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 55px rgba(146, 145, 145, 0.23);
       border-radius: 50%;
       width: 280px;
       height: 280px;
@@ -115,17 +97,56 @@
     box-sizing: border-box;
     display: grid;
     z-index: 100;
-    grid-template-columns: 1fr max-content;
+    grid-template-columns: max-content auto max-content;
     align-items: center;
     width: 100vw;
     height: 10vh;
     padding: $pad-sm;
     background: $color-3;
+    overflow: hidden;
   }
 
-  &__slides {
-    font-size: 1.3rem;
+  &__count {
+    font-size: 2.5rem;
     text-align: center;
+
+    .count {
+      &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        margin: 0 auto;
+        width: auto;
+        background: $color-5;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+
+        p {
+          color: $color-6;
+          display: inline-block;
+        }
+      }
+
+      &--curent, &--total {
+        font-size: 1.3rem;
+        color: $color-3;
+        border-radius: 50%;
+        display: block;
+        align-items: center;
+        text-align: center;
+        padding: 4px;
+      }
+
+      &--curent {
+        margin: 10px -5px 0 0;
+      }
+
+      &--total {
+        margin: 20px 0 0 -8px;
+      }
+    }
   }
 
   .title {

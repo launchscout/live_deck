@@ -5,13 +5,14 @@
     background-color: $color-5;
     font-size: 1.5rem;
     color: $color-3;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: all 0.5s ease;
     transform: scale(1.0, 1.0);
 
     img {
       display: inline-block;
-      max-width: 1.5em;
+      width: 1.5em;
+      max-height: 1.5em;
       vertical-align: middle;
     }
 
@@ -21,7 +22,7 @@
     }
 
     &:hover {
-      background-color: $color-6;
+      background-color: $color-7;
       transform: scale(0.9, 0.9);
       cursor: pointer;
     }
