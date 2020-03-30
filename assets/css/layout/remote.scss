@@ -4,6 +4,9 @@
   grid-template-rows: max-content 1fr max-content;
   margin: -5vh 0 -5vh;
   align-items: center;
+  background: $color-3;
+  z-index: 500;
+  position: relative;
 
   &__header {
     position: relative;
@@ -16,6 +19,7 @@
     height: 10vh;
     padding: $pad-sm;
     background: $color-3;
+    margin-bottom: $pad-xs;
   }
 
   &__logo {
@@ -30,9 +34,13 @@
 
     h1 {
       color: $color-1;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-weight: 400;
       -webkit-text-fill-color: unset;
+
+      @media screen and (min-width: $screen-tablet) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -40,7 +48,11 @@
     text-align: center;
 
     button {
-      width: 80px;
+      width: 60px;
+
+      @media screen and (min-width: $screen-tablet) {
+        width: 80px;
+      }
     }
   }
 
@@ -58,11 +70,21 @@
       display: inline-block;
       box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 55px rgba(146, 145, 145, 0.23);
       border-radius: 50%;
-      width: 280px;
-      height: 280px;
+      width: 250px;
+      height: 250px;
       padding: 0.3em;
       transform: scale(1.0, 1.0);
       transition: all 0.5s ease;
+
+      @media screen and (min-width: $screen-tablet) {
+        width: 280px;
+        height: 280px;
+      }
+
+      @media screen and (max-height: 600px) {
+        width: 150px;
+        height: 150px;
+      }
 
       &:hover {
         cursor: pointer;
@@ -88,7 +110,9 @@
 
   &__sub-nav {
     .btn {
-      min-width: 230px;
+      @media screen and (min-width: $screen-tablet) {
+        min-width: 230px;
+      }
     }
   }
 
@@ -97,13 +121,12 @@
     box-sizing: border-box;
     display: grid;
     z-index: 100;
-    grid-template-columns: max-content auto max-content;
+    grid-template-columns: 1fr max-content 2fr max-content;
     align-items: center;
     width: 100vw;
-    height: 10vh;
+    max-height: 10vh;
     padding: $pad-sm;
     background: $color-3;
-    overflow: hidden;
   }
 
   &__count {
@@ -116,13 +139,6 @@
         grid-template-columns: repeat(3, max-content);
         margin: 0 auto;
         width: auto;
-        background: $color-5;
-        padding: 5px;
-        box-sizing: border-box;
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-
         p {
           color: $color-6;
           display: inline-block;
@@ -131,7 +147,7 @@
 
       &--curent, &--total {
         font-size: 1.3rem;
-        color: $color-3;
+        color: $color-5;
         border-radius: 50%;
         display: block;
         align-items: center;
@@ -140,11 +156,11 @@
       }
 
       &--curent {
-        margin: 10px -5px 0 0;
+        margin: 5px -5px 0 0;
       }
 
       &--total {
-        margin: 20px 0 0 -8px;
+        margin: 18px 0 0 -5px;;
       }
     }
   }
@@ -152,23 +168,32 @@
   .title {
     &--next {
       h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         word-break: break-word;
         color: $color-1;
         -webkit-text-fill-color: unset;
         margin-bottom: $pad;
+
+        @media screen and (min-width: $screen-tablet) {
+          font-size: 2rem;
+        }
       }
     }
 
     &--prev {
       h3 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 400;
         word-break: break-word;
-        margin-bottom: $pad-xlg;
+        margin-bottom: $pad;
         color: $color-1;
         -webkit-text-fill-color: unset;
+
+        @media screen and (min-width: $screen-tablet) {
+          margin-bottom: $pad-xlg;
+          font-size: 1.5rem;
+        }
       }
     }
   }

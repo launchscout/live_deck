@@ -2,6 +2,9 @@
   display: grid;
   font-size: 14px;
   grid-template-columns: repeat(2, 1fr);
+  height: 5vh;
+  max-height: 5vh;
+  overflow: hidden;
   position: relative;
   z-index: 10;
 

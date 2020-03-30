@@ -3,7 +3,7 @@
     display: inline-block;
     padding: $pad-sm $pad;
     background-color: $color-5;
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: $color-3;
     border-radius: 10px;
     transition: all 0.5s ease;
@@ -25,5 +25,10 @@
       background-color: $color-7;
       transform: scale(0.9, 0.9);
       cursor: pointer;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      font-size: 1.5rem;
+      padding: $pad-sm $pad;
     }
 }

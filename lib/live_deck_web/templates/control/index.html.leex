@@ -44,13 +44,19 @@
       <h3>Next: Your Next Slide Title</h3>
     </div>
     <div class="remote__sub-nav">
-        <button phx-click="prev" class="btn"><img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/icons/button-prev.svg") %>" alt="last slide" /> <p>Previous</p></button>
-        <button class="btn"><img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/icons/button-notes.svg") %>" alt="last slide" /> <p>Notes</p></button>
+        <button phx-click="prev" class="btn"><p>Previous</p></button>
+        <button class="btn"><p>Notes</p></button>
     </div>
   </section>
   <section class="remote__footer">
+    <div>
+    </div>
     <div class="remote__count">
-      <div class="count__grid"><div class="count--curent" data-current-slide=<%= @current_slide %>><%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index %></div></div>
+      <div class="count__grid">
+        <div class="count--curent" data-current-slide=<%= @current_slide %>>
+          <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index %>
+        </div>
+      </div>
     </div>
     <div>
     </div>
