@@ -173,10 +173,10 @@
         word-break: break-word;
         color: $color-1;
         -webkit-text-fill-color: unset;
-        margin-bottom: $pad;
+        margin: 0 8px $pad;
 
-        @media screen and (min-width: $screen-tablet) {
-          font-size: 2rem;
+        @media screen and (min-height: 700px) {
+          font-size: 1.8rem;
         }
       }
     }
@@ -190,9 +190,9 @@
         color: $color-1;
         -webkit-text-fill-color: unset;
 
-        @media screen and (min-width: $screen-tablet) {
+        @media screen and (min-height: 700px) {
           margin-bottom: $pad-xlg;
-          font-size: 1.5rem;
+          font-size: 1.4rem;
         }
       }
     }
