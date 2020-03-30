@@ -1,0 +1,34 @@
+.btn {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: $pad-sm $pad;
+    background-color: $color-5;
+    font-size: 1rem;
+    color: $color-3;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    transform: scale(1.0, 1.0);
+
+    img {
+      display: inline-block;
+      width: 1.5em;
+      max-height: 1.5em;
+      vertical-align: middle;
+    }
+
+    p{
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: $color-7;
+      transform: scale(0.9, 0.9);
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      font-size: 1.5rem;
+      padding: $pad-sm $pad;
+    }
+}

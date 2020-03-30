@@ -1,0 +1,200 @@
+.remote {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  margin: -5vh 0 -5vh;
+  align-items: center;
+  background: $color-3;
+  z-index: 500;
+  position: relative;
+
+  &__header {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    z-index: 50;
+    grid-template-columns: 15vw 1fr 15vw;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    padding: $pad-sm;
+    background: $color-3;
+    margin-bottom: $pad-xs;
+  }
+
+  &__logo {
+    img {
+      max-width: none;
+      max-height: 10vh;
+    }
+  }
+
+  &__title{
+    text-align: center;
+
+    h1 {
+      color: $color-1;
+      font-size: 1.5rem;
+      font-weight: 400;
+      -webkit-text-fill-color: unset;
+
+      @media screen and (min-width: $screen-tablet) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  &__menu {
+    text-align: center;
+
+    button {
+      width: 60px;
+
+      @media screen and (min-width: $screen-tablet) {
+        width: 80px;
+      }
+    }
+  }
+
+  &__body {
+    text-align: center;
+  }
+
+  &__nav {
+    font-size: 5rem;
+    margin: $pad auto;
+    height: auto;
+    transition: all 0.5 ease;
+
+    button {
+      display: inline-block;
+      box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 55px rgba(146, 145, 145, 0.23);
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      padding: 0.3em;
+      transform: scale(1.0, 1.0);
+      transition: all 0.5s ease;
+
+      @media screen and (min-width: $screen-tablet) {
+        width: 280px;
+        height: 280px;
+      }
+
+      @media screen and (max-height: 600px) {
+        width: 150px;
+        height: 150px;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(0.95, 0.95);
+        box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.15), inset 0px 0px 35px rgba(146, 145, 145, 0.23);
+
+        svg {
+        transform: scale(1.0, 1.0);
+
+          .outline {
+            fill: lighten($color-5, 5%);
+          }
+
+          .circle {
+            fill: $color-6;
+            transform: translateX(0) translateY(0);
+            transition: all 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+
+  &__sub-nav {
+    .btn {
+      @media screen and (min-width: $screen-tablet) {
+        min-width: 230px;
+      }
+    }
+  }
+
+  &__footer {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    z-index: 100;
+    grid-template-columns: 1fr max-content 2fr max-content;
+    align-items: center;
+    width: 100vw;
+    max-height: 10vh;
+    padding: $pad-sm;
+    background: $color-3;
+  }
+
+  &__count {
+    font-size: 2.5rem;
+    text-align: center;
+
+    .count {
+      &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, max-content);
+        margin: 0 auto;
+        width: auto;
+        p {
+          color: $color-6;
+          display: inline-block;
+        }
+      }
+
+      &--curent, &--total {
+        font-size: 1.3rem;
+        color: $color-5;
+        border-radius: 50%;
+        display: block;
+        align-items: center;
+        text-align: center;
+        padding: 4px;
+      }
+
+      &--curent {
+        margin: 5px -5px 0 0;
+      }
+
+      &--total {
+        margin: 18px 0 0 -5px;;
+      }
+    }
+  }
+
+  .title {
+    &--next {
+      h2 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        word-break: break-word;
+        color: $color-1;
+        -webkit-text-fill-color: unset;
+        margin: 0 8px $pad;
+
+        @media screen and (min-height: 700px) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    &--prev {
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 400;
+        word-break: break-word;
+        margin-bottom: $pad;
+        color: $color-1;
+        -webkit-text-fill-color: unset;
+
+        @media screen and (min-height: 700px) {
+          margin-bottom: $pad-xlg;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}
