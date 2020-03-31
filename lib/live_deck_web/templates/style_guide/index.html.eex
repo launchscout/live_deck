@@ -5,7 +5,7 @@
       <h2>&#60;h2&#62; Heading 2 </h2>
       <h3>&#60;h3&#62; Heading 3 </h3>
       <h4 class="u-push-bottom--sm">&#60;h4&#62; Heading 4 </h4>
-      <p>&#60;p&#62; Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece. Presentors will be able to engage with their audience and content in exciting ways and integrate real-time data into their deck. &#60;/p&#62;</p>
+      <p>&#60;p&#62; Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience. Presentors will be able to engage with their audience and content in exciting ways and integrate real-time data into their deck. &#60;/p&#62;</p>
     </div>
     <div>
       <div class="grid grid-2col grid-4col--md u-push-bottom">
