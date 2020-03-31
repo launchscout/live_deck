@@ -1,7 +1,7 @@
 <section class="slide template--side-image" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div class="copy">
     <h4>Share Deck on Multipule Devices</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presenation experiece.</p>
+    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
   </div>
   <div class="image--right image--fill">
     <img src="/images/gaslight-city.jpg" alt="gaslight" />
