@@ -8,16 +8,16 @@
   }
 
   &__outline {
-    fill: $color-1;
+    fill: $color-3;
     transition: all 0.5s ease;
   }
 
   &__eye--outline {
-    fill: $color-1;
+    fill: $color-3;
   }
 
   &__eye {
-    fill: $color-5;
+    fill: $color-3;
     transform: translateX(-220px) translateY(90px);
     transition: all 0.5s ease;
   }
@@ -27,21 +27,30 @@
   }
 
   &:hover {
-    .next__outline {
-      fill: $color-5;
-      transition: all 0.5s ease;
-    }
-
-    .next__eye--outline {
-      fill: $color-5;
-    }
-
     .eye__ball {
       animation: wink 0.7s ease;
     }
 
     .next__eye {
       fill: $color-6;
+      transform: translateX(0) translateY(0);
+      transition: all 0.5s ease;
+    }
+  }
+
+  &:focus {
+    transform: scale(0.9, 0.9);
+    outline: none;
+    border: none;
+  }
+
+  &:active{
+    .eye__ball {
+      animation: none;
+    }
+
+    .next__eye {
+      fill: $color-3;
       transform: translateX(0) translateY(0);
       transition: all 0.5s ease;
     }
@@ -61,13 +70,19 @@
 
   &:hover {
     cursor: pointer;
-    fill: $color-7;
+    fill: $color-6;
     transition: all 0.5s ease;
     transform: scale(0.95, 0.95);
 
     .menu__eye-ball {
       animation: wink2 0.2s ease;
     }
+  }
+
+  &:focus {
+    transform: scale(0.95, 0.95);
+    outline: none;
+    border: none;
   }
 }
 

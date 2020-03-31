@@ -1,31 +1,31 @@
 .remote {
-  height: 100vh;
-  display: grid;
-  grid-template-rows: max-content 1fr max-content;
-  margin: -5vh 0 -5vh;
   align-items: center;
   background: $color-3;
-  z-index: 500;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  height: 100vh;
+  margin: -5vh 0 -5vh;
   position: relative;
+  z-index: 500;
 
   &__header {
-    position: relative;
+    align-items: center;
+    background: $color-3;
     box-sizing: border-box;
     display: grid;
-    z-index: 50;
     grid-template-columns: 15vw 1fr 15vw;
-    align-items: center;
-    width: 100vw;
     height: 10vh;
-    padding: $pad-sm;
-    background: $color-3;
     margin-bottom: $pad-xs;
+    padding: $pad-sm;
+    position: relative;
+    width: 100vw;
+    z-index: 50;
   }
 
   &__logo {
     img {
-      max-width: none;
       max-height: 10vh;
+      max-width: none;
     }
   }
 
@@ -33,10 +33,10 @@
     text-align: center;
 
     h1 {
+      -webkit-text-fill-color: unset;
       color: $color-1;
       font-size: 1.5rem;
       font-weight: 400;
-      -webkit-text-fill-color: unset;
 
       @media screen and (min-width: $screen-tablet) {
         font-size: 2rem;
@@ -62,48 +62,41 @@
 
   &__nav {
     font-size: 5rem;
-    margin: $pad auto;
     height: auto;
+    margin: $pad auto;
     transition: all 0.5 ease;
 
     button {
-      display: inline-block;
-      box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.11), inset 0px 0px 55px rgba(146, 145, 145, 0.23);
+      background: linear-gradient(160deg, $color-6, $color-5);
       border-radius: 50%;
-      width: 250px;
+      box-shadow: 0px 0px 25px rgba(27, 61, 113, 0.05), inset 0px 0px 55px rgba(30, 33, 105, 0.45);
+      display: inline-block;
       height: 250px;
       padding: 0.3em;
       transform: scale(1.0, 1.0);
       transition: all 0.5s ease;
+      width: 250px;
 
       @media screen and (min-width: $screen-tablet) {
-        width: 280px;
         height: 280px;
+        width: 280px;
       }
 
       @media screen and (max-height: 600px) {
-        width: 150px;
         height: 150px;
+        width: 150px;
       }
 
-      &:hover {
+      &:hover, &:active {
+        box-shadow: 0px 0px 35px rgba(27, 61, 113, 0.33), inset 0px 0px 55px rgba(30, 33, 105, 0.65);
         cursor: pointer;
         transform: scale(0.95, 0.95);
-        box-shadow: 0px 0px 85px rgba(83, 83, 83, 0.15), inset 0px 0px 35px rgba(146, 145, 145, 0.23);
-
-        svg {
-        transform: scale(1.0, 1.0);
-
-          .outline {
-            fill: lighten($color-5, 5%);
-          }
-
-          .circle {
-            fill: $color-6;
-            transform: translateX(0) translateY(0);
-            transition: all 0.5s ease;
-          }
-        }
+      }
+      
+      &:focus {
+        transform: scale(0.9, 0.9);
+        outline: none;
+        border: none;
       }
     }
   }
@@ -117,16 +110,16 @@
   }
 
   &__footer {
-    position: relative;
+    align-items: center;
+    background: $color-3;
     box-sizing: border-box;
     display: grid;
-    z-index: 100;
     grid-template-columns: 1fr max-content 2fr max-content;
-    align-items: center;
-    width: 100vw;
     max-height: 10vh;
     padding: $pad-sm;
-    background: $color-3;
+    position: relative;
+    width: 100vw;
+    z-index: 100;
   }
 
   &__count {
@@ -146,13 +139,13 @@
       }
 
       &--curent, &--total {
-        font-size: 1.3rem;
-        color: $color-5;
-        border-radius: 50%;
-        display: block;
         align-items: center;
-        text-align: center;
+        border-radius: 50%;
+        color: $color-5;
+        display: block;
+        font-size: 1.3rem;
         padding: 4px;
+        text-align: center;
       }
 
       &--curent {
@@ -168,12 +161,12 @@
   .title {
     &--next {
       h2 {
+        -webkit-text-fill-color: unset;
+        color: $color-1;
         font-size: 1.5rem;
         font-weight: 400;
-        word-break: break-word;
-        color: $color-1;
-        -webkit-text-fill-color: unset;
         margin: 0 8px $pad;
+        word-break: break-word;
 
         @media screen and (min-height: 700px) {
           font-size: 1.8rem;
@@ -183,16 +176,16 @@
 
     &--prev {
       h3 {
+        -webkit-text-fill-color: unset;
+        color: $color-1;
         font-size: 1.2rem;
         font-weight: 400;
-        word-break: break-word;
         margin-bottom: $pad;
-        color: $color-1;
-        -webkit-text-fill-color: unset;
+        word-break: break-word;
 
         @media screen and (min-height: 700px) {
-          margin-bottom: $pad-xlg;
           font-size: 1.4rem;
+          margin-bottom: $pad-xlg;
         }
       }
     }
