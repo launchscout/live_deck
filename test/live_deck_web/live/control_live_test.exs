@@ -6,7 +6,7 @@ defmodule LiveDeckWeb.ControlLiveTest do
     setup :mount
 
     test "renders the control index template", %{html: html} do
-      assert html =~ "data-testid=\"control-page\""
+      assert html =~ "data-testid=\"remote-page\""
     end
 
     test "renders the current slide index", %{html: html} do
@@ -24,7 +24,7 @@ defmodule LiveDeckWeb.ControlLiveTest do
   end
 
   defp mount(context) do
-    {:ok, view, html} = live(context.conn, "/controls")
+    {:ok, view, html} = live(context.conn, "/remote")
     {:ok, Map.merge(context, %{view: view, html: html})}
   end
 end
