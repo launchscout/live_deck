@@ -1,0 +1,412 @@
+//CORAL COMMAND LINE THEME
+//COLOR OVERRIDES
+$color-1: #1c272d;
+$color-2: #F7F7F7;
+$color-3: #f4dada;
+$color-4: #fbcffc;
+$color-5: #beebe9;
+$color-6: #c2f0fc;
+$color-7: #f6eec7;
+$color-8: #d4ebd0;
+$color-9: rgb(241,79,239);
+$color-10: rgb(228,13,84);
+$color-11: #f8dc88;
+$color-12: #ffb6b9;
+
+$gradient-1: linear-gradient(160deg, $color-3, $color-4);
+$gradient-2: linear-gradient(160deg, $color-5, $color-6);
+$gradient-3: linear-gradient(160deg, $color-7, $color-8);
+$gradient-4: linear-gradient(160deg, $color-9, $color-10);
+$gradient-5: linear-gradient(160deg, $color-11, $color-12);
+
+$gradient-animation-1: linear-gradient(160deg, $color-3, $color-4, $color-3);
+$gradient-animation-2: linear-gradient(160deg, $color-5, $color-6, $color-5);
+$gradient-animation-3: linear-gradient(160deg, $color-7, $color-8, $color-7);
+$gradient-animation-4: linear-gradient(160deg, $color-9, $color-10, $color-9);
+$gradient-animation-4: linear-gradient(160deg, $color-11, $color-12, $color-11);
+
+$full--color-gradient: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+
+
+//FONTS OVERRIDES
+$live-deck-main: 'Roboto Mono', sans-serif;
+
+body {
+  background-color: $color-2;
+  color: $color-1;
+  font-family: $live-deck-main;
+  font-weight: 500;
+}
+
+//TYPE OVERIDES
+h1, h2, h3, h4, h5 {
+  font-family: $live-deck-main;
+  line-height: 1;
+}
+
+h1 {
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+h3 {
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+h4 {
+  font-weight: 300;
+}
+
+blockquote,
+.blockquote {
+  font-size: 3rem;
+  line-height: 1.3;
+  font-weight: 300;
+  letter-spacing: -0.05em;
+
+  &::before {
+    background: $color-10;
+  }
+}
+
+.blockquote__author {
+  color: $color-10;
+}
+
+ul {
+  li {
+    margin-bottom: 1rem;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    &::before {
+      background: $color-10 !important;
+    }
+  }
+}
+
+//GLOABL DECK OVERIDES
+.header {
+  padding: 0.5rem 2rem;
+  font-size: 14px;
+  z-index: 50;
+
+  &__title {
+    svg {
+      fill: $color-10;
+    }
+  }
+
+  &__date{
+    font-weight: 400;
+    color: $color-10;
+  }
+}
+
+.footer {
+  z-index: 50;
+
+  &__caption{
+    color: $color-10;
+  }
+}
+
+//TEMPLATE OVERIDES
+aside {
+  background-color: $color-1;
+  color: $color-2;
+}
+
+.template--left-aside, .template--right-aside {
+  aside {
+    color: $color-10;
+  }
+}
+
+.template--full-image {
+
+  img {
+    filter: brightness(50%) grayscale(10%);
+  }
+  .template__content {
+    background: transparent;
+    position: relative;
+    z-index: 50;
+
+    h1, h3 {
+      color: transparent;
+    }
+
+    h2, h4, h5 {
+      background: transparent;
+        -webkit-text-fill-color: unset;
+      color: $color-2;
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    animation: gradientBG 35s ease infinite;
+    background: $full--color-gradient;
+    background-size: 3200% 3200%;
+    z-index: 20;
+  }
+}
+
+.template--quote-alt {
+  .blockquote__top::before {
+    animation: gradientBG 35s ease infinite;
+    background: $full--color-gradient;
+    background-size: 3200% 3200%;
+  }
+}
+
+//BACKGROUND OPTIONS
+body.back--1 {
+
+  h1, h2, h3, h4, h5, p {
+    background: transparent;
+  }
+
+  h1, h3 {
+    -webkit-text-stroke: 2px $color-10;
+  }
+
+  h2, p {
+    color: $color-1;
+  }
+
+  h4 {
+    color: $color-10;
+  }
+
+  .header {
+    &__title {
+      svg {
+        fill: $color-10;
+      }
+    }
+
+    &__date {
+      color: $color-10;
+    }
+  }
+
+  .footer {
+    &__caption {
+      color: $color-10;
+    }
+  }
+
+  aside {
+    animation: none;
+
+    p {
+      color: currentColor;
+    }
+  }
+
+  blockquote,
+  .blockquote {
+    color: $color-10;
+
+    &::before {
+      background: $color-10;
+    }
+  }
+
+  ul {
+    li {
+      &::before {
+        background: $color-10;
+      }
+    }
+  }
+}
+
+body.back--2 {
+  animation: gradientBG 35s ease infinite;
+  background: $full--color-gradient;
+  background-size: 3200% 3200%;
+  color: $color-1;
+
+  h1, h2, h3, h4, h5, p {
+    background: transparent;
+  }
+
+  h1, h3 {
+    -webkit-text-stroke: 2px $color-10;
+  }
+
+  h2, p {
+    color: $color-1;
+  }
+
+  h4 {
+    color: $color-10;
+  }
+
+  .header {
+    &__title {
+      svg {
+        fill: $color-10;
+      }
+    }
+
+    &__date {
+      color: $color-10;
+    }
+  }
+
+  .footer {
+    &__caption {
+      color: $color-10;
+    }
+  }
+
+  aside {
+    animation: none;
+    background: $color-1;
+
+    p {
+      color: currentColor;
+    }
+  }
+
+  blockquote,
+  .blockquote {
+
+    &::before {
+      background: $color-10;
+    }
+  }
+
+  .blockquote__author {
+    color: $color-10;
+  }
+
+  ul {
+    li {
+      &::before {
+        background: $color-10;
+      }
+    }
+  }
+}
+
+body.back--3 {
+  background-color: $color-1;
+  color: $color-2;
+
+  h1, h3 {
+    -webkit-text-stroke: 2px $color-10;
+  }
+
+  h2, p {
+    color: $color-2;
+  }
+
+  h4 {
+    color: $color-10;
+  }
+
+  .header {
+    &__title {
+      svg {
+        fill: $color-2;
+      }
+    }
+
+    &__date {
+      color: $color-10;
+    }
+  }
+
+  .footer {
+    &__caption {
+      color: $color-10;
+    }
+  }
+
+  aside {
+    p{
+      color: $color-1;
+    }
+  }
+
+  .template--left-aside, .template--right-aside {
+    aside {
+      animation: gradientBG 35s ease infinite;
+      background: $full--color-gradient;
+      background-size: 3200% 3200%;
+      color: $color-10;
+
+      p {
+        color: currentColor;
+      }
+    }
+
+    h1, h2, h3, h4, h5 {
+      -webkit-text-fill-color: unset;
+    }
+
+    h1, h3 {
+      color: transparent;
+      -webkit-text-stroke: 2px $color-10;
+    }
+
+    h2, p {
+      color: $color-2;
+    }
+
+    h4 {
+      color: $color-10;
+    }
+  }
+
+  blockquote,
+  .blockquote {
+
+    &::before {
+      background: $color-10;
+    }
+  }
+
+  .blockquote__author {
+    color: $color-10;
+  }
+
+  ul {
+    li {
+      &::before {
+        background: $color-10;
+      }
+    }
+  }
+}
+
+//THEME ANIMATIONS
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
