@@ -10,11 +10,7 @@ defmodule LiveDeckWeb.PresentationLiveTest do
       assert html =~ ~s(data-testid=\"PresentationsLiveView\")
     end
 
-<<<<<<< HEAD
     test "subscribes to the controls:channel pubsub topic", %{view: view} do
-=======
-    test "subscribes to the controls:channel pubsub topic", %{html: html, view: view} do
->>>>>>> Hook into navigation events on PresentationsLive
       initial_view = render(view)
       ## Publishes an event to the controls:channel that updates the slide
       Controls.navigate(:next)
