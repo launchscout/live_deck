@@ -5,6 +5,7 @@ defmodule LiveDeck.Controls do
   """
   alias LiveDeck.Controls.Control
   alias LiveDeck.Presentations
+  @pubsub_topic "controls:channel"
 
   @doc """
   Ensures the Control process is started.
@@ -13,12 +14,38 @@ defmodule LiveDeck.Controls do
   def start, do: Control.start_link()
 
   @doc """
+  Subscribes the current process to the
+  controls:channel PubSub topic.
+  """
+  @spec subscribe() :: no_return()
+  def subscribe, do: LiveDeckWeb.Endpoint.subscribe(@pubsub_topic)
+
+  @doc """
+  Publishes the event given as the first parameter
+  with the payload given as the second to the
+  `controls:channel` PubSub topic.
+  """
+  @spec publish(String.t(), map()) :: :ok | {:error, term()}
+  def publish(event, payload) do
+    LiveDeckWeb.Endpoint.broadcast(@pubsub_topic, event, payload)
+  end
+
+  @doc """
   Returns the current presentation.
   """
   @spec get_presentation() :: Presentations.presentation()
   def get_presentation, do: Control.get_presentation()
 
   @spec navigate(:next | :prev) :: Presentations.presentation()
-  def navigate(:next), do: Control.next_slide()
-  def navigate(:prev), do: Control.prev_slide()
+  def navigate(:next) do
+    presentation = Control.next_slide()
+    publish("presentation_update", presentation)
+    presentation
+  end
+
+  def navigate(:prev) do
+    presentation = Control.prev_slide()
+    publish("presentation_update", presentation)
+    presentation
+  end
 end
