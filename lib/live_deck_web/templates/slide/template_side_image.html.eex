@@ -1,7 +1,7 @@
 <section class="slide template--side-image" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div class="copy">
-    <h4>Share Deck on Multipule Devices</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h4>Share on Multipule Devices</h4>
+    <p>As a web-based app the presentation deck and even the deck remote can be shared on any device with a url.</p>
   </div>
   <div class="image--right image--fill">
     <img src="/images/gaslight-city.jpg" alt="gaslight" />

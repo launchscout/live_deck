@@ -2,7 +2,7 @@
   <img src="/images/sneaky-ryan.jpg" alt="sneaky-ryan"/>
 
   <div class="template__content">
-    <h3>Share Deck on Multiple Devices</h3>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h3>Originally Created by #teamgaslight </h3>
+    <p>Gaslight is a custom development and UX consultant agency in Cincinnati Oh. We love building things with Elixir!</p>
   </div>
 </section>

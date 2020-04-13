@@ -2,28 +2,25 @@
   <aside>
     <div class="aside_content">
     <div class="u-padded">
-      <svg viewBox="0 0 300 300">
-        <path fill="#2b373d" d="M150 21c34.2 0 66.3 13.3 90.5 37.5S278 114.8 278 149s-13.3 66.3-37.5 90.5S184.2 277 150 277s-66.3-13.3-90.5-37.5S22 183.2 22 149s13.3-66.3 37.5-90.5S115.8 21 150 21m0-16C70.5 5 6 69.5 6 149s64.5 144 144 144 144-64.5 144-144S229.5 5 150 5z"/>
-      </svg>
+      <img src="/images/remote.png" alt="LiveDeck Remote" style="border-radius:5px;" />
     </div>
-    <p>There will be some words here about this slide.</p>
     </div>
   </aside>
   <div class="grid grid-2col">
     <div>
-      <h4>Share Deck on Multipule Devices</h4>
+      <h4>Navigate</h4>
       <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
     </div>
     <div>
-      <h4>Column Title</h4>
+      <h4>Slide Notes</h4>
       <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
     </div>
     <div>
-      <h4>Column Title</h4>
+      <h4>All Slides</h4>
       <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
     </div>
     <div>
-      <h4>Column Title</h4>
+      <h4>Deck Timer</h4>
       <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
     </div>
   </div>

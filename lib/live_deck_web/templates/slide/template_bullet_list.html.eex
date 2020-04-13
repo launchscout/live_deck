@@ -1,8 +1,8 @@
 <section class="slide" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
-  <h2>LiveDeck: An Interactive Presentation Deck</h2>
+  <h2>The Ease of LiveDeck</h2>
   <ul>
-    <li>First thing in the list that will be listed first</li>
-    <li>Second thing in the list that will be listed second</li>
-    <li>Third thing in the list that will be listed third</li>
+    <li>Create A Sweet Deck with basic HTML and CSS</li>
+    <li>Share Your Deck and Co-Present on the Web</li>
+    <li>Switch Between Pre-Made Themes and Backgrounds</li>
   </ul>
 </section>
