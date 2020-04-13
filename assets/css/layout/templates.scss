@@ -81,6 +81,10 @@
       padding: $pad-lg;
     }
 
+    h2, h3, h4 {
+      margin-bottom: $pad-sm;
+    }
+
     img {
       filter: brightness(50%);
       height: 100vh;
