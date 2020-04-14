@@ -24,6 +24,10 @@ defmodule LiveDeckWeb.ControlLive do
      |> assign_presentation(socket)}
   end
 
+  def handle_event("start_timer", _, socket) do
+    {:noreply, assign(socket, :presentation, nil)}
+  end
+
   defp assign_presentation(presentation, socket) do
     socket
     |> assign(presentation: presentation)
