@@ -9,7 +9,9 @@ defmodule LiveDeckWeb.ControlLive do
 
   def mount(_params, _session, socket) do
     Controls.start()
-    {:ok, assign_presentation(Controls.get_presentation(), socket)}
+    {:ok,
+     assign_presentation(Controls.get_presentation(), socket)
+     |> init_timer()}
   end
 
   def render(assigns) do
@@ -21,7 +23,8 @@ defmodule LiveDeckWeb.ControlLive do
      action
      |> String.to_existing_atom()
      |> Controls.navigate()
-     |> assign_presentation(socket)}
+     |> assign_presentation(socket)
+     |> reset_timer()}
   end
 
   def handle_event("start_timer", _, socket) do
@@ -30,7 +33,6 @@ defmodule LiveDeckWeb.ControlLive do
 
     {:noreply, assign(
       socket,
-      timing: true,
       timer: timer,
       time: time,
       formatted_time: time |> to_mm_ss
@@ -38,22 +40,33 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("stop_timer", _, socket) do
-    :timer.cancel(socket.assigns.timer)
-
-    {:noreply, assign(socket, timing: false, timer: nil, time: nil, formatted_time: nil)}
+    {:noreply, socket |> reset_timer}
   end
 
   def handle_info(:tick, socket) do
     time = Time.add(socket.assigns.time, 1)
-
     {:noreply, assign(socket, time: time, formatted_time: time |> to_mm_ss)}
   end
+
 
   defp assign_presentation(presentation, socket) do
     socket
     |> assign(presentation: presentation)
     |> assign(current_slide: presentation.active_index + 1)
-    |> assign(timing: false)
+  end
+
+  defp init_timer(socket) do
+    socket
+    |> assign(time: nil)
+    |> assign(timer: nil)
+    |> assign(formatted_time: nil)
+  end
+
+  defp reset_timer(socket) do
+    :timer.cancel(socket.assigns.timer)
+
+    socket
+    |> init_timer
   end
 
   defp to_mm_ss(time) do
