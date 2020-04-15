@@ -25,6 +25,22 @@ defmodule LiveDeckWeb.ControlLiveTest do
     test "clicking the start timer button toggles the timer", %{view: view} do
       assert render_click(view, "start_timer") =~ ~s(0:00)
     end
+
+    test "clicking the timer toggles back to the start timer button", %{view: view} do
+      render_click(view, "start_timer")
+      assert render_click(view, "stop_timer") =~ ~s(Start Timer)
+    end
+
+    test "clicking the next button while the timer is running resets the timer", %{view: view} do
+      render_click(view, "start_timer")
+      assert render_click(view, "next") =~ ~s(Start Timer)
+    end
+
+    test "clicking the prev button while the timer is running resets the timer", %{view: view} do
+      render_click(view, "next")
+      render_click(view, "start_timer")
+      assert render_click(view, "prev") =~ ~s(Start Timer)
+    end
   end
 
   defp mount(context) do
