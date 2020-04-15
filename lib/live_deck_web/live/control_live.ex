@@ -25,12 +25,50 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("start_timer", _, socket) do
-    {:noreply, assign(socket, :presentation, nil)}
+    {:ok, timer} = :timer.send_interval(1000, :tick)
+    time = ~T[00:00:00.00]
+
+    {:noreply, assign(
+      socket,
+      timing: true,
+      timer: timer,
+      time: time,
+      formatted_time: time |> to_mm_ss
+    )}
+  end
+
+  def handle_event("stop_timer", _, socket) do
+    :timer.cancel(socket.assigns.timer)
+
+    {:noreply, assign(socket, timing: false, timer: nil, time: nil, formatted_time: nil)}
+  end
+
+  def handle_info(:tick, socket) do
+    time = Time.add(socket.assigns.time, 1)
+
+    {:noreply, assign(socket, time: time, formatted_time: time |> to_mm_ss)}
   end
 
   defp assign_presentation(presentation, socket) do
     socket
     |> assign(presentation: presentation)
     |> assign(current_slide: presentation.active_index + 1)
+    |> assign(timing: false)
+  end
+
+  defp to_mm_ss(time) do
+    elapsed = Time.diff(time, ~T[00:00:00.00])
+
+    mm = div(elapsed, 60)
+    ss = rem(elapsed, 60) |> format_digit
+
+    "#{mm}:#{ss}"
+  end
+
+  defp format_digit(unit) do
+    case unit < 10 do
+      true -> "0#{unit}"
+      false -> "#{unit}"
+    end
   end
 end
