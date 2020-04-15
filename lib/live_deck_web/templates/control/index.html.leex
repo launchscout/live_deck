@@ -1,72 +1,85 @@
-<div class="remote" data-testid="remote-page">
-  <section class="remote__header">
-    <div class="remote__logo">
-      <img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/dill-blue-haired.svg") %>" alt="Dill the Monster" />
-    </div>
-    <div class="remote__title">
-      <h1>Deck Remote</h1>
-    </div>
-    <div class="remote__menu">
-      <button>
-        <svg class="menu__icon" x="0" y="0" version="1.1" viewBox="0 0 800 247" xml:space="preserve">
-          <g id="eye">
-            <path d="M639.9 236c-62 0-112.5-50.5-112.5-112.5S577.9 10.9 639.9 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5s36.6 81.5 81.5 81.5c45 0 81.5-36.6 81.5-81.5s-36.5-81.5-81.5-81.5z" />
-            <path class="menu__eye-ball" d="M666.8 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
-          </g>
-          <g id="eye_1_">
-            <path d="M397 236c-62 0-112.5-50.5-112.5-112.5S335 10.9 397 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5S352 205 397 205s81.5-36.6 81.5-81.5c0-45-36.5-81.6-81.5-81.6z" />
-            <path class="menu__eye-ball" d="M423.9 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
-          </g>
-          <g id="eye_2_">
-            <path d="M150 236c-62 0-112.5-50.5-112.5-112.5S88 10.9 150 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5S105 205 150 205s81.5-36.6 81.5-81.5c0-45-36.5-81.6-81.5-81.6z" />
-            <path class="menu__eye-ball" d="M176.9 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
-          </g>
-        </svg>
-      </button>
-    </div>
-  </section>
-  <section class="remote__body">
-    <div class="title--next">
-      <h2><%= LiveDeck.Presentations.current_slide(@presentation) %></h2>
-    </div>
-    <div class="remote__nav">
-      <button phx-click="next" class="next">
-        <svg id="nextButton" viewBox="0 0 599 537.1">
-          <path id="next" d="M504.3 158.6L190.6 30.4c-9.5-3.9-28.2-10.2-60.6-7.8C78.3 30 27.8 73.4 27.8 139.7v256.4c0 73.1 61.2 118.3 117.9 118.3 15.2 0 30.2-3.1 44.8-9l313.8-128.2c28.6-11.7 50.2-31.9 62.3-58.4 9.7-21.1 11.1-41 11.1-50.9s-1.4-29.8-11.1-50.9c-12.1-26.5-33.6-46.7-62.3-58.4zm33.6 147.1c-8.8 19.4-24.2 33.6-45.6 42.4L178.6 476.3c-10.7 4.4-21.8 6.6-32.9 6.6-41.6 0-86.5-33.3-86.5-86.9V139.6c0-53.6 44.9-86.8 86.5-86.8 11.1 0 22.2 2.3 33 6.7l313.6 128.2c21.4 8.8 36.7 23 45.6 42.4 7.5 16.2 8.3 31.8 8.3 37.8 0 5.9-.8 21.5-8.3 37.8z" class="next__outline"/>
-          <g id="eye" class="next__eye">
-            <path d="M388.7 354.5c-48 0-87.1-39.1-87.1-87.1s39.1-87.1 87.1-87.1 87.1 39.1 87.1 87.1c0 48-39 87.1-87.1 87.1zm0-150.2c-34.8 0-63.1 28.3-63.1 63.1s28.3 63.1 63.1 63.1 63.1-28.3 63.1-63.1-28.3-63.1-63.1-63.1z" class="next__eye--outline"/>
-            <path d="M409.5 263.5c-9.1 0-16.5-7.4-16.5-16.5 0-4 1.4-7.7 3.8-10.6-2.6-.7-5.4-1.1-8.2-1.1-17.6 0-32 14.3-32 32 0 17.6 14.3 32 32 32 17.6 0 32-14.4 32-32 0-2.6-.3-5.1-.9-7.4-2.7 2.3-6.3 3.6-10.2 3.6z" class="eye__ball"/>
-          </g>
-        </svg>
-      </button>
-    </div>
-    <div class="title--prev">
-      <h3>Next: Your Next Slide Title</h3>
-    </div>
-    <div class="remote__sub-nav">
-        <button phx-click="prev" class="btn"><p>Previous</p></button>
-        <button class="btn"><p>Notes</p></button>
-    </div>
-  </section>
-  <section class="remote__footer">
-    <div>
-    </div>
-    <div class="remote__count">
-      <div class="count__grid">
-        <div class="count--curent" data-current-slide=<%= @current_slide %>>
-          <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+<div class="speaker__page">
+  <div class="speaker__container">
+  </div>
+  <div class="remote" data-testid="remote-page">
+    <section class="remote__header">
+      <div class="remote__count header__count">
+        <div class="count__grid">
+          <div class="count--curent" data-current-slide=<%= @current_slide %>>
+            <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+          </div>
         </div>
       </div>
-    </div>
-    <div>
-    </div>
-    <div class="remote__timer">
-      <%= if @timer do %>
-        <button phx-click="stop_timer" class="btn">Stop/Reset</button>
-        <button class="btn"><%= @formatted_time %></button>
-      <% else %>
-        <button phx-click="start_timer" class="btn">Start Timer</button>
-      <% end %>
-    </div>
-  </section>
+      <div class="remote__logo">
+        <img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/dill-blue-haired.svg") %>" alt="Dill the Monster" />
+      </div>
+      <div class="remote__title">
+        <h1>Deck Remote</h1>
+      </div>
+      <div class="remote__menu">
+        <button>
+          <svg class="menu__icon" x="0" y="0" version="1.1" viewBox="0 0 800 247" xml:space="preserve">
+            <g id="eye">
+              <path d="M639.9 236c-62 0-112.5-50.5-112.5-112.5S577.9 10.9 639.9 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5s36.6 81.5 81.5 81.5c45 0 81.5-36.6 81.5-81.5s-36.5-81.5-81.5-81.5z" />
+              <path class="menu__eye-ball" d="M666.8 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
+            </g>
+            <g id="eye_1_">
+              <path d="M397 236c-62 0-112.5-50.5-112.5-112.5S335 10.9 397 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5S352 205 397 205s81.5-36.6 81.5-81.5c0-45-36.5-81.6-81.5-81.6z" />
+              <path class="menu__eye-ball" d="M423.9 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
+            </g>
+            <g id="eye_2_">
+              <path d="M150 236c-62 0-112.5-50.5-112.5-112.5S88 10.9 150 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5S105 205 150 205s81.5-36.6 81.5-81.5c0-45-36.5-81.6-81.5-81.6z" />
+              <path class="menu__eye-ball" d="M176.9 118.4c-11.8 0-21.3-9.6-21.3-21.3 0-5.2 1.8-9.9 4.9-13.7-3.4-.9-7-1.4-10.6-1.4-22.7 0-41.3 18.5-41.3 41.3 0 22.7 18.5 41.3 41.3 41.3 22.7 0 41.3-18.6 41.3-41.3 0-3.4-.4-6.6-1.2-9.6-3.4 3-8.1 4.7-13.1 4.7z" />
+            </g>
+          </svg>
+        </button>
+      </div>
+    </section>
+    <section class="remote__body">
+      <div class="title--next">
+        <h2><%= LiveDeck.Presentations.current_slide(@presentation) %></h2>
+      </div>
+      <div class="remote__nav">
+        <button phx-click="next" class="next">
+          <svg id="nextButton" viewBox="0 0 599 537.1">
+            <path id="next" d="M504.3 158.6L190.6 30.4c-9.5-3.9-28.2-10.2-60.6-7.8C78.3 30 27.8 73.4 27.8 139.7v256.4c0 73.1 61.2 118.3 117.9 118.3 15.2 0 30.2-3.1 44.8-9l313.8-128.2c28.6-11.7 50.2-31.9 62.3-58.4 9.7-21.1 11.1-41 11.1-50.9s-1.4-29.8-11.1-50.9c-12.1-26.5-33.6-46.7-62.3-58.4zm33.6 147.1c-8.8 19.4-24.2 33.6-45.6 42.4L178.6 476.3c-10.7 4.4-21.8 6.6-32.9 6.6-41.6 0-86.5-33.3-86.5-86.9V139.6c0-53.6 44.9-86.8 86.5-86.8 11.1 0 22.2 2.3 33 6.7l313.6 128.2c21.4 8.8 36.7 23 45.6 42.4 7.5 16.2 8.3 31.8 8.3 37.8 0 5.9-.8 21.5-8.3 37.8z" class="next__outline"/>
+            <g id="eye" class="next__eye">
+              <path d="M388.7 354.5c-48 0-87.1-39.1-87.1-87.1s39.1-87.1 87.1-87.1 87.1 39.1 87.1 87.1c0 48-39 87.1-87.1 87.1zm0-150.2c-34.8 0-63.1 28.3-63.1 63.1s28.3 63.1 63.1 63.1 63.1-28.3 63.1-63.1-28.3-63.1-63.1-63.1z" class="next__eye--outline"/>
+              <path d="M409.5 263.5c-9.1 0-16.5-7.4-16.5-16.5 0-4 1.4-7.7 3.8-10.6-2.6-.7-5.4-1.1-8.2-1.1-17.6 0-32 14.3-32 32 0 17.6 14.3 32 32 32 17.6 0 32-14.4 32-32 0-2.6-.3-5.1-.9-7.4-2.7 2.3-6.3 3.6-10.2 3.6z" class="eye__ball"/>
+            </g>
+          </svg>
+        </button>
+      </div>
+      <div class="title--prev">
+        <h3>Next: Your Next Slide Title</h3>
+      </div>
+      <div class="remote__sub-nav">
+          <button phx-click="prev" class="btn"><p>Previous</p></button>
+          <button class="btn notes__btn"><p>Notes</p></button>
+      </div>
+    </section>
+    <section class="remote__footer">
+      <div>
+      </div>
+      <div class="remote__count footer__count">
+        <div class="count__grid">
+          <div class="count--curent" data-current-slide=<%= @current_slide %>>
+            <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+          </div>
+        </div>
+      </div>
+      <div>
+      </div>
+      <div class="remote__timer footer__timer">
+        <%= if @timer do %>
+          <div class="timer__time">
+            <%= @formatted_time %>
+          </div>
+          <button phx-click="stop_timer" class="btn">Stop</button>
+        <% else %>
+          <button phx-click="start_timer" class="btn">Start Timer</button>
+        <% end %>
+      </div>
+    </section>
+  </div>
 </div>

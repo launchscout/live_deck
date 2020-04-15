@@ -1,0 +1,9 @@
+.timer {
+  &__time {
+    display: inline-block;
+    color: $color-6;
+    font-size: 3.5rem;
+    margin: 0 $pad-sm;
+    vertical-align: middle;
+  }
+}
