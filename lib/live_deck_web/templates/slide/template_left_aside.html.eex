@@ -9,19 +9,19 @@
   <div class="grid grid-2col">
     <div>
       <h4>Navigate</h4>
-      <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+      <p>Using the LiveDeck remote is as simple as a giant next button.</p>
     </div>
     <div>
       <h4>Slide Notes</h4>
-      <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+      <p>Read your slide notes and edit them as you navigate through the deck.</p>
     </div>
     <div>
       <h4>All Slides</h4>
-      <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+      <p>Navigate to any slide in the top menu and scroll through through your deck. </p>
     </div>
     <div>
       <h4>Deck Timer</h4>
-      <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+      <p>Track your progress with a timer at the bottom of the remote.</p>
     </div>
   </div>
 </section>

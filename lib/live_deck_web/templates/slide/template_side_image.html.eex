@@ -1,9 +1,9 @@
 <section class="slide template--side-image" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div class="copy">
     <h4>Share on Multipule Devices</h4>
-    <p>As a web-based app the presentation deck and even the deck remote can be shared on any device with a url.</p>
+    <p>As a web-based app the presentation deck and the deck remote can be shared on any device with a url.</p>
   </div>
   <div class="image--right image--fill">
-    <img src="/images/gaslight-city.jpg" alt="gaslight" />
+    <img src="/images/live-deck-on-mobile.jpg" alt="gaslight" />
   </div>
 </section>
