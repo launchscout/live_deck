@@ -61,7 +61,11 @@
     <div>
     </div>
     <div class="remote__timer">
-      <button phx-click="start_timer" class="btn">Start Timer</button>
+      <%= if @timing do %>
+        <button phx-click="stop_timer" class="btn"><%= @formatted_time %></button>
+      <% else %>
+        <button phx-click="start_timer" class="btn">Start Timer</button>
+      <% end %>
     </div>
   </section>
 </div>
