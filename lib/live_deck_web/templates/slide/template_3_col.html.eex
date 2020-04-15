@@ -1,13 +1,11 @@
 <section class="slide template--3col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div>
-    <img src="/images/elixir.png" alt="Elixir Icon" class="icon" />
     <h3>Elixir</h3>
-    <p>Some Words about how awesome Elixir is...</p>
+    <p>A functional web development language known for it's low-latency and fault-tolerant systems.</p>
   </div>
   <div>
-    <img src="/images/pheonix.png" alt="Pheonix Icon" class="icon" />
     <h3>Pheonix</h3>
-    <p>The web framework built on Elixir.</p>
+    <p>The web framework built on Elixir know for it's speed and maintainability.</p>
   </div>
   <div>
     <h3>LiveView</h3>

@@ -1,18 +1,18 @@
 <section class="slide template--4col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div>
-    <h4>Share Deck on Multipule Devices</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h4>LiveDeck Roadmap</h4>
+    <p>With the power of LiveView we have several real-time features planned for the future.</p>
   </div>
   <div>
-    <h4>Column Title</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h4>Audience Interactions</h4>
+    <p>Future releases will include features allowing the audience to respond in real-time.</p>
   </div>
   <div>
-    <h4>Column Title</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h4>Live Data in the Deck</h4>
+    <p>Who will need to update their deck with charts and tables are connected to live data!</p>
   </div>
   <div>
-    <h4>Column Title</h4>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h4>Sharing is Caring</h4>
+    <p>Releases will also include new ways to share a presentation when a talk is complete.</p>
   </div>
 </section>

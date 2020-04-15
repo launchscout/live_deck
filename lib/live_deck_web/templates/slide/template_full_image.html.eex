@@ -1,5 +1,5 @@
 <section class="slide template--full-image" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
-  <img src="/images/sneaky-ryan.jpg" alt="sneaky-ryan"/>
+  <img src="/images/teamgaslight.jpg" alt="sneaky-ryan"/>
 
   <div class="template__content">
     <h3>Originally Created by #teamgaslight </h3>
