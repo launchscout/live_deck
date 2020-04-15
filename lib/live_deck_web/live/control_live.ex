@@ -9,6 +9,7 @@ defmodule LiveDeckWeb.ControlLive do
 
   def mount(_params, _session, socket) do
     Controls.start()
+
     {:ok,
      assign_presentation(Controls.get_presentation(), socket)
      |> init_timer()}
@@ -31,12 +32,13 @@ defmodule LiveDeckWeb.ControlLive do
     {:ok, timer} = :timer.send_interval(1000, :tick)
     time = ~T[00:00:00.00]
 
-    {:noreply, assign(
-      socket,
-      timer: timer,
-      time: time,
-      formatted_time: time |> to_mm_ss
-    )}
+    {:noreply,
+     assign(
+       socket,
+       timer: timer,
+       time: time,
+       formatted_time: time |> to_mm_ss
+     )}
   end
 
   def handle_event("stop_timer", _, socket) do
@@ -47,7 +49,6 @@ defmodule LiveDeckWeb.ControlLive do
     time = Time.add(socket.assigns.time, 1)
     {:noreply, assign(socket, time: time, formatted_time: time |> to_mm_ss)}
   end
-
 
   defp assign_presentation(presentation, socket) do
     socket
