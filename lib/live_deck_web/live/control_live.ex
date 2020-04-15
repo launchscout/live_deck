@@ -24,8 +24,7 @@ defmodule LiveDeckWeb.ControlLive do
      action
      |> String.to_existing_atom()
      |> Controls.navigate()
-     |> assign_presentation(socket)
-     |> reset_timer()}
+     |> assign_presentation(socket)}
   end
 
   def handle_event("start_timer", _, socket) do
