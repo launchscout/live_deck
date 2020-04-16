@@ -15,7 +15,7 @@ input[type="button"]{
 .btn {
     box-sizing: border-box;
     display: inline-block;
-    padding: $pad-sm $pad;
+    padding: $pad-xs $pad;
     background-color: $color-5;
     font-size: 1rem;
     color: $color-3;
@@ -48,7 +48,7 @@ input[type="button"]{
     }
 
     @media screen and (min-width: $screen-tablet) {
-      font-size: 1.5rem;
-      padding: $pad-sm $pad;
+      font-size: 1.1rem;
+      padding: $pad-xs $pad-sm;
     }
 }
