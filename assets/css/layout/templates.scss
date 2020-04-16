@@ -1,20 +1,32 @@
-.template {
+ .template {
 
   &--2col {
     grid-gap: $pad-lg;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     align-items: baseline;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   &--3col {
     @extend .template--2col;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &--4col {
     @extend .template--2col;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
   &--split {
