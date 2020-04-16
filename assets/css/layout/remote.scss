@@ -10,6 +10,7 @@
 
   @media screen and (min-width: $screen-desktop) {
     box-shadow: 0px 0px 55px rgba($color-1, 0.1);
+    grid-template-rows: max-content 1fr minmax(max-content, 250px);
     max-width: 500px;
   }
 
