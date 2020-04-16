@@ -50,8 +50,7 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_info(:tick, socket) do
-    time = Time.add(socket.assigns.time, 1)
-    {:noreply, assign(socket, time: time, formatted_time: time |> to_mm_ss)}
+    {:noreply, assign_timer(socket, Timer.tick(socket.assigns.timer))}
   end
 
   defp assign_presentation(presentation, socket) do
@@ -63,21 +62,5 @@ defmodule LiveDeckWeb.ControlLive do
   defp assign_timer(socket, timer) do
     socket
     |> assign(timer: timer)
-  end
-
-  defp to_mm_ss(time) do
-    elapsed = Time.diff(time, ~T[00:00:00.00])
-
-    mm = div(elapsed, 60)
-    ss = rem(elapsed, 60) |> format_digit
-
-    "#{mm}:#{ss}"
-  end
-
-  defp format_digit(unit) do
-    case unit < 10 do
-      true -> "0#{unit}"
-      false -> "#{unit}"
-    end
   end
 end

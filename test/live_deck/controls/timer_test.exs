@@ -24,4 +24,16 @@ defmodule LiveDeck.Controls.TimerTest do
       refute_receive :tick
     end
   end
+
+  describe "tick/1" do
+    test "increments the time by one second" do
+      assert ~T[00:00:01.000000] == Timer.tick(Timer.init()).time
+    end
+  end
+
+  describe "string interpolation" do
+    test "returns time in MM:SS format" do
+      assert "0:00" == "#{Timer.init()}"
+    end
+  end
 end
