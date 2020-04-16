@@ -1,8 +1,9 @@
 body {
   display: grid;
-  grid-template-rows: 5vh minmax(90vh, auto) 5vh;
+  grid-template-rows: 10vh minmax(80vh, auto) 10vh;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100vh !important;
+    min-height: -webkit-fill-available !important;
   background-color: $color-3;
   color: $color-1;
   overflow-x: hidden;
@@ -16,6 +17,14 @@ body {
 header, footer {
   box-sizing: border-box;
   padding: 0 $pad;
+}
+
+header {
+  padding-top: $pad;
+}
+
+footer {
+  padding-bottom: $pad;
 }
 
 main {

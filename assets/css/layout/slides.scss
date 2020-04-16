@@ -1,4 +1,8 @@
 //SLIDE STYLES
 .slide {
-  margin: $pad-xs $pad-xlg;
+  margin: $pad-xs $pad;
+
+  @media screen and (min-width: $screen-tablet) {
+    margin: $pad-xs $pad-xlg;
+  }
 }
