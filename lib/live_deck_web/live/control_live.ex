@@ -4,6 +4,7 @@ defmodule LiveDeckWeb.ControlLive do
   """
   use Phoenix.LiveView
   alias LiveDeck.Controls
+  alias LiveDeck.Controls.Timer
   require Logger
   @valid_actions ~w(next prev)
 
@@ -13,7 +14,7 @@ defmodule LiveDeckWeb.ControlLive do
     socket =
       Controls.get_presentation()
       |> assign_presentation(socket)
-      |> init_timer()
+      |> assign_timer(Timer.init())
       |> assign(:timer_start_class, "")
 
     {:ok, socket}
@@ -32,22 +33,19 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("start_timer", _, socket) do
-    {:ok, timer} = :timer.send_interval(1000, :tick)
-    time = ~T[00:00:00.00]
-
-    {:noreply,
-     assign(
-       socket,
-       timer: timer,
-       time: time,
-       formatted_time: time |> to_mm_ss
-     )}
+    {:noreply, assign_timer(socket, Timer.start())}
   end
 
-  def handle_event("stop_timer", _, socket) do
-    case socket.assigns.timer_start_class do
-      "" -> {:noreply, assign(socket, timer_start_class: "timer__start") |> reset_timer}
-      "timer__start" -> {:noreply, assign(socket, timer_start_class: "") |> reset_timer}
+  def handle_event("stop_timer", _, %{assigns: %{timer: timer} = assigns} = socket) do
+    case assigns.timer_start_class do
+      "" ->
+        {:noreply,
+         socket
+         |> assign(timer_start_class: "timer__start")
+         |> assign_timer(Timer.stop(timer))}
+
+      "timer__start" ->
+        {:noreply, socket |> assign(timer_start_class: "") |> assign_timer(Timer.stop(timer))}
     end
   end
 
@@ -62,18 +60,9 @@ defmodule LiveDeckWeb.ControlLive do
     |> assign(current_slide: presentation.active_index + 1)
   end
 
-  defp init_timer(socket) do
+  defp assign_timer(socket, timer) do
     socket
-    |> assign(time: nil)
-    |> assign(timer: nil)
-    |> assign(formatted_time: nil)
-  end
-
-  defp reset_timer(socket) do
-    :timer.cancel(socket.assigns.timer)
-
-    socket
-    |> init_timer
+    |> assign(timer: timer)
   end
 
   defp to_mm_ss(time) do
