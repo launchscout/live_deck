@@ -1,0 +1,11 @@
+.notes {
+
+}
+
+.btn.notes__btn {
+  display: inline-block;
+
+  @media screen and (min-width: $screen-desktop) {
+    display: none;
+  }
+}

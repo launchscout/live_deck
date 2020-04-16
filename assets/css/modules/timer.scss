@@ -1,0 +1,48 @@
+.timer {
+  &__time {
+    background-color: darken($color-3, 2%);
+    border-radius: 25px;
+    color: $color-6;
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 $pad-sm;
+    padding: $pad-xxs $pad;
+    text-align: center;
+    transform: rotateY(90deg);
+    vertical-align: middle;
+    animation: flip 0.5s ease-out forwards;
+
+    @media screen and (min-width: $screen-desktop) {
+      font-size: 3.5rem;
+      min-width: 15rem;
+      padding: $pad-xs $pad;
+    }
+  }
+
+  &__start {
+    animation: reGrow 0.5s ease-out forwards;
+    transition: all 0.5s ease-out;
+  }
+
+  &__stop {
+    animation: grow 0.5s ease-out forwards;
+    transform: scale(0.0, 0.0);
+    transition: all 0.5s ease-out;
+  }
+}
+
+@keyframes flip {
+  0% { transform: rotateY(90deg); }
+  100% { transform: rotateY(0deg); }
+}
+
+@keyframes grow {
+  0% { transform: scale(0.0, 0.0); }
+  100% { transform: scale(1.0, 1.0); }
+}
+
+@keyframes reGrow {
+  0% { transform: scale(1.0, 1.0); }
+  1% { transform: scale(0.0, 0.0); }
+  100% { transform: scale(1.0, 1.0); }
+}
