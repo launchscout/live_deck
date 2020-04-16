@@ -25,7 +25,8 @@ $gradient-animation-3: linear-gradient(160deg, $color-7, $color-8, $color-7);
 $gradient-animation-4: linear-gradient(160deg, $color-9, $color-10, $color-9);
 $gradient-animation-4: linear-gradient(160deg, $color-11, $color-12, $color-11);
 
-$full--color-gradient: linear-gradient(-45deg, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12);
+$full--color-gradient-1: linear-gradient(-45deg, $color-5, $color-5, $color-6, $color-4, $color-3, $color-8, $color-7, $color-11, $color-12, $color-12);
+$full--color-gradient-2: linear-gradient(-45deg, $color-12, $color-12, $color-11, $color-7, $color-8, $color-4, $color-6, $color-5, $color-5);
 
 
 //FONTS OVERRIDES
@@ -42,11 +43,11 @@ body {
 //TYPE OVERIDES
 h1, h2, h3, h4, h5 {
   font-family: $live-deck-main;
-  line-height: 1;
+  font-weight: 300;
 }
 
 h1 {
-  animation: gradientBG 8s ease infinite;
+  animation: gradientBG 8s cubic-bezier(0,0,1,1) infinite;
   background: $gradient-animation-4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -61,13 +62,13 @@ h2 {
 }
 
 h3 {
-  background: $gradient-3;
+  background: $gradient-2;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 h4 {
-  background: $gradient-5;
+  background: $gradient-2;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -137,15 +138,30 @@ ul {
 
 //TEMPLATE OVERIDES
 aside {
-  background-color: $color-1;
-  color: $color-5;
+  animation: gradientBG 35s cubic-bezier(0,0,1,1) infinite;
+  animation-direction: alternate-reverse;
+  background: $full--color-gradient-2;
+  background-size: 3500% 3500%;
+  color: $color-2;
+}
+
+.template--split {
+  h2, h3, h4, h5 {
+    animation: gradientBG 30s cubic-bezier(0,0,1,1) infinite;
+    background: $full--color-gradient-2;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 3500% 3500%;
+  }
+  aside {
+    h2, h3, h4, h5, p {
+      -webkit-text-fill-color: unset;
+      color: $color-2;
+    }
+  }
 }
 
 .template--full-image {
-
-  img {
-    filter: brightness(50%) grayscale(10%);
-  }
   .template__content {
     background: transparent;
     position: relative;
@@ -155,36 +171,23 @@ aside {
       background: transparent;
         -webkit-text-fill-color: unset;
       color: $color-2;
+      font-weight: 600;
     }
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    opacity: 0.6;
-    animation: gradientBG 35s ease infinite;
-    background: $full--color-gradient;
-    background-size: 3200% 3200%;
-    z-index: 20;
   }
 }
 
 .template--quote-alt {
   .blockquote__top::before {
-    animation: gradientBG 35s ease infinite;
-    background: $full--color-gradient;
+    animation: gradientBG 35s cubic-bezier(0,0,1,1) infinite;
+    background: $full--color-gradient-1;
     background-size: 3200% 3200%;
   }
 }
 
 //BACKGROUND OPTIONS
-.back--2 {
-  animation: gradientBG 35s ease infinite;
-  background: $full--color-gradient;
+body.back--2 {
+  animation: gradientBG 35s cubic-bezier(0,0,1,1) infinite;
+  background: $full--color-gradient-1;
   background-size: 3200% 3200%;
 
   h1, h2, h3, h4, h5, p {
@@ -201,13 +204,57 @@ aside {
     }
   }
 
+  blockquote,
+  .blockquote {
+
+    &::before {
+      background: $color-2;
+    }
+  }
+
   aside {
     animation: none;
-    background: $color-1;
+    background: rgba($color-1, 0.1);
 
-    h2, h3, h4, h5 {
-      -webkit-text-fill-color: unset;
-      color: $color-1;
+  }
+
+  .template--full-image {
+
+    img {
+      filter: brightness(90%) grayscale(100%);
+    }
+    .template__content {
+      background: transparent;
+      position: relative;
+      z-index: 50;
+
+      h1, h2, h3, h4, h5 {
+        background: transparent;
+          -webkit-text-fill-color: unset;
+        color: $color-2;
+        font-weight: 600;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      animation: gradientBG 30s cubic-bezier(0,0,1,1) infinite;
+      background: $full--color-gradient-2;
+      background-size: 3200% 3200%;
+      z-index: 20;
+    }
+  }
+
+  .template--quote-alt {
+    .blockquote__top::before {
+      animation: none;
+      background:  rgba($color-1, 0.1);
     }
   }
 
@@ -233,14 +280,9 @@ body.back--3 {
   }
   .template--left-aside, .template--right-aside {
     aside {
-      animation: gradientBG 35s ease infinite;
-      background: $full--color-gradient;
+      animation: gradientBG 35s cubic-bezier(0,0,1,1) infinite;
+      background: $full--color-gradient-2;
       background-size: 3200% 3200%;
-      color: $color-2;
-    }
-
-    h1, h2, h3, h4, h5 {
-      -webkit-text-fill-color: unset;
       color: $color-2;
     }
   }

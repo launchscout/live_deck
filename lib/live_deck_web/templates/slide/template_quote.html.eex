@@ -1,9 +1,9 @@
 <section class="slide template--quote" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div class="blockquote__image">
-    <img src="/images/josie.jpg" alt="josie" />
+    <img src="/images/rocket-dog.jpg" alt="josie" />
   </div>
   <blockquote>
-    Forget Power Point, Keynote, and Google Slides. The world needs a new shinhy slide deck tool!
-    <p class="blockquote__author">Josie Pohlman, Greatest Dog Ever</p>
+    "Forget Power Point, Keynote, and Google Slides. The world needs a new shiny slide deck tool!"
+    <p class="blockquote__author">Rock Dog Best, Best Dog Ever</p>
   </blockquote>
 </section>

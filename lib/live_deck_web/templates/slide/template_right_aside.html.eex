@@ -1,15 +1,13 @@
 <section class="slide template--right-aside" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div>
-    <h2>A quote that says something epic, but also has deep meaning and purpose.</h2>
+    <h3>An Open Source Slide Deck Project That Utilizes Elixir, Pheonix, and LiveView.</h3>
   </div>
   <aside>
     <div class="aside_content">
     <div class="u-padded">
-      <svg viewBox="0 0 300 300">
-        <path fill="#2b373d" d="M150 21c34.2 0 66.3 13.3 90.5 37.5S278 114.8 278 149s-13.3 66.3-37.5 90.5S184.2 277 150 277s-66.3-13.3-90.5-37.5S22 183.2 22 149s13.3-66.3 37.5-90.5S115.8 21 150 21m0-16C70.5 5 6 69.5 6 149s64.5 144 144 144 144-64.5 144-144S229.5 5 150 5z"/>
-      </svg>
+      <img src="/images/dill-orange-haired.svg" alt="Live Deck Dill" />
     </div>
-    <p>There will be some words here about this slide.</p>
+    <p>github.com<br />/gaslight/<br />live_deck</p>
     </div>
   </aside>
 </section>

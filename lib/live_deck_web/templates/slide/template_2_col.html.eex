@@ -1,10 +1,10 @@
 <section class="slide template--2col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div>
-    <h3>Share Deck on Multipule Devices</h3>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h3>What is LiveDeck?</h3>
+    <p>LiveDeck is a slide deck tool created for devlopers and web designers. It's is built with Elixir and Phoenix allowing for more rich interactions than your average presentation softweare.</p>
   </div>
   <div>
-    <h3>Column Title</h3>
-    <p>Live Deck is an interactive application that utilizes Phoenix and LiveView to create a rich presentation experience.</p>
+    <h3>Why create LiveDeck?</h3>
+    <p>Our team eanted a presentation tool that is simple to use and powerful in realtime interactions. We also wanted the ability to easily spin up presentations using our skill sets as developers.</p>
   </div>
 </section>
