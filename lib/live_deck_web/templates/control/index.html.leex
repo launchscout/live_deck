@@ -71,9 +71,9 @@
       <div>
       </div>
       <div class="timer footer__timer">
-        <%= if @timer do %>
+        <%= if @timer.tref do %>
           <div class="timer__time">
-            <%= @formatted_time %>
+            <%= "#{@timer}" %>
           </div>
           <button phx-click="stop_timer" class="btn timer__stop timer__stop">Stop</button>
         <% else %>
