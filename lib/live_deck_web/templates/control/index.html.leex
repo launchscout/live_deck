@@ -81,5 +81,25 @@
         <% end %>
       </div>
     </section>
+    <div class="modal">
+      <div class="modal__window" aria-labelledby="Modal Title" role="dialog">
+        <header class="modal__header">
+          <h2 id="Modal Title"><%= LiveDeck.Presentations.current_slide(@presentation) %> Notes</h2>
+        </header>
+        <div class="modal__body">
+          <p>Here are some notes to make the presenter seem to know what they are talking about. Don't screw it up!</p>
+        </div>
+        <footer class="modal__footer">
+          <div class="remote__count footer__count">
+            <div class="count__grid">
+              <div class="count--curent" data-current-slide=<%= @current_slide %>>
+                <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+              </div>
+            </div>
+          </div>
+          <button class="btn">Close</button>
+        </footer>
+      </div>
+    </div>
   </div>
 </div>
