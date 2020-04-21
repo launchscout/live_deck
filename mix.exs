@@ -48,7 +48,7 @@ defmodule LiveDeck.MixProject do
       {:dialyxir, "~> 1.0.0-rc.7", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.10", only: :test},
       {:credo, "~> 1.1.0", only: [:dev, :test], runtime: false},
-      {:phoenix_live_view, "~> 0.6.0"},
+      {:phoenix_live_view, "~> 0.12.1"},
       {:floki, ">= 0.0.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},

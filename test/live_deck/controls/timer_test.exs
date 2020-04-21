@@ -11,17 +11,17 @@ defmodule LiveDeck.Controls.TimerTest do
   describe "start/1" do
     test "initializes a timer" do
       Timer.start(50)
-      assert_receive :tick
+      assert_receive :tick, 500
     end
   end
 
   describe "stop/1" do
     test "stops a timer" do
       timer = Timer.start(50)
-      assert_receive :tick
+      assert_receive :tick, 1000
 
       Timer.stop(timer)
-      refute_receive :tick
+      refute_receive :tick, 1000
     end
   end
 

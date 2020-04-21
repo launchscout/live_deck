@@ -45,7 +45,7 @@
     <main role="main" class="container">
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
+      <%= @inner_content %>
     </main>
     <footer class="footer">
       <p class="footer__caption footer--left">Created by Developers and Designers at Gaslight in Cincinnati, OH</p>
