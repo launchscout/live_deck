@@ -32,6 +32,27 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
   end
 
+  describe "notes modal" do
+    setup :mount
+    @toggle_notes "toggle_notes"
+    @notes_modal ~s(data-testid="NotesModal")
+
+    test "does not get shown on mount", %{html: html} do
+      refute html =~ @notes_modal
+    end
+
+    test "renders when a user clicks the notes button", %{view: view} do
+      html = render_click(view, @toggle_notes)
+      assert html =~ @notes_modal
+    end
+
+    test "closes when modal is open and a user hits the close button", %{view: view} do
+      render_click(view, @toggle_notes)
+      html = render_click(view, @toggle_notes)
+      refute html =~ @notes_modal
+    end
+  end
+
   defp mount(context) do
     {:ok, view, html} = live(context.conn, "/remote")
     {:ok, Map.merge(context, %{view: view, html: html})}

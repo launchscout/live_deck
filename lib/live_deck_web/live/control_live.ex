@@ -16,6 +16,7 @@ defmodule LiveDeckWeb.ControlLive do
       |> assign_presentation(socket)
       |> assign_timer(Timer.init())
       |> assign(:timer_start_class, "")
+      |> assign(:show_notes?, false)
 
     {:ok, socket}
   end
@@ -47,6 +48,10 @@ defmodule LiveDeckWeb.ControlLive do
       "timer__start" ->
         {:noreply, socket |> assign(timer_start_class: "") |> assign_timer(Timer.stop(timer))}
     end
+  end
+
+  def handle_event("toggle_notes", _, socket) do
+    {:noreply, assign(socket, :show_notes?, !socket.assigns.show_notes?)}
   end
 
   def handle_info(:tick, socket) do
