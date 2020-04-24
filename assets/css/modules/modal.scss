@@ -14,10 +14,14 @@
     flex-direction: column;
     width: 85vw;
     height: 85vh;
-    padding: $pad-lg;
+    padding: $pad-sm;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 25px;
     background-color: $color-3;
+
+    @media screen and (min-width: $screen-desktop) {
+      padding: $pad-lg;
+    }
   }
 
   &__header {
@@ -28,21 +32,25 @@
     h2 {
       -webkit-text-fill-color: unset;
       color: $color-5;
-      font-size: 2.5em;
+      font-size: 2em;
       font-weight: 500;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
   &__body {
     flex-grow: 1;
     margin: $pad-sm 0;
-    padding: $pad;
+    padding: $pad-sm;
     overflow-y: auto;
     border-radius: 25px;
     background-color:  darken($color-3, 3%);
 
     p {
-      font-size: 2em;
+      font-size: 1.6em;
     }
   }
 
