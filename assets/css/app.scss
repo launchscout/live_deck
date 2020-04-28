@@ -7,6 +7,7 @@
 //LAYOUT STYLES
 @import
 "/layout/base",
+"/layout/admin",
 "/layout/grid",
 "/layout/slides",
 "/layout/speaker",
@@ -16,15 +17,14 @@
 //MODULES STYLES
 @import
 "modules/blockquote",
-"/modules/header",
 "/modules/aside",
 "/modules/icons",
+"/modules/forms",
 "/modules/timer",
 "/modules/notes",
 "/modules/lists",
 "/modules/buttons",
-"/modules/images",
-"/modules/footer";
+"/modules/images";
 
 //STATES STYLES
 @import

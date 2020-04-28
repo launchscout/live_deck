@@ -1,1 +1,145 @@
-<div data-testid="AdminLiveView"><%= @stuff %></div>
+<section class="admin" data-testid="AdminLiveView">
+  <section class="slide-admin">
+    <div class="slide-admin__slide">
+      <div class="slide-admin__thumbnail">
+        <p>thumbnail</p>
+      </div>
+      <form class="slide-admin__settings">
+        <label for="slide-title">Slide Title:</label>
+        <input id="slide-title" value="title template" type="text" autocomplete="slide-notes">
+        <div class="grid grid-5col">
+          <div class="grid__child--span-3">
+            <label for="slide-background">Slide Background:</label>
+            <select id="slide-background" name="select">
+              <option value="1" selected>Background 1</option>
+              <option value="2">Background 2</option>
+              <option value="3">Background 3</option>
+              <option value="4">Background 4</option>
+              <option value="5">Background 5</option>
+            </select>
+          </div>
+          <div class="grid__child--span-2">
+            <label for="slide-order">Slide Order:</label>
+            <select id="slide-order" name="select">
+              <option value="1">Slide 1</option>
+              <option value="2">Slide 2</option>
+              <option value="3">Slide 3</option>
+              <option value="4">Slide 4</option>
+              <option value="5">Slide 5</option>
+            </select>
+          </div>
+        </div>
+        <label for="slide-notes">Slide Notes:</label><br>
+        <textarea id="slide-notes" autocomplete="slide-notes"></textarea>
+      </form>
+    </div>
+
+    <div class="slide-admin__slide">
+      <div class="slide-admin__thumbnail">
+        <p>thumbnail</p>
+      </div>
+      <form class="slide-admin__settings">
+        <label for="slide-title">Slide Title:</label>
+        <input id="slide-title" value="title template" type="text" autocomplete="slide-notes">
+        <div class="grid grid-5col">
+          <div class="grid__child--span-3">
+            <label for="slide-background">Slide Background:</label>
+            <select id="slide-background" name="select">
+              <option value="1" selected>Background 1</option>
+              <option value="2">Background 2</option>
+              <option value="3">Background 3</option>
+              <option value="4">Background 4</option>
+              <option value="5">Background 5</option>
+            </select>
+          </div>
+          <div class="grid__child--span-2">
+            <label for="slide-order">Slide Order:</label>
+            <select id="slide-order" name="select">
+              <option value="1">Slide 1</option>
+              <option value="2">Slide 2</option>
+              <option value="3">Slide 3</option>
+              <option value="4">Slide 4</option>
+              <option value="5">Slide 5</option>
+            </select>
+          </div>
+        </div>
+        <label for="slide-notes">Slide Notes:</label><br>
+        <textarea id="slide-notes" autocomplete="slide-notes"></textarea>
+      </form>
+    </div>
+
+    <div class="slide-admin__slide">
+      <div class="slide-admin__thumbnail">
+        <p>thumbnail</p>
+      </div>
+      <form class="slide-admin__settings">
+        <label for="slide-title">Slide Title:</label>
+        <input id="slide-title" value="title template" type="text" autocomplete="slide-notes">
+        <div class="grid grid-5col">
+          <div class="grid__child--span-3">
+            <label for="slide-background">Slide Background:</label>
+            <select id="slide-background" name="select">
+              <option value="1" selected>Background 1</option>
+              <option value="2">Background 2</option>
+              <option value="3">Background 3</option>
+              <option value="4">Background 4</option>
+              <option value="5">Background 5</option>
+            </select>
+          </div>
+          <div class="grid__child--span-2">
+            <label for="slide-order">Slide Order:</label>
+            <select id="slide-order" name="select">
+              <option value="1">Slide 1</option>
+              <option value="2">Slide 2</option>
+              <option value="3">Slide 3</option>
+              <option value="4">Slide 4</option>
+              <option value="5">Slide 5</option>
+            </select>
+          </div>
+        </div>
+        <label for="slide-notes">Slide Notes:</label><br>
+        <textarea id="slide-notes" autocomplete="slide-notes"></textarea>
+      </form>
+    </div>
+
+    <div class="slide-admin__slide">
+      <div class="slide-admin__thumbnail">
+        <p>thumbnail</p>
+      </div>
+      <form class="slide-admin__settings">
+        <label for="slide-title">Slide Title:</label>
+        <input id="slide-title" value="title template" type="text" autocomplete="slide-notes">
+        <div class="grid grid-5col">
+          <div class="grid__child--span-3">
+            <label for="slide-background">Slide Background:</label>
+            <select id="slide-background" name="select">
+              <option value="1" selected>Background 1</option>
+              <option value="2">Background 2</option>
+              <option value="3">Background 3</option>
+              <option value="4">Background 4</option>
+              <option value="5">Background 5</option>
+            </select>
+          </div>
+          <div class="grid__child--span-2">
+            <label for="slide-order">Slide Order:</label>
+            <select id="slide-order" name="select">
+              <option value="1">Slide 1</option>
+              <option value="2">Slide 2</option>
+              <option value="3">Slide 3</option>
+              <option value="4">Slide 4</option>
+              <option value="5">Slide 5</option>
+            </select>
+          </div>
+        </div>
+        <label for="slide-notes">Slide Notes:</label><br>
+        <textarea id="slide-notes" autocomplete="slide-notes"></textarea>
+      </form>
+    </div>
+  </section>
+  <section class="global-admin">
+    <div class="global-admin__title">
+      <img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/dill-orange-haired.svg") %>" alt="Dill the Monster" />
+      <h2>Presentation Settings</h2>
+    </div>
+  </section>
+</section>

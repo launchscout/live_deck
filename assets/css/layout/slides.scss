@@ -1,4 +1,76 @@
 //SLIDE STYLES
 .slide {
-  margin: $pad-xs $pad-xlg;
+  display: grid;
+  grid-template-rows: 5vh minmax(90vh, auto) 5vh;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  @media screen and (min-width: $screen-desktop) {
+    grid-template-rows: 5vh 90vh 5vh;
+    overflow: hidden;
+  }
+
+  &__content {
+    margin: $pad-xs $pad-xlg;
+  }
+
+  &__header, &__footer {
+    box-sizing: border-box;
+    padding: 0 $pad;
+  }
+
+  &__footer {
+    display: grid;
+    font-size: 14px;
+    grid-template-columns: repeat(2, 1fr);
+    height: 5vh;
+    max-height: 5vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+
+    .footer {
+      &__caption {
+        font-weight: 400;
+        line-height: 1;
+      }
+
+      &--left {
+        text-align: left;
+      }
+
+      &--right {
+        font-weight: 400;
+        text-align: right;
+      }
+    }
+  }
+
+  &__header {
+    display: grid;
+    font-size: 18px;
+    grid-template-columns: repeat(2, 1fr);
+    position: relative;
+    z-index: 10;
+    align-items: center;
+
+    .header {
+      &__title {
+        font-weight: 800;
+        line-height: 1;
+        text-align: left;
+
+        img,svg {
+          height: 40px;
+        }
+      }
+
+      &__date {
+        font-weight: 200;
+        line-height: 1;
+        text-align: right;
+      }
+    }
+  }
 }

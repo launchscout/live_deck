@@ -1,0 +1,41 @@
+label, input, textarea {
+font-size: 0.5em;
+}
+
+input[type=text], textarea {
+  display: block;
+  border: solid 3px $color-4;
+  padding: $pad-xxs;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 800px;
+  background-color: $color-4;
+  //box-shadow: inset 0px 0px 25px rgba($color-5, 0.05);
+
+  &:active {
+    border: solid 3px $color-5;
+  }
+}
+
+textarea {
+  min-height: 150px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-word-break: normal;
+  display: block;
+  width: 100%;
+  padding: $pad-xxs ;
+  overflow: hidden;
+  font-size: 0.5em;
+  border: solid 3px $color-4;
+  background: url(/images/icons/dropdown.svg) no-repeat right $color-4;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  position: relative;
+}

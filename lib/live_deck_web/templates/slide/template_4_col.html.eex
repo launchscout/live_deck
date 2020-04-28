@@ -1,4 +1,4 @@
-<section class="slide template--4col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--4col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
   <div>
     <h4>LiveDeck Roadmap</h4>
     <p>With the power of LiveView we have several real-time features planned for the future.</p>
