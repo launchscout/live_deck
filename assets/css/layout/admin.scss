@@ -19,6 +19,7 @@
     display: grid;
     grid-area: slides;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(300px, max-content));
     padding: $pad-lg $pad-lg $pad-xlg;
 
     &__slide {
@@ -54,8 +55,10 @@
   .global-admin {
     grid-area: global;
     width: 100%;
-    background-color: $color-4;
+    background-color: $color-3;
     box-shadow: 0px 0px 55px rgba($color-1, 0.1);
+    display: grid;
+    align-items: center;
 
     @media screen and (min-width: $screen-desktop) {
       height: 100vh;
@@ -63,7 +66,7 @@
       top: 0;
     }
 
-    &__title {
+    &__container {
       padding: $pad;
       text-align: center;
 
@@ -71,11 +74,12 @@
         -webkit-text-fill-color: unset;
         color: $color-1;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 600;
       }
 
       img {
-        margin: $pad-sm;
+        max-width: 5em;
+        margin: $pad-sm auto;
       }
     }
   }

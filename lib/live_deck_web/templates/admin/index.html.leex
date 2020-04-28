@@ -137,9 +137,24 @@
     </div>
   </section>
   <section class="global-admin">
-    <div class="global-admin__title">
+    <div class="global-admin__container">
       <img src="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/images/dill-orange-haired.svg") %>" alt="Dill the Monster" />
-      <h2>Presentation Settings</h2>
+      <h2 class="u-push-bottom">Deck Settings</h2>
+      <form>
+        <fieldset class="u-push-bottom">
+          <label for="deck-title">Deck Title:</label>
+          <input id="deck-title" value="My Awesome Talk" type="text" autocomplete="deck-title">
+          <label for="pres-date">Deck Presentation Date:</label>
+          <input id="pres-date" value="05/04/202" type="text" autocomplete="pres-dates">
+          <label for="slide-background">Slide Theme:</label>
+          <select id="slide-background" name="select">
+            <option value="1" selected>Live Deck Theme</option>
+            <option value="2">Naked Theme</option>
+            <option value="3">Crimson Command Line</option>
+          </select>
+        </fieldset>
+      </form>
+      <a href="/remate" class="btn">View Remote</a>
     </div>
   </section>
 </section>

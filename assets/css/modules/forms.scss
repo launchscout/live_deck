@@ -1,5 +1,17 @@
-label, input, textarea {
-font-size: 0.5em;
+label, input, textarea, select {
+  font-size: 1em;
+
+  @media screen and (min-width: $screen-tablet) {
+    font-size: 0.5em;
+  }
+}
+
+fieldset {
+  background-color: darken($color-3, 2%);
+  border-radius: 25px;
+  border: none;
+  padding: $pad-xs $pad-xs $pad-sm;
+  text-align: left;
 }
 
 input[type=text], textarea {
@@ -10,10 +22,16 @@ input[type=text], textarea {
   border-radius: 5px;
   font-weight: 800px;
   background-color: $color-4;
+  margin-bottom: $pad-sm;
   //box-shadow: inset 0px 0px 25px rgba($color-5, 0.05);
 
-  &:active {
+  @media screen and (min-width: $screen-tablet) {
+    margin-bottom: 0;
+  }
+
+  &:focus {
     border: solid 3px $color-5;
+    outline: none;
   }
 }
 
@@ -30,7 +48,6 @@ select {
   width: 100%;
   padding: $pad-xxs ;
   overflow: hidden;
-  font-size: 0.5em;
   border: solid 3px $color-4;
   background: url(/images/icons/dropdown.svg) no-repeat right $color-4;
   line-height: 1.2;
@@ -38,4 +55,14 @@ select {
   white-space: nowrap;
   word-break: normal;
   position: relative;
+  margin-bottom: $pad-sm;
+
+  @media screen and (min-width: $screen-tablet) {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    border: solid 3px $color-5;
+    outline: none;
+  }
 }
