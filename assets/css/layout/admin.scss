@@ -26,8 +26,8 @@
       border-radius: 25px;
     }
 
-    form {
-      margin: 0 $pad-sm;
+    &__settings {
+      margin: 0 $pad-sm $pad-sm;
 
       .grid {
         grid-gap: 5px;
@@ -59,6 +59,8 @@
 
     @media screen and (min-width: $screen-desktop) {
       height: 100vh;
+      position: sticky;
+      top: 0;
     }
 
     &__title {
