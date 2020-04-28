@@ -1,14 +1,14 @@
 defmodule LiveDeck.PresentationsTest do
   alias LiveDeck.Presentations
-  alias LiveDeck.Presentations.Presentation
+  alias LiveDeck.Presentations.{Presentation, Slide}
   use ExUnit.Case
 
   describe "load/0" do
     test "bootstraps a presentation struct" do
       presentation = Presentations.load()
 
-      for slide <- presentation.slides do
-        assert String.ends_with?(slide, ".html")
+      for %Slide{filename: filename} <- presentation.slides do
+        assert String.ends_with?(filename, ".html")
       end
     end
   end
@@ -49,7 +49,9 @@ defmodule LiveDeck.PresentationsTest do
   describe "current_slide/1" do
     test "returns title of slide at active index" do
       presentation = Presentations.load()
-      assert presentation |> Presentations.current_slide() == List.first(presentation.slides)
+
+      assert presentation |> Presentations.current_slide() ==
+               List.first(presentation.slides).filename
     end
   end
 

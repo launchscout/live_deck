@@ -4,7 +4,7 @@ defmodule LiveDeckWeb.AdminLiveTest do
 
   describe "AdminLive" do
     test "renders", %{conn: conn} do
-      {:ok, view, html} = live(conn, "/admin")
+      {:ok, _view, html} = live(conn, "/admin")
 
       assert html =~ ~s(data-testid="AdminLiveView")
     end

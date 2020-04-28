@@ -5,7 +5,6 @@ defmodule LiveDeck.Presentations.Presentation do
   """
   alias LiveDeck.Presentations.Slide
 
-  @slides Slide.all()
   @enforce_keys [:active_index]
   defstruct slides: [],
             active_index: 0,
@@ -44,10 +43,12 @@ defmodule LiveDeck.Presentations.Presentation do
   """
   @spec new() :: t()
   def new do
+    slides = Slide.all()
+
     %__MODULE__{
-      slides: @slides,
+      slides: slides,
       active_index: 0,
-      last_index: length(@slides) - 1
+      last_index: length(slides) - 1
     }
   end
 
@@ -55,5 +56,6 @@ defmodule LiveDeck.Presentations.Presentation do
   Returns title of slide at the Presentation's active index
   """
   @spec current_slide(t()) :: Slide.title()
-  def current_slide(%__MODULE__{active_index: index, slides: slides}), do: Enum.at(slides, index)
+  def current_slide(%__MODULE__{active_index: index, slides: slides}),
+    do: Enum.at(slides, index).filename
 end

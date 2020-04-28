@@ -3,6 +3,16 @@ defmodule LiveDeck.Presentations.Slide do
   This module exposes functions for working
   with Slides.
   """
+  use Ecto.Schema
+  alias LiveDeck.Repo
+  import Ecto.Changeset
+
+  schema "slides" do
+    field :filename, :string
+    field :background_color, :string
+    field :title, :string
+  end
+
   @type title :: String.t()
 
   @slides_dir "../../live_deck_web/templates/slide/" |> Path.expand(__DIR__)
@@ -12,6 +22,16 @@ defmodule LiveDeck.Presentations.Slide do
            end)
 
   def all do
-    @slides
+    for filename <- @slides do
+      case Repo.get_by(__MODULE__, filename: filename) do
+        nil ->
+          %__MODULE__{}
+          |> change(%{filename: filename})
+          |> Repo.insert!()
+
+        slide ->
+          slide
+      end
+    end
   end
 end
