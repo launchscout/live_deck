@@ -15,7 +15,7 @@
   }
 
   .slide-admin {
-    grid-gap: $pad-lg;
+    grid-gap: $pad;
     display: grid;
     grid-area: slides;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -23,7 +23,7 @@
     padding: $pad-lg $pad-lg $pad-xlg;
 
     &__slide {
-      background-color: darken($color-3, 2%);
+      background-color: darken($color-3, 4%);
       border-radius: 25px;
     }
 

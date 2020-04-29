@@ -7,7 +7,7 @@ label, input, textarea, select {
 }
 
 fieldset {
-  background-color: darken($color-3, 2%);
+  background-color: darken($color-3, 4%);
   border-radius: 25px;
   border: none;
   padding: $pad-xs $pad-xs $pad-sm;
@@ -36,7 +36,7 @@ input[type=text], textarea {
 }
 
 textarea {
-  min-height: 150px;
+  min-height: 100px;
 }
 
 select {
