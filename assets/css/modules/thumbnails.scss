@@ -1,0 +1,15 @@
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  background: darken($color-5, 5%);
+  border-radius: 25px;
+  color: $color-3;
+  margin: $pad-sm 0;
+  padding: $pad-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7em;
+  text-decoration: none;
+}

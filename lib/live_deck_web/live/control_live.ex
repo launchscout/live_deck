@@ -17,8 +17,17 @@ defmodule LiveDeckWeb.ControlLive do
       |> assign_timer(Timer.init())
       |> assign(:timer_start_class, "")
       |> assign(:show_notes?, false)
+      |> assign(:menu_class, "")
+      |> assign(:menu_drawer, "")
 
     {:ok, socket}
+  end
+
+  def handle_event("toggle_menu", _, socket) do
+    case socket.assigns.menu_class do
+      "" -> {:noreply, assign(socket, menu_class: "hamburger--close", menu_drawer: "menu--open")}
+      "hamburger--close" -> {:noreply, assign(socket, menu_class: "", menu_drawer: "menu--close")}
+    end
   end
 
   def render(assigns) do
