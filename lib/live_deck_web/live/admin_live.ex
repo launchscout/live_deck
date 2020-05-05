@@ -3,12 +3,16 @@ defmodule LiveDeckWeb.AdminLive do
   Live view for the admin screen
   """
   use Phoenix.LiveView
+  alias LiveDeck.Presentations
+  alias LiveDeckWeb.AdminView
 
   def mount(_params, _session, socket) do
-    {:ok, assign(socket, stuff: "value")}
+    presentation = Presentations.load()
+
+    {:ok, assign(socket, presentation: presentation)}
   end
 
   def render(assigns) do
-    Phoenix.View.render(LiveDeckWeb.AdminView, "index.html", assigns)
+    AdminView.render("index.html", assigns)
   end
 end

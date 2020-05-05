@@ -26,7 +26,7 @@ defmodule LiveDeck.Presentations.Slide do
       case Repo.get_by(__MODULE__, filename: filename) do
         nil ->
           %__MODULE__{}
-          |> change(%{filename: filename})
+          |> change(%{filename: filename, title: filename})
           |> Repo.insert!()
 
         slide ->
