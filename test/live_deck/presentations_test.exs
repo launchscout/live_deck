@@ -1,7 +1,7 @@
 defmodule LiveDeck.PresentationsTest do
   alias LiveDeck.Presentations
   alias LiveDeck.Presentations.{Presentation, Slide}
-  use ExUnit.Case
+  use ExUnit.Case, async: false
 
   describe "load/0" do
     test "bootstraps a presentation struct" do
@@ -9,6 +9,15 @@ defmodule LiveDeck.PresentationsTest do
 
       for %Slide{filename: filename} <- presentation.slides do
         assert String.ends_with?(filename, ".html")
+      end
+    end
+
+    test "strips .html and underscores out of the filename to create the title" do
+      presentation = Presentations.load()
+
+      for slide <- presentation.slides do
+        refute String.ends_with?(slide.title, ".html")
+        refute String.contains?(slide.title, "_")
       end
     end
   end

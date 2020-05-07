@@ -16,22 +16,29 @@ defmodule LiveDeck.Presentations.Slide do
   @type title :: String.t()
 
   @slides_dir "../../live_deck_web/templates/slide/" |> Path.expand(__DIR__)
-  @slides (for slide <- @slides_dir |> File.ls!() do
-             @external_resource Path.relative_to_cwd(@slides_dir <> slide)
-             String.replace(slide, ".eex", "")
-           end)
-
   def all do
-    for filename <- @slides do
+    for filename <- slides() do
       case Repo.get_by(__MODULE__, filename: filename) do
         nil ->
           %__MODULE__{}
-          |> change(%{filename: filename, title: filename})
+          |> change(%{filename: filename, title: filename_to_title(filename)})
           |> Repo.insert!()
 
         slide ->
           slide
       end
+    end
+  end
+
+  defp filename_to_title(filename) do
+    filename
+    |> String.replace(".html", "")
+    |> String.replace("_", " ")
+  end
+
+  defp slides do
+    for slide <- @slides_dir |> File.ls!() do
+      String.replace(slide, ".eex", "")
     end
   end
 end
