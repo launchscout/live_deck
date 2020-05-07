@@ -1,4 +1,7 @@
 defmodule LiveDeckWeb.Admin.SlideCardComponent do
+  @moduledoc """
+  Component that represents a single slide object.
+  """
   use Phoenix.LiveComponent
   alias LiveDeckWeb.AdminView
 
