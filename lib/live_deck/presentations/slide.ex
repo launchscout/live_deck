@@ -34,6 +34,9 @@ defmodule LiveDeck.Presentations.Slide do
     filename
     |> String.replace(".html", "")
     |> String.replace("_", " ")
+    |> String.split()
+    |> Enum.map(fn word -> String.capitalize(word) end)
+    |> Enum.join(" ")
   end
 
   defp slides do
