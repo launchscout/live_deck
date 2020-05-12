@@ -28,6 +28,14 @@ defmodule LiveDeck.PresentationsTest do
         assert Regex.match?(~r/([A-Z]|\d)/, <<first_letter>>)
       end)
     end
+
+    test "orders slide based off config", %{presentation: presentation} do
+      first_slide = List.first(presentation.slides)
+      last_slide = List.last(presentation.slides)
+
+      assert first_slide.position == 0
+      assert last_slide.position == length(presentation.slides) - 1
+    end
   end
 
   describe "next_slide/1" do
