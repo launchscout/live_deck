@@ -1,0 +1,63 @@
+.error-page {
+  background: linear-gradient(160deg, #454545, #252525);
+  color: $color-3;
+  display: block;
+  overflow: scroll;
+  text-align: center;
+
+  h1 {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+  }
+
+  &__content {
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    min-height: 100vh;
+    overflow: scroll;
+    padding: $pad-lg $pad $pad-xlg;
+    width: 100%;
+
+    h1, h2, h3, h4, h5 {
+      background: unset;
+      color: $color-3;
+      -webkit-text-fill-color: unset;
+    }
+
+    h3, h4, h5 {
+      font-weight: 800;
+    }
+
+    h4 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-weight: 200;
+    }
+  }
+  &__header {
+    text-align: left;
+    margin-left: $pad;
+    position: relative;
+
+    &::before {
+      content: url("/images/error-x-01.svg");
+      display: block;
+      position: absolute;
+        top: 30px;
+        left: -30px;
+    }
+
+    &::after {
+      content: url("/images/error-x-02.svg");
+      display: block;
+      position: absolute;
+        top: -40px;
+        left: 100px;
+    }
+  }
+}
