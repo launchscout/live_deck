@@ -26,4 +26,9 @@ defmodule LiveDeckWeb.ErrorViewTest do
     assert render_to_string(LiveDeckWeb.ErrorView, "500.html", conn: conn) =~
              ~s(data-testid="500-page")
   end
+
+  test "template not found", %{conn: conn} do
+    assert LiveDeckWeb.ErrorView.template_not_found("some_non_existent_template.html", conn: conn) =~
+             "Internal Server Error"
+  end
 end
