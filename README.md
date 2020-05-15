@@ -26,7 +26,17 @@ CI will run the following commands on the codebase:
 3. `mix coveralls --trace` (tests + test coverage)
 4. `mix dialyzer` (static type analysis)
 
-Run these commands as you are developing to catch any errors prior to running your commits through CI. 
+Run these commands as you are developing to catch any errors prior to running your commits through CI.
+
+## Development stage code quality check
+
+Run `mix check` to check code quality. 
+
+It checks compiler, credo, dialyzer, ex_doc, ex_unit, formatter, npm_test and sobelow by default. `excoveralls` is added to config file. To skip any check add `{:toolname, false},` in the tools array of `.check.exs` file. To add custom command on a tool add `{:toolname, command: "mix command"}` in the tools array of `.check.exs` file.
+
+For more info visit:
+https://github.com/karolsluszniak/ex_check
+https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
 
 ## More Info
 
