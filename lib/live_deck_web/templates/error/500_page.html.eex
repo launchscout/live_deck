@@ -19,7 +19,7 @@
 
     <%= csrf_meta_tag() %>
   </head>
-  <body class="error-page">
+  <body class="error-page" data-testid="500-page">
     <h1>500</h1>
     <div class="error-page__content">
       <div class="error-page__illustration">
