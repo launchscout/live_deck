@@ -10,7 +10,8 @@ defmodule LiveDeck.Presentations.Slide do
     :filename,
     :background_color,
     :title,
-    :position
+    :position,
+    :notes
   ]
 
   @type title :: String.t()
@@ -22,7 +23,8 @@ defmodule LiveDeck.Presentations.Slide do
       %__MODULE__{
         struct
         | title: format_title(slide[:title] || slide.filename),
-          position: position
+          position: position,
+          notes: slide.notes
       }
     end
   end

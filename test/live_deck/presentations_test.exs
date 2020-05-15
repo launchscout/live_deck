@@ -36,6 +36,10 @@ defmodule LiveDeck.PresentationsTest do
       assert first_slide.position == 0
       assert last_slide.position == length(presentation.slides) - 1
     end
+
+    test "inserts notes on slides", %{presentation: presentation} do
+      assert Enum.all?(presentation.slides, fn slide -> slide.notes end)
+    end
   end
 
   describe "next_slide/1" do
