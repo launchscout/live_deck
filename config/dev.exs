@@ -17,7 +17,7 @@ config :live_deck, LiveDeck.Repo,
 # with webpack to recompile .js and .css sources.
 config :live_deck, LiveDeckWeb.Endpoint,
   http: [port: 4000],
-  debug_errors: false,
+  debug_errors: true,
   secret_key_base: "B6l0Z1Jb1CYfqVed1oJNRlxWknzsNj4Cuqqr+iAVsPm7+ISaUzSzvOz6dSfSqmWt",
   live_view: [signing_salt: "B6l0Z1Jb1CYfqVed1oJNRlxWknzsNj4Cuqqr+iAVsPm7+ISaUzSzvOz6dSfSqmWt"],
   code_reloader: true,
