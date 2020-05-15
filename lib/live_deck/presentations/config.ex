@@ -3,10 +3,11 @@ defmodule LiveDeck.Presentations.Config do
     Use this Configuration to adjust Presentation settings, including position, background color, and title of slides.
   """
 
-  @default_theme "live-deck-theme"
+  @default_theme "app-live-deck"
+  @default_background "back--1"
   @default_slides [
     %{filename: "template_4_col.html", title: "overridden title"},
-    %{filename: "template_3_col.html", background_color: "overridden color"},
+    %{filename: "template_3_col.html", background_color: "back--2"},
     %{filename: "template_quote.html"},
     %{filename: "template_2_col.html"},
     %{filename: "template_right_aside.html"},
