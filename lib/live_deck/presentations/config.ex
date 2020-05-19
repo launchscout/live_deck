@@ -25,12 +25,23 @@ defmodule LiveDeck.Presentations.Config do
   def slides do
     @default_slides
     |> insert_notes()
+    |> insert_background_color()
   end
 
   def insert_notes(slides) do
     slides
     |> Enum.map(fn %{filename: filename} = config ->
       Map.put(config, :notes, notes(for: filename))
+    end)
+  end
+
+  defp insert_background_color(slides) do
+    slides
+    |> Enum.map(fn config ->
+      case config[:background_color] do
+        nil -> Map.put(config, :background_color, @default_background)
+        _ -> config
+      end
     end)
   end
 
