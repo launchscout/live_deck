@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= assigns[:page_title] || "LiveDeck · Phoenix Framework" %></title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.scss") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app-live-deck.scss") %>"/>
+
+    <link rel="icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+
+    <%= csrf_meta_tag() %>
+  </head>
+  <body class="error-page" data-testid="500-page">
+    <h1>500</h1>
+    <div class="error-page__content">
+      <div class="error-page__illustration">
+        <h4 class="error-page__header">Doh!</h4>
+        <img src="/images/error-monster.svg" alt="error-monster"/>
+      </div>
+      <h4>Whoops, something went wrong!</h4>
+      <p class="u-push-top--xs">Let's head back to where you came from.</p>
+      <a href="/" class="btn u-push-top">
+        <svg style="padding-bottom: 4px;" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+          <path d="M0 0h24v24H0z" fill="none"/>
+          <path fill="#f7f7f7" d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21z"/>
+        </svg>
+        Back
+      </a>
+    </div>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

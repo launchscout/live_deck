@@ -11,6 +11,9 @@ input[type="button"]{
    }
 }
 
+a.btn {
+  text-decoration: none;
+}
 
 .btn {
     box-sizing: border-box;
@@ -24,7 +27,7 @@ input[type="button"]{
     transform: scale(1.0, 1.0);
     text-decoration: none;
 
-    img {
+    img, svg {
       display: inline-block;
       width: 1.5em;
       max-height: 1.5em;
