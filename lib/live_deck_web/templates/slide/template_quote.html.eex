@@ -1,4 +1,4 @@
-<section class="slide template--quote" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--quote">
   <div class="blockquote__image">
     <img src="/images/rocket-dog.jpg" alt="josie" />
   </div>

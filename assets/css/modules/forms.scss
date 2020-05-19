@@ -1,0 +1,68 @@
+label, input, textarea, select {
+  font-size: 1em;
+
+  @media screen and (min-width: $screen-tablet) {
+    font-size: 0.5em;
+  }
+}
+
+fieldset {
+  background-color: darken($color-3, 4%);
+  border-radius: 25px;
+  border: none;
+  padding: $pad-xs $pad-xs $pad-sm;
+  text-align: left;
+}
+
+input[type=text], textarea {
+  display: block;
+  border: solid 3px $color-4;
+  padding: $pad-xxs;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: 800px;
+  background-color: $color-4;
+  margin-bottom: $pad-sm;
+  //box-shadow: inset 0px 0px 25px rgba($color-5, 0.05);
+
+  @media screen and (min-width: $screen-tablet) {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    border: solid 3px $color-5;
+    outline: none;
+  }
+}
+
+textarea {
+  min-height: 100px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -ms-word-break: normal;
+  display: block;
+  width: 100%;
+  padding: $pad-xxs ;
+  overflow: hidden;
+  border: solid 3px $color-4;
+  background: url(/images/icons/dropdown.svg) no-repeat right $color-4;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: normal;
+  position: relative;
+  margin-bottom: $pad-sm;
+
+  @media screen and (min-width: $screen-tablet) {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    border: solid 3px $color-5;
+    outline: none;
+  }
+}

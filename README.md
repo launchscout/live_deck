@@ -1,5 +1,5 @@
 # LiveDeck
-LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and LiveView. The web-based slide deck features provide the ability to display real-time data and for engaging audience interactions. 
+LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and LiveView. The web-based slide deck features provide the ability to display real-time data and for engaging audience interactions.
 
 [![Coverage Status](https://coveralls.io/repos/github/gaslight/live_deck/badge.svg)](https://coveralls.io/github/gaslight/live_deck)
 [![CircleCI](https://circleci.com/gh/gaslight/live_deck.svg?style=svg)](https://circleci.com/gh/gaslight/live_deck)
@@ -12,12 +12,14 @@ To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
+  * Install Node.js dependencies with `npm --prefix=assets install` (append `--force phoenix_live_view` to update the NPM Live View dependency if there has been an update to the phoenix_live_view mix dep since your last run of the project)
   * Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 ## Contributing
+
+#### CI
 
 CI will run the following commands on the codebase:
 
@@ -26,9 +28,7 @@ CI will run the following commands on the codebase:
 3. `mix coveralls --trace` (tests + test coverage)
 4. `mix dialyzer` (static type analysis)
 
-Run these commands as you are developing to catch any errors prior to running your commits through CI.
-
-## Development stage code quality check
+#### Local Development
 
 Run `mix check` to check code quality. 
 

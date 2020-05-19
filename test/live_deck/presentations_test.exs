@@ -1,15 +1,44 @@
 defmodule LiveDeck.PresentationsTest do
   alias LiveDeck.Presentations
-  alias LiveDeck.Presentations.Presentation
-  use ExUnit.Case
+  alias LiveDeck.Presentations.{Presentation, Slide}
+  use ExUnit.Case, async: false
 
   describe "load/0" do
-    test "bootstraps a presentation struct" do
-      presentation = Presentations.load()
+    setup :load_presentation
 
-      for slide <- presentation.slides do
-        assert String.ends_with?(slide, ".html")
+    test "bootstraps a presentation struct", %{presentation: presentation} do
+      for %Slide{filename: filename} <- presentation.slides do
+        assert String.ends_with?(filename, ".html")
       end
+    end
+
+    test "strips .html and underscores out of the filename to create the title", %{
+      presentation: presentation
+    } do
+      for slide <- presentation.slides do
+        refute String.ends_with?(slide.title, ".html")
+        refute String.contains?(slide.title, "_")
+      end
+    end
+
+    test "capitalizes the words in the title", %{presentation: presentation} do
+      slide = List.first(presentation.slides)
+
+      Enum.each(String.split(slide.title), fn <<first_letter, _rest::binary>> ->
+        assert Regex.match?(~r/([A-Z]|\d)/, <<first_letter>>)
+      end)
+    end
+
+    test "orders slide based off config", %{presentation: presentation} do
+      first_slide = List.first(presentation.slides)
+      last_slide = List.last(presentation.slides)
+
+      assert first_slide.position == 0
+      assert last_slide.position == length(presentation.slides) - 1
+    end
+
+    test "inserts notes on slides", %{presentation: presentation} do
+      assert Enum.all?(presentation.slides, fn slide -> slide.notes end)
     end
   end
 
@@ -47,9 +76,11 @@ defmodule LiveDeck.PresentationsTest do
   end
 
   describe "current_slide/1" do
-    test "returns title of slide at active index" do
+    test "returns the slide at the active index" do
       presentation = Presentations.load()
-      assert presentation |> Presentations.current_slide() == List.first(presentation.slides)
+
+      assert presentation |> Presentations.current_slide() ==
+               List.first(presentation.slides)
     end
   end
 
@@ -70,5 +101,9 @@ defmodule LiveDeck.PresentationsTest do
   defp subscribe(context) do
     Presentations.subscribe()
     context
+  end
+
+  defp load_presentation(context) do
+    Map.merge(context, %{presentation: Presentations.load()})
   end
 end
