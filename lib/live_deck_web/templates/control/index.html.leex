@@ -37,7 +37,7 @@
     </section>
     <section class="remote__body">
       <div class="title--next">
-        <h2><%= LiveDeck.Presentations.current_slide(@presentation) %></h2>
+        <h2><%= LiveDeck.Presentations.current_slide(@presentation).title %></h2>
       </div>
       <div class="remote__nav">
         <button phx-click="next" class="next">

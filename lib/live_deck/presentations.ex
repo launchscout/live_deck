@@ -27,7 +27,7 @@ defmodule LiveDeck.Presentations do
   @doc """
   Returns the title of the current slide
   """
-  @spec current_slide(Presentation.t()) :: Slide.title()
+  @spec current_slide(Presentation.t()) :: Slide.t()
   def current_slide(presentation) do
     Presentation.current_slide(presentation)
   end

@@ -1,4 +1,4 @@
-<section class="slide__content template--side-image" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--side-image">
   <div class="copy">
     <h4>Share on Multipule Devices</h4>
     <p>As a web-based app the presentation deck and the deck remote can be shared on any device with a url.</p>

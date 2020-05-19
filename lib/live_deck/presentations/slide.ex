@@ -14,8 +14,16 @@ defmodule LiveDeck.Presentations.Slide do
     :notes
   ]
 
+  @type t :: %__MODULE__{
+          filename: String.t(),
+          background_color: String.t(),
+          title: String.t(),
+          position: non_neg_integer(),
+          notes: String.t()
+        }
   @type title :: String.t()
 
+  @spec all() :: list(t())
   def all do
     for {slide, position} <- Config.slides() |> Enum.with_index() do
       struct = struct(__MODULE__, slide)

@@ -76,11 +76,11 @@ defmodule LiveDeck.PresentationsTest do
   end
 
   describe "current_slide/1" do
-    test "returns title of slide at active index" do
+    test "returns the slide at the active index" do
       presentation = Presentations.load()
 
       assert presentation |> Presentations.current_slide() ==
-               List.first(presentation.slides).filename
+               List.first(presentation.slides)
     end
   end
 

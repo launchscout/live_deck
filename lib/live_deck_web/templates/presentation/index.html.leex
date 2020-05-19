@@ -22,8 +22,8 @@
     <p class="header__date">Jan 5th, 2020</p>
   </header>
 
-  <section phx-hook="BackgroundClassHook" data-background-class="<%= @background %>" data-testid="PresentationsLiveView">
-    <%= Phoenix.View.render(LiveDeckWeb.SlideView, LiveDeck.Presentations.current_slide(@presentation), assigns) %>
+  <section phx-hook="BackgroundClassHook" data-background-class="<%= @slide.background_color %>" data-testid="PresentationsLiveView">
+    <%= Phoenix.View.render(LiveDeckWeb.SlideView, @slide.filename, assigns) %>
   </section>
 
   <footer class="slide__footer">

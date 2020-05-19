@@ -1,4 +1,4 @@
-<section class="slide__content template--right-aside" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--right-aside">
   <div>
     <h3>An Open Source Slide Deck Project That Utilizes Elixir, Pheonix, and LiveView.</h3>
   </div>

@@ -3,7 +3,7 @@ defmodule LiveDeckWeb.PresentationLive do
   Live view for presentation
   """
   use Phoenix.LiveView
-  alias LiveDeck.Controls
+  alias LiveDeck.{Controls, Presentations}
 
   def mount(_params, _session, socket) do
     Controls.start()
@@ -12,7 +12,7 @@ defmodule LiveDeckWeb.PresentationLive do
       Controls.subscribe()
     end
 
-    {:ok, assign(socket, background: "back--1", presentation: Controls.get_presentation())}
+    {:ok, assign(socket, :slide, Presentations.current_slide(Controls.get_presentation()))}
   end
 
   def render(assigns) do
@@ -20,6 +20,6 @@ defmodule LiveDeckWeb.PresentationLive do
   end
 
   def handle_info(%{event: "presentation_update", payload: presentation}, socket) do
-    {:noreply, assign(socket, presentation: presentation)}
+    {:noreply, assign(socket, :slide, Presentations.current_slide(presentation))}
   end
 end

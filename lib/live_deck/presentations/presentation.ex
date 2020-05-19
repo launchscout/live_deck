@@ -55,7 +55,7 @@ defmodule LiveDeck.Presentations.Presentation do
   @doc """
   Returns title of slide at the Presentation's active index
   """
-  @spec current_slide(t()) :: Slide.title()
+  @spec current_slide(t()) :: Slide.t()
   def current_slide(%__MODULE__{active_index: index, slides: slides}),
-    do: Enum.at(slides, index).filename
+    do: Enum.at(slides, index)
 end

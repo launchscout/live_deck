@@ -1,4 +1,4 @@
-<section class="slide__content template--left-aside" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--left-aside">
   <aside>
     <div class="aside_content">
     <div class="u-padded">

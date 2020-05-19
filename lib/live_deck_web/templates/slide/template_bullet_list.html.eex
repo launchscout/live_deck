@@ -1,4 +1,4 @@
-<section class="slide__content" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content">
   <h2>The Ease of LiveDeck</h2>
   <ul>
     <li>Create A Sweet Deck with basic HTML and CSS</li>

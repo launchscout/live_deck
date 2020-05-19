@@ -8,7 +8,7 @@ defmodule LiveDeck.Presentations.Config do
   @default_slides [
     %{filename: "template_4_col.html", title: "overridden title"},
     %{filename: "template_3_col.html", background_color: "back--2"},
-    %{filename: "template_quote.html"},
+    %{filename: "template_quote.html", background_color: "back--3"},
     %{filename: "template_2_col.html"},
     %{filename: "template_right_aside.html"},
     %{filename: "template_title.html"},
@@ -47,6 +47,10 @@ defmodule LiveDeck.Presentations.Config do
 
   defp notes(for: @dummy) do
     "Hi. I am your notes."
+  end
+
+  defp notes(for: "template_2_col.html") do
+    "I am some more notes for your reading pleasure while you are presenting."
   end
 
   defp notes(_), do: ""

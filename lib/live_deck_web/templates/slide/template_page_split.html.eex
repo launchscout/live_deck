@@ -1,4 +1,4 @@
-<section class="slide__content template--split" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--split">
   <div>
     <h3>Easy to Setup</h3>
     <p>Fork the LiveDeck repo  and start up your local pheonix server. Also check out our documentation for commands that build our pre made templates.</p>

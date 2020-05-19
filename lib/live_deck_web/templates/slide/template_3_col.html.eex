@@ -1,4 +1,4 @@
-<section class="slide__content template--3col" phx-hook="BackgroundClassHook" data-background-class="<%= @background %>">
+<section class="slide__content template--3col">
   <div>
     <h3>Elixir</h3>
     <p>A functional web development language known for it's low-latency and fault-tolerant systems.</p>
