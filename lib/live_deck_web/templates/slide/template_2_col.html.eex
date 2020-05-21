@@ -1,10 +1,9 @@
-<section class="slide__content template--2col">
+<section class="slide__content template--2col u-grid--center">
   <div>
-    <h3>What is LiveDeck?</h3>
-    <p>LiveDeck is a slide deck tool created for devlopers and web designers. It's is built with Elixir and Phoenix allowing for more rich interactions than your average presentation softweare.</p>
+    <h3>Configure Your Deck</h3>
+    <p>Set your presentation theme, slide order, slide titles, slide backrounds, and slide notes in the preentation config file.</p>
   </div>
   <div>
-    <h3>Why create LiveDeck?</h3>
-    <p>Our team eanted a presentation tool that is simple to use and powerful in realtime interactions. We also wanted the ability to easily spin up presentations using our skill sets as developers.</p>
+    <img src="/images/deck-config.jpg" alt="team galsight"/>
   </div>
 </section>

@@ -1,12 +1,12 @@
 <section class="slide__content template--split">
   <div>
-    <h3>Easy to Setup</h3>
-    <p>Fork the LiveDeck repo  and start up your local pheonix server. Also check out our documentation for commands that build our pre made templates.</p>
+    <h3>For Developers</h3>
+    <p>LiveDeck was created to fit with how developers work and to provide them with a deck thay can fully customize. </p>
   </div>
   <aside>
     <div>
-      <h3>Easy to Deploy</h3>
-      <p>Some Information about deploying your LiveDeck.</p>
+      <h3>By Developers</h3>
+      <p>A group of front-end and back-end developers worked togeather to build a presentation tool they would prefer.</p>
     </div>
   </aside>
 </section>

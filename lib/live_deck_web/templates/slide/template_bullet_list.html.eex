@@ -1,8 +1,9 @@
 <section class="slide__content">
   <h2>The Ease of LiveDeck</h2>
   <ul>
-    <li>Create A Sweet Deck with basic HTML and CSS</li>
-    <li>Share Your Deck and Co-Present on the Web</li>
+    <li>Share Your Deck and Co-Present through the Web</li>
+    <li>Create A Sweet Slides with Basic Markup</li>
+    <li>Configure Your Deck with Elixir</li>
     <li>Switch Between Pre-Made Themes and Backgrounds</li>
   </ul>
 </section>
