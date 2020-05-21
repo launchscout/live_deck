@@ -5,8 +5,8 @@
     <section class="remote__header">
       <div class="remote__count header__count">
         <div class="count__grid">
-          <div class="count--curent" data-current-slide=<%= @current_slide %>>
-            <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+          <div class="count--curent" data-current-slide=<%= @current_slide_index %>>
+            <%= @current_slide_index %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
           </div>
         </div>
       </div>
@@ -37,7 +37,7 @@
     </section>
     <section class="remote__body">
       <div class="title--next">
-        <h2><%= LiveDeck.Presentations.current_slide(@presentation).title %></h2>
+        <h2><%= @current_slide.title %></h2>
       </div>
       <div class="remote__nav">
         <button phx-click="next" class="next">
@@ -55,7 +55,9 @@
       </div>
       <div class="remote__sub-nav">
           <button phx-click="prev" class="btn"><p>Previous</p></button>
-          <button class="btn notes__btn"><p>Notes</p></button>
+          <%= unless @current_slide.notes == "" do %>
+            <button phx-click="toggle_notes" class="btn notes__btn" data-testid="notes-button"><p>Notes</p></button>
+          <% end %>
       </div>
     </section>
     <section class="remote__footer">
@@ -63,8 +65,8 @@
       </div>
       <div class="remote__count footer__count">
         <div class="count__grid">
-          <div class="count--curent" data-current-slide=<%= @current_slide %>>
-            <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+          <div class="count--curent" data-current-slide=<%= @current_slide_index %>>
+            <%= @current_slide_index %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
           </div>
         </div>
       </div>
@@ -81,5 +83,8 @@
         <% end %>
       </div>
     </section>
+    <%= if @show_notes? do %>
+      <%= render "_notes_modal.html", presentation: @presentation, current_slide_index: @current_slide_index, current_slide: @current_slide %>
+    <% end %>
   </div>
 </div>
