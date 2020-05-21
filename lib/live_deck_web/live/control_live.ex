@@ -61,7 +61,8 @@ defmodule LiveDeckWeb.ControlLive do
   defp assign_presentation(presentation, socket) do
     socket
     |> assign(presentation: presentation)
-    |> assign(current_slide: presentation.active_index + 1)
+    |> assign(current_slide_index: presentation.active_index + 1)
+    |> assign(current_slide: LiveDeck.Presentations.current_slide(presentation))
   end
 
   defp assign_timer(socket, timer) do

@@ -1,17 +1,17 @@
 <div class="modal" data-testid="NotesModal">
   <div class="modal__window" aria-labelledby="Modal Title" role="dialog">
     <header class="modal__header">
-      <h2 id="Modal Title"><%= LiveDeck.Presentations.current_slide(@presentation) %></h2>
+      <h2 id="Modal Title"><%= @current_slide.title %></h2>
       <h2 id="Notes Title">Notes</h2>
     </header>
     <div class="modal__body">
-      <p>Here are some notes to make the presenter seem to know what they are talking about. Don't screw it up!</p>
+      <p><%= @current_slide.notes %></p>
     </div>
     <footer class="modal__footer">
       <div class="remote__count footer__count">
         <div class="count__grid">
-          <div class="count--curent" data-current-slide=<%= @current_slide %>>
-            <%= @current_slide %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
+          <div class="count--curent" data-current-slide=<%= @current_slide_index %>>
+            <%= @current_slide_index %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
           </div>
         </div>
       </div>
