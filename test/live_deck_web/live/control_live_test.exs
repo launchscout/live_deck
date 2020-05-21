@@ -30,6 +30,14 @@ defmodule LiveDeckWeb.ControlLiveTest do
       render_click(view, "start_timer")
       assert render_click(view, "stop_timer") =~ ~s(Start Timer)
     end
+
+    test "renders the notes button if the slide has notes", %{html: html} do
+      assert html =~ ~s(data-testid="notes-button")
+    end
+
+    test "does not render the notes button if the slide has no notes", %{view: view} do
+      refute render_click(view, "next") =~ ~s(data-testid="notes-button")
+    end
   end
 
   describe "notes modal" do
