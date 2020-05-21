@@ -1,18 +1,18 @@
 <section class="slide__content template--4col">
   <div>
-    <h4>LiveDeck Roadmap</h4>
+    <h4>LiveDeck<br />Roadmap</h4>
     <p>With the power of LiveView we have several real-time features planned for the future.</p>
   </div>
   <div>
-    <h4>Audience Interactions</h4>
+    <h4>Audience<br />Interactions</h4>
     <p>Future releases will include features allowing the audience to respond in real-time.</p>
   </div>
   <div>
-    <h4>Live Data in the Deck</h4>
+    <h4>Live Data<br />in the Deck</h4>
     <p>Who will need to update their deck with charts and tables are connected to live data!</p>
   </div>
   <div>
-    <h4>Sharing is Caring</h4>
+    <h4>Sharing<br />is Caring</h4>
     <p>Releases will also include new ways to share a presentation when a talk is complete.</p>
   </div>
 </section>

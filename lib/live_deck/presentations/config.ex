@@ -6,18 +6,34 @@ defmodule LiveDeck.Presentations.Config do
   @default_theme "app-live-deck"
   @default_background "back--1"
   @default_slides [
-    %{filename: "template_4_col.html", title: "overridden title"},
-    %{filename: "template_3_col.html", background_color: "back--2"},
-    %{filename: "template_quote.html", background_color: "back--3"},
-    %{filename: "template_2_col.html"},
-    %{filename: "template_right_aside.html"},
-    %{filename: "template_title.html"},
-    %{filename: "template_side_image.html"},
-    %{filename: "template_page_split.html"},
+    %{
+      filename: "template_title.html",
+      title: "LiveDeck Introduction",
+      background_color: "back--2"
+    },
+    %{
+      filename: "template_right_aside.html",
+      title: "Created with Elixir, Phoenix, and LiveView",
+      background_color: "back--3"
+    },
+    %{filename: "template_page_split.html", title: "Created For Developers"},
+    %{
+      filename: "template_quote.html",
+      title: "Better Than the Rest",
+      background_color: "back--3"
+    },
+    %{filename: "template_3_col.html", title: "What We Used"},
+    %{filename: "template_bullet_list.html", title: "Easy To Use"},
+    %{
+      filename: "template_side_image.html",
+      title: "Configure Your Deck",
+      background_color: "back--3"
+    },
+    %{filename: "template_left_aside.html", title: "Deck remote", background_color: "back--2"},
+    %{filename: "template_2_col.html", title: "Configure Your Deck", background_color: "back--3"},
     %{filename: "template_quote_alt.html"},
-    %{filename: "template_bullet_list.html"},
-    %{filename: "template_full_image.html"},
-    %{filename: "template_left_aside.html"}
+    %{filename: "template_4_col.html", title: "LiveDeck Roadmap"},
+    %{filename: "template_full_image.html"}
   ]
   # This is for testing purposes
   @dummy List.first(@default_slides).filename
