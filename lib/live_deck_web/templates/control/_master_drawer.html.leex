@@ -1,0 +1,7 @@
+<div class="master-drawer" data-testid="MasterDrawer">
+  <%= for slide_number <- 0..@presentation.last_index do %>
+    <iframe id="slide-<%= slide_number %>">
+
+    </iframe>
+  <% end %>
+</div>

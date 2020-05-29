@@ -1,0 +1,13 @@
+.master-drawer {
+ position: absolute;
+ top: 0%;
+ left: 0%;
+ height: 100vh;
+ width: 100vw;
+ background: white;
+ z-index: 600;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center; 
+}

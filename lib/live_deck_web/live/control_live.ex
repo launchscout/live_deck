@@ -73,6 +73,16 @@ defmodule LiveDeckWeb.ControlLive do
      assign_view_controls(socket, show_notes?: !socket.assigns.view_controls.show_notes?)}
   end
 
+  def handle_event("toggle_drawer", _, socket) do
+    case socket.assigns.view_controls.master_drawer do
+      :closed ->
+        {:noreply, assign_view_controls(socket, master_drawer: :open)}
+
+      :open ->
+        {:noreply, assign_view_controls(socket, master_drawer: :closed)}
+    end
+  end
+
   def handle_info(:tick, socket) do
     {:noreply, assign_timer(socket, Timer.tick(socket.assigns.timer))}
   end
