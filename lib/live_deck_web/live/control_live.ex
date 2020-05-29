@@ -8,6 +8,22 @@ defmodule LiveDeckWeb.ControlLive do
   require Logger
   @valid_actions ~w(next prev)
 
+  defmodule ViewControls do
+    @moduledoc """
+    Exposes a struct with attributes used to
+    control visual components in templates.
+    """
+    defstruct timer_start_class: "",
+              show_notes?: false,
+              master_drawer: :closed
+
+    @type t() :: %__MODULE__{
+            timer_start_class: String.t(),
+            show_notes?: boolean(),
+            master_drawer: :closed | :open
+          }
+  end
+
   def mount(_params, _session, socket) do
     Controls.start()
 
@@ -15,8 +31,7 @@ defmodule LiveDeckWeb.ControlLive do
       Controls.get_presentation()
       |> assign_presentation(socket)
       |> assign_timer(Timer.init())
-      |> assign(:timer_start_class, "")
-      |> assign(:show_notes?, false)
+      |> assign(:view_controls, %ViewControls{})
 
     {:ok, socket}
   end
@@ -38,20 +53,24 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("stop_timer", _, %{assigns: %{timer: timer} = assigns} = socket) do
-    case assigns.timer_start_class do
+    case assigns.view_controls.timer_start_class do
       "" ->
         {:noreply,
          socket
-         |> assign(timer_start_class: "timer__start")
+         |> assign_view_controls(timer_start_class: "timer__start")
          |> assign_timer(Timer.stop(timer))}
 
       "timer__start" ->
-        {:noreply, socket |> assign(timer_start_class: "") |> assign_timer(Timer.stop(timer))}
+        {:noreply,
+         socket
+         |> assign_view_controls(timer_start_class: "")
+         |> assign_timer(Timer.stop(timer))}
     end
   end
 
   def handle_event("toggle_notes", _, socket) do
-    {:noreply, assign(socket, :show_notes?, !socket.assigns.show_notes?)}
+    {:noreply,
+     assign_view_controls(socket, show_notes?: !socket.assigns.view_controls.show_notes?)}
   end
 
   def handle_info(:tick, socket) do
@@ -68,5 +87,10 @@ defmodule LiveDeckWeb.ControlLive do
   defp assign_timer(socket, timer) do
     socket
     |> assign(timer: timer)
+  end
+
+  defp assign_view_controls(socket, updates) do
+    socket
+    |> assign(view_controls: struct(socket.assigns.view_controls, updates))
   end
 end
