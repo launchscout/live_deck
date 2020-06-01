@@ -88,7 +88,7 @@ defmodule LiveDeck.PresentationsTest do
     test "returns the title of the slide at the given index" do
       presentation = Presentations.load()
       second_slide = Enum.at(presentation.slides, 1)
-      assert second_slide == Presentations.slide(at_index: 2)
+      assert second_slide.filename == Presentations.slide(presentation, at_index: 1)
     end
   end
 
