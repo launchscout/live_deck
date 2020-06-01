@@ -20,6 +20,23 @@ defmodule LiveDeck.ControlsTest do
     end
   end
 
+  describe "set_current_slide/1" do
+    setup :subscribe
+
+    test "sets the active index of the presentation to the passed in index" do
+      assert %Presentation{active_index: 2} = Controls.set_current_slide(2)
+    end
+
+    test "triggers a presentation_update pubsub event" do
+      Controls.set_current_slide(2)
+
+      assert_receive %Phoenix.Socket.Broadcast{
+        event: "presentation_update",
+        payload: %Presentation{active_index: 2}
+      }
+    end
+  end
+
   describe "navigate/1" do
     setup :subscribe
 

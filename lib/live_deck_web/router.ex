@@ -7,7 +7,7 @@ defmodule LiveDeckWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug :put_secure_browser_headers, %{"content-security-policy" => "default-src 'self'"}
     plug :put_root_layout, {LiveDeckWeb.LayoutView, :root}
   end
 
@@ -19,6 +19,7 @@ defmodule LiveDeckWeb.Router do
     pipe_through :browser
 
     get "/style-guide", StyleGuideController, :index
+    live "/thumbnails/:id", ThumbnailLive
     live "/", PresentationLive
     live "/remote", ControlLive
   end

@@ -84,6 +84,22 @@ defmodule LiveDeck.PresentationsTest do
     end
   end
 
+  describe "slide/1" do
+    test "returns the title of the slide at the given index" do
+      presentation = Presentations.load()
+      second_slide = Enum.at(presentation.slides, 1)
+      assert second_slide == Presentations.slide(presentation, at_index: 1)
+    end
+  end
+
+  describe "set_current_slide/2" do
+    test "sets the active index of the presentation to the given index" do
+      presentation = Presentations.load()
+      updated = Presentations.set_current_slide(presentation, 2)
+      assert updated.active_index == 2
+    end
+  end
+
   describe "subscribe/0" do
     setup :subscribe
 

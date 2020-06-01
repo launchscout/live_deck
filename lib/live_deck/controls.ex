@@ -48,4 +48,14 @@ defmodule LiveDeck.Controls do
     publish("presentation_update", presentation)
     presentation
   end
+
+  @doc """
+  Sets the current slide index.
+  """
+  @spec set_current_slide(non_neg_integer()) :: Presentations.presentation()
+  def set_current_slide(index) do
+    presentation = Control.set_current_slide(get_presentation(), index)
+    publish("presentation_update", presentation)
+    presentation
+  end
 end

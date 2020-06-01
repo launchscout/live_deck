@@ -33,6 +33,22 @@ defmodule LiveDeck.Presentations do
   end
 
   @doc """
+  Returns the slide title at the given index.
+  """
+  @spec slide(Presentation.t(), [{:at_index, pos_integer()}]) :: Slide.t()
+  def slide(presentation, at_index: index) do
+    Presentation.slide(presentation, at_index: index)
+  end
+
+  @doc """
+  Sets the active index of the presentation to the given index
+  """
+  @spec set_current_slide(Presentation.t(), non_neg_integer()) :: Presentation.t()
+  def set_current_slide(presentation, index) do
+    %Presentation{presentation | active_index: index}
+  end
+
+  @doc """
   Navigates to the next slide
   """
   @spec next_slide(Presentation.t()) :: Presentation.t()

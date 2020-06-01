@@ -17,7 +17,7 @@
         <h1>Deck Remote</h1>
       </div>
       <div class="remote__menu">
-        <button>
+        <button phx-click="toggle_menu">
           <svg class="menu__icon" x="0" y="0" version="1.1" viewBox="0 0 800 247" xml:space="preserve">
             <g id="eye">
               <path d="M639.9 236c-62 0-112.5-50.5-112.5-112.5S577.9 10.9 639.9 10.9s112.5 50.5 112.5 112.5c0 62.1-50.3 112.6-112.5 112.6zm0-194.1c-45 0-81.5 36.6-81.5 81.5s36.6 81.5 81.5 81.5c45 0 81.5-36.6 81.5-81.5s-36.5-81.5-81.5-81.5z" />
@@ -83,6 +83,22 @@
         <% end %>
       </div>
     </section>
+    <div class="menu__drawer <%= @menu_drawer %>">
+      <button phx-click="toggle_menu" class="menu__close">
+        close
+      </button>
+      <nav class="u-padded">
+        <ul>
+        <%= for index <- 0..@presentation.last_index do %>
+          <li class="thumbnail__container">
+            <div phx-click="set_slide_index" phx-value-index="<%= index %>" class="thumbnail">
+              <iframe src="/thumbnails/<%= index %>"></iframe>
+            </div>
+          </li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
     <%= if @show_notes? do %>
       <%= render "_notes_modal.html", presentation: @presentation, current_slide_index: @current_slide_index, current_slide: @current_slide %>
     <% end %>

@@ -17,12 +17,21 @@ defmodule LiveDeckWeb.ControlLive do
       |> assign_timer(Timer.init())
       |> assign(:timer_start_class, "")
       |> assign(:show_notes?, false)
+      |> assign(:menu_class, "")
+      |> assign(:menu_drawer, "")
 
     {:ok, socket}
   end
 
   def render(assigns) do
     Phoenix.View.render(LiveDeckWeb.ControlView, "index.html", assigns)
+  end
+
+  def handle_event("toggle_menu", _, socket) do
+    case socket.assigns.menu_class do
+      "" -> {:noreply, assign(socket, menu_class: "hamburger--close", menu_drawer: "menu--open")}
+      "hamburger--close" -> {:noreply, assign(socket, menu_class: "", menu_drawer: "menu--close")}
+    end
   end
 
   def handle_event(action, _, socket) when action in @valid_actions do
@@ -35,6 +44,11 @@ defmodule LiveDeckWeb.ControlLive do
 
   def handle_event("start_timer", _, socket) do
     {:noreply, assign_timer(socket, Timer.start())}
+  end
+
+  def handle_event("set_slide_index", %{"index" => index}, socket) do
+    Controls.set_current_slide(String.to_integer(index))
+    {:noreply, socket}
   end
 
   def handle_event("stop_timer", _, %{assigns: %{timer: timer} = assigns} = socket) do
