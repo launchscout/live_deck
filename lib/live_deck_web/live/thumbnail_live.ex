@@ -1,4 +1,5 @@
 defmodule LiveDeckWeb.ThumbnailLive do
+  @moduledoc false
   use Phoenix.LiveView
 
   alias LiveDeck.Controls
