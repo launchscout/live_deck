@@ -23,15 +23,15 @@ defmodule LiveDeckWeb.ControlLive do
     {:ok, socket}
   end
 
+  def render(assigns) do
+    Phoenix.View.render(LiveDeckWeb.ControlView, "index.html", assigns)
+  end
+
   def handle_event("toggle_menu", _, socket) do
     case socket.assigns.menu_class do
       "" -> {:noreply, assign(socket, menu_class: "hamburger--close", menu_drawer: "menu--open")}
       "hamburger--close" -> {:noreply, assign(socket, menu_class: "", menu_drawer: "menu--close")}
     end
-  end
-
-  def render(assigns) do
-    Phoenix.View.render(LiveDeckWeb.ControlView, "index.html", assigns)
   end
 
   def handle_event(action, _, socket) when action in @valid_actions do
