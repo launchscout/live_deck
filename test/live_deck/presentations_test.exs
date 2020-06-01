@@ -84,6 +84,14 @@ defmodule LiveDeck.PresentationsTest do
     end
   end
 
+  describe "slide/1" do
+    test "returns the title of the slide at the given index" do
+      presentation = Presentations.load()
+      second_slide = Enum.at(presentation.slides, 1)
+      assert second_slide == Presentations.slide(at_index: 2)
+    end
+  end
+
   describe "subscribe/0" do
     setup :subscribe
 
