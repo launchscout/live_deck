@@ -21,6 +21,15 @@ defmodule LiveDeck.Controls.Control do
     Agent.get(__MODULE__, & &1)
   end
 
+  @spec set_current_slide(Presentations.presentation(), non_neg_integer()) ::
+          Presentations.presentation()
+  def set_current_slide(presentation, index) do
+    Agent.get_and_update(__MODULE__, fn _state ->
+      updated = Presentations.set_current_slide(presentation, index)
+      {updated, updated}
+    end)
+  end
+
   def next_slide() do
     Agent.get_and_update(__MODULE__, fn state ->
       updated_presentation = Presentations.next_slide(state)

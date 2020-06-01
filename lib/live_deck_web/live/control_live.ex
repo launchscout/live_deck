@@ -46,6 +46,11 @@ defmodule LiveDeckWeb.ControlLive do
     {:noreply, assign_timer(socket, Timer.start())}
   end
 
+  def handle_event("set_slide_index", %{"index" => index}, socket) do
+    Controls.set_current_slide(String.to_integer(index))
+    {:noreply, socket}
+  end
+
   def handle_event("stop_timer", _, %{assigns: %{timer: timer} = assigns} = socket) do
     case assigns.timer_start_class do
       "" ->

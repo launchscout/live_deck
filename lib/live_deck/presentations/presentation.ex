@@ -41,7 +41,7 @@ defmodule LiveDeck.Presentations.Presentation do
   @doc """
   Returns the slide title at the given index.
   """
-  @spec slide(t(), [{:at_index, pos_integer()}]) :: Slide.title()
+  @spec slide(t(), [{:at_index, pos_integer()}]) :: Slide.t()
   def slide(%__MODULE__{slides: slides}, at_index: index) do
     Enum.at(slides, index)
   end

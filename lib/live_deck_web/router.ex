@@ -19,7 +19,7 @@ defmodule LiveDeckWeb.Router do
     pipe_through :browser
 
     get "/style-guide", StyleGuideController, :index
-    get "/thumbnails/:id", ThumbnailController, :show
+    live "/thumbnails/:id", ThumbnailLive
     live "/", PresentationLive
     live "/remote", ControlLive
   end
