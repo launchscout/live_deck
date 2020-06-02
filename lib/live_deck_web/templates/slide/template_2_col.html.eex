@@ -1,9 +1,9 @@
 <section class="slide__content template--2col u-grid--center">
   <div>
     <h3>Configure Your Deck</h3>
-    <p>Set your presentation theme, slide order, slide titles, slide backrounds, and slide notes in the preentation config file.</p>
+    <p>Set your presentation theme, the order of your slides, and configure slide titles, backgrounds, and notes in the presentation config file.</p>
   </div>
   <div>
-    <img src="/images/deck-config.jpg" alt="team galsight"/>
+    <img src="/images/deck-config.jpg" alt="team gaslight"/>
   </div>
 </section>

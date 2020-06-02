@@ -1,6 +1,6 @@
 <section class="slide__content template--right-aside">
   <div>
-    <h3>An Open Source Slide Deck Project That Utilizes Elixir, Pheonix, and LiveView.</h3>
+    <h3>An Open Source Slide Deck Project That Utilizes Elixir, Phoenix, and LiveView.</h3>
   </div>
   <aside>
     <div class="aside_content">

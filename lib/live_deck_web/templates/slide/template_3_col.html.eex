@@ -5,10 +5,10 @@
   </div>
   <div>
     <h3>Phoenix</h3>
-    <p>The web framework built on Elixir know for it's speed and maintainability.</p>
+    <p>The web framework built on Elixir, helping you build rich, interactive web applications quickly, with less code and fewer moving parts.</p>
   </div>
   <div>
     <h3>LiveView</h3>
-    <p>LiveView provides real-time updates from the server to the DOM allowing for LiveDeck's rich interactions.</p>
+    <p>LiveView leverages the power of websockets with Elixir and Phoenix to create rich user interfaces straight from the server.</p>
   </div>
 </section>
