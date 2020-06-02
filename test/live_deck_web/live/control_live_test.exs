@@ -61,8 +61,32 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
   end
 
+  describe "thumbnail drawer" do
+    setup [:mount, :open_thumbnail_drawer]
+
+    test "renders thumbnails for each slide in the presentation", %{html: html} do
+      presentation = LiveDeck.Controls.get_presentation()
+
+      for slide_index <- 0..presentation.last_index do
+        assert html =~ "<iframe src=\"/thumbnails/#{slide_index}\">"
+      end
+    end
+
+    test "updates the presentation slide to the slide at the index clicked on", %{view: view} do
+      view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
+      assert LiveDeck.Controls.get_presentation().active_index == 4
+    end
+  end
+
   defp mount(context) do
     {:ok, view, html} = live(context.conn, "/remote")
     {:ok, Map.merge(context, %{view: view, html: html})}
+  end
+
+  @toggle_menu "toggle_menu"
+
+  defp open_thumbnail_drawer(context) do
+    render_click(context.view, @toggle_menu)
+    context
   end
 end

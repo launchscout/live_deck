@@ -91,7 +91,11 @@
         <ul>
         <%= for index <- 0..@presentation.last_index do %>
           <li class="thumbnail__container">
-            <div phx-click="set_slide_index" phx-value-index="<%= index %>" class="thumbnail">
+            <div 
+              phx-click="set_slide_index" 
+              phx-value-index="<%= index %>" 
+              data-testid="thumbnail-<%= index %>"
+              class="thumbnail">
               <iframe src="/thumbnails/<%= index %>"></iframe>
             </div>
           </li>
