@@ -30,7 +30,7 @@ CI will run the following commands on the codebase:
 
 #### Local Development
 
-Run `mix check` to check code quality. 
+Run `mix check` to check code quality.
 
 It checks compiler, credo, dialyzer, ex_doc, ex_unit, formatter, npm_test and sobelow by default. `excoveralls` is added to config file. To skip any check add `{:toolname, false},` in the tools array of `.check.exs` file. To add custom command on a tool add `{:toolname, command: "mix command"}` in the tools array of `.check.exs` file.
 
@@ -46,3 +46,6 @@ https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
   * Ecto Docs: https://hexdocs.pm/ecto/Ecto.html
   * Ecto SQL Docs: https://hexdocs.pm/ecto_sql/Ecto.Adapters.SQL.html#content
   * Erlang Docs: https://erlang.org/doc/search/
+
+## License
+See the [LICENSE](/LICENSE.md) file for license rights and limitations (MIT).
