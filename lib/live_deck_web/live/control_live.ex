@@ -8,6 +8,17 @@ defmodule LiveDeckWeb.ControlLive do
   require Logger
   @valid_actions ~w(next prev)
 
+  defmodule ViewAttributes do
+    @moduledoc """
+    Struct defining attributes controlling style-related attributes.
+    """
+
+    defstruct timer_start_class: "",
+              show_notes?: false,
+              menu_class: "",
+              menu_drawer: ""
+  end
+
   def mount(_params, _session, socket) do
     Controls.start()
 
@@ -19,10 +30,7 @@ defmodule LiveDeckWeb.ControlLive do
       Controls.get_presentation()
       |> assign_presentation(socket)
       |> assign_timer(Timer.init())
-      |> assign(:timer_start_class, "")
-      |> assign(:show_notes?, false)
-      |> assign(:menu_class, "")
-      |> assign(:menu_drawer, "")
+      |> assign_view_attributes(%ViewAttributes{})
 
     {:ok, socket}
   end
@@ -32,9 +40,22 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("toggle_menu", _, socket) do
-    case socket.assigns.menu_class do
-      "" -> {:noreply, assign(socket, menu_class: "hamburger--close", menu_drawer: "menu--open")}
-      "hamburger--close" -> {:noreply, assign(socket, menu_class: "", menu_drawer: "menu--close")}
+    case socket.assigns.view_attributes.menu_class do
+      "" ->
+        {:noreply,
+         assign_view_attributes(socket, %ViewAttributes{
+           socket.assigns.view_attributes
+           | menu_class: "hamburger--close",
+             menu_drawer: "menu--open"
+         })}
+
+      "hamburger--close" ->
+        {:noreply,
+         assign_view_attributes(socket, %ViewAttributes{
+           socket.assigns.view_attributes
+           | menu_class: "",
+             menu_drawer: "menu--close"
+         })}
     end
   end
 
@@ -56,20 +77,33 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_event("stop_timer", _, %{assigns: %{timer: timer} = assigns} = socket) do
-    case assigns.timer_start_class do
+    case assigns.view_attributes.timer_start_class do
       "" ->
         {:noreply,
          socket
-         |> assign(timer_start_class: "timer__start")
+         |> assign_view_attributes(%ViewAttributes{
+           assigns.view_attributes
+           | timer_start_class: "timer__start"
+         })
          |> assign_timer(Timer.stop(timer))}
 
       "timer__start" ->
-        {:noreply, socket |> assign(timer_start_class: "") |> assign_timer(Timer.stop(timer))}
+        {:noreply,
+         socket
+         |> assign_view_attributes(%ViewAttributes{
+           assigns.view_attributes
+           | timer_start_class: ""
+         })
+         |> assign_timer(Timer.stop(timer))}
     end
   end
 
   def handle_event("toggle_notes", _, socket) do
-    {:noreply, assign(socket, :show_notes?, !socket.assigns.show_notes?)}
+    {:noreply,
+     assign_view_attributes(socket, %ViewAttributes{
+       socket.assigns.view_attributes
+       | show_notes?: !socket.assigns.view_attributes.show_notes?
+     })}
   end
 
   def handle_info(:tick, socket) do
@@ -77,7 +111,14 @@ defmodule LiveDeckWeb.ControlLive do
   end
 
   def handle_info(%{event: "presentation_update", payload: presentation}, socket) do
-    {:noreply, assign_presentation(presentation, socket)}
+    {:noreply,
+     presentation
+     |> assign_presentation(socket)
+     |> assign_view_attributes(%ViewAttributes{
+       socket.assigns.view_attributes
+       | menu_class: "",
+         menu_drawer: "menu--close"
+     })}
   end
 
   defp assign_presentation(presentation, socket) do
@@ -90,5 +131,10 @@ defmodule LiveDeckWeb.ControlLive do
   defp assign_timer(socket, timer) do
     socket
     |> assign(timer: timer)
+  end
+
+  defp assign_view_attributes(socket, view_attrs) do
+    socket
+    |> assign(view_attributes: view_attrs)
   end
 end

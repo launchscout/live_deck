@@ -92,6 +92,17 @@ defmodule LiveDeckWeb.ControlLiveTest do
       view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
       assert LiveDeck.Controls.get_presentation().active_index == 4
     end
+
+    test "clicking on a slide closes the thumbnail drawer and updates the remote with the new slide",
+         %{view: view} do
+      presentation = LiveDeck.Controls.get_presentation()
+      view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
+      refute render(view) =~ "menu--open"
+      assert render(view) =~ ~s(#{LiveDeck.Presentations.slide(presentation, at_index: 4).title})
+
+      assert render(view) =~
+               ~s(Next: #{LiveDeck.Presentations.slide(presentation, at_index: 5).title})
+    end
   end
 
   defp mount(context) do
