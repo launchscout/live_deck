@@ -48,4 +48,4 @@ https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
   * Erlang Docs: https://erlang.org/doc/search/
 
 ## License
-See the [LICENSE](/gaslight/live-Deck/LICENSE.md) file for license rights and limitations (MIT).
+See the [LICENSE](/LICENSE.md) file for license rights and limitations (MIT).
