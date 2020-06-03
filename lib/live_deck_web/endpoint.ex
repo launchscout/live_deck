@@ -11,10 +11,11 @@ defmodule LiveDeckWeb.Endpoint do
   ]
 
   socket "/socket", LiveDeckWeb.UserSocket,
-    websocket: true,
+    websocket: [timeout: 45_000],
     longpoll: false
 
-  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
+  socket "/live", Phoenix.LiveView.Socket,
+    websocket: [connect_info: [session: @session_options], timeout: 45_000]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
