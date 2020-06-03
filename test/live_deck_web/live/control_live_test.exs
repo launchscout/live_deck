@@ -38,6 +38,22 @@ defmodule LiveDeckWeb.ControlLiveTest do
     test "does not render the notes button if the slide has no notes", %{view: view} do
       refute render_click(view, "next") =~ ~s(data-testid="notes-button")
     end
+
+    test "shows the next slide title unless the current slide is the last slide", %{html: html} do
+      presentation = LiveDeck.Controls.get_presentation()
+      second_slide = LiveDeck.Presentations.slide(presentation, at_index: 1)
+
+      assert html =~ ~s(Next: #{second_slide.title})
+    end
+
+    test "does not show the next slide title when the current slide is the last slide", %{
+      view: view
+    } do
+      presentation = LiveDeck.Controls.get_presentation()
+      LiveDeck.Controls.set_current_slide(presentation.last_index)
+
+      refute render(view) =~ ~s(Next: )
+    end
   end
 
   describe "notes modal" do
@@ -75,6 +91,17 @@ defmodule LiveDeckWeb.ControlLiveTest do
     test "updates the presentation slide to the slide at the index clicked on", %{view: view} do
       view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
       assert LiveDeck.Controls.get_presentation().active_index == 4
+    end
+
+    test "clicking on a slide closes the thumbnail drawer and updates the remote with the new slide",
+         %{view: view} do
+      presentation = LiveDeck.Controls.get_presentation()
+      view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
+      refute render(view) =~ "menu--open"
+      assert render(view) =~ ~s(#{LiveDeck.Presentations.slide(presentation, at_index: 4).title})
+
+      assert render(view) =~
+               ~s(Next: #{LiveDeck.Presentations.slide(presentation, at_index: 5).title})
     end
   end
 

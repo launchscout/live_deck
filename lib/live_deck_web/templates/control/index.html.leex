@@ -50,9 +50,11 @@
           </svg>
         </button>
       </div>
-      <div class="title--prev">
-        <h3>Next: Your Next Slide Title</h3>
-      </div>
+      <%= unless @presentation.active_index == @presentation.last_index do %>
+        <div class="title--prev">
+          <h3>Next: <%= LiveDeck.Presentations.slide(@presentation, at_index: @presentation.active_index + 1).title %></h3>
+        </div>
+      <% end %>
       <div class="remote__sub-nav">
           <button phx-click="prev" class="btn"><p>Previous</p></button>
           <%= unless @current_slide.notes == "" do %>
@@ -79,11 +81,11 @@
           </div>
           <button phx-click="stop_timer" class="btn timer__stop timer__stop">Stop</button>
         <% else %>
-          <button phx-click="start_timer" class="btn <%= @timer_start_class %>">Start Timer</button>
+          <button phx-click="start_timer" class="btn <%= @view_attributes.timer_start_class %>">Start Timer</button>
         <% end %>
       </div>
     </section>
-    <div class="menu__drawer <%= @menu_drawer %>">
+    <div class="menu__drawer <%= @view_attributes.menu_drawer %>">
       <button phx-click="toggle_menu" class="menu__close">
         close
       </button>
@@ -103,7 +105,7 @@
         </ul>
       </nav>
     </div>
-    <%= if @show_notes? do %>
+    <%= if @view_attributes.show_notes? do %>
       <%= render "_notes_modal.html", presentation: @presentation, current_slide_index: @current_slide_index, current_slide: @current_slide %>
     <% end %>
   </div>
