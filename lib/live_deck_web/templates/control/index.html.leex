@@ -50,9 +50,11 @@
           </svg>
         </button>
       </div>
-      <div class="title--prev">
-        <h3>Next: Your Next Slide Title</h3>
-      </div>
+      <%= unless @presentation.active_index == @presentation.last_index do %>
+        <div class="title--prev">
+          <h3>Next: <%= LiveDeck.Presentations.slide(@presentation, at_index: @presentation.active_index + 1).title %></h3>
+        </div>
+      <% end %>
       <div class="remote__sub-nav">
           <button phx-click="prev" class="btn"><p>Previous</p></button>
           <%= unless @current_slide.notes == "" do %>

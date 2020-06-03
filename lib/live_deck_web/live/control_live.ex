@@ -11,6 +11,10 @@ defmodule LiveDeckWeb.ControlLive do
   def mount(_params, _session, socket) do
     Controls.start()
 
+    if connected?(socket) do
+      Controls.subscribe()
+    end
+
     socket =
       Controls.get_presentation()
       |> assign_presentation(socket)
@@ -70,6 +74,10 @@ defmodule LiveDeckWeb.ControlLive do
 
   def handle_info(:tick, socket) do
     {:noreply, assign_timer(socket, Timer.tick(socket.assigns.timer))}
+  end
+
+  def handle_info(%{event: "presentation_update", payload: presentation}, socket) do
+    {:noreply, assign_presentation(presentation, socket)}
   end
 
   defp assign_presentation(presentation, socket) do
