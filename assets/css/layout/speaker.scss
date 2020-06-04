@@ -45,6 +45,39 @@
         font-size: 1.8rem;
       }
     }
+
+    .thumbnail {
+      -ms-zoom: 0.25;
+      -moz-transform: scale(0.25);
+      -moz-transform-origin: 0 0;
+      -o-transform: scale(0.25);
+      -o-transform-origin: 0 0;
+      -webkit-transform: scale(0.25);
+      -webkit-transform-origin: 0 0;
+
+      @media screen and (min-width: 1500px) {
+        -ms-zoom: 0.35;
+        -moz-transform: scale(0.35);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.35);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.35);
+        -webkit-transform-origin: 0 0;
+      }
+
+
+      &__container {
+        width: calc(1440px * 0.25);
+        height: calc(900px * 0.25);
+        border: solid 3px $color-6;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1500px) {
+          width: calc(1440px * 0.35);
+          height: calc(900px * 0.35);
+        }
+      }
+    }
   }
 
   &__notes {
