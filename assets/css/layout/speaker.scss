@@ -69,7 +69,7 @@
       &__container {
         width: calc(1440px * 0.25);
         height: calc(900px * 0.25);
-        border: solid 3px $color-6;
+        border: solid 5px darken($color-3, 3%);
         margin: 0 auto;
 
         @media screen and (min-width: 1500px) {
