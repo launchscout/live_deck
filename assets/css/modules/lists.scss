@@ -1,27 +1,46 @@
 ul {
   li {
-    margin-left: $pad-xlg;
+    margin-left: $pad-xs;
     margin-bottom: $pad-lg;
-    font-size: 3rem;
+    font-size: 1rem;
     list-style: none;
     position: relative;
-    transform: translateX(-4rem);
-    animation: bulletTextIn 1s ease forwards;
+    transform: translateX(0rem);
 
     &::before {
       content: '';
       height: 100%;
       width: 10px;
-      margin-right: $pad;
+      margin-right: $pad-xs;
       background-color: $color-2;
       opacity: 0;
       animation: bulletIn 1s ease forwards;
       position: absolute;
-      left: -3rem;
+      left: -2rem;
+
+      @media screen and (min-width: $screen-tablet-landscape) {
+        margin-right: $pad;
+        left: -3rem;
+      }
     }
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: $screen-tablet-landscape) {
+      margin-left: $pad-xlg;
+      animation: bulletTextIn 1s ease forwards;
+      transform: translateX(-4rem);
+      font-size: 2rem;
+    }
+
+    @media screen and (min-width: $screen-desktop) {
+      font-size: 3rem;
     }
   }
 }

@@ -3,7 +3,8 @@
   &--2col {
     grid-gap: $pad-lg;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
     align-items: baseline;
 
     .icon {
@@ -12,61 +13,124 @@
     }
 
     p {
-      clear: both;
       margin-top: $pad-sm;
+      clear: both;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
     }
   }
 
   &--3col {
     @extend .template--2col;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    min-height: 80vh;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      min-height: none;
+    }
   }
 
   &--4col {
     @extend .template--2col;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+    }
   }
 
   &--split {
     @extend .template--2col;
     grid-gap: $pad-lg;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
     align-items: center;
     margin: 0;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: repeat(2,1fr);
+      grid-template-rows: 1fr;
+    }
 
     & > div {
       margin: $pad-lg;
     }
 
     aside {
+      min-height: 50vh;
+      margin-bottom: $pad;
+      padding: $pad-xlg;
       text-align: inherit;
+
+      @media screen and (min-width: $screen-tablet) {
+        margin: 0;
+        padding: 5vh $pad-lg;
+      }
     }
   }
 
   &--left-aside {
     @extend .template--2col;
     grid-gap: $pad-lg;
-    grid-template-columns: 400px 1fr;
+    grid-auto-rows: minmax(max-content, 1fr) 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
-    margin: 0 $pad-lg 0 0;
+    margin: 0 0 $pad;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: 400px 1fr;
+      margin: 0 $pad-lg 0 0;
+      overflow: hidden;
+    }
+
+    & > div {
+      padding: $pad-xs;
+
+      @media screen and (min-width: $screen-tablet) {
+        padding: none;
+      }
+    }
   }
 
   &--right-aside {
     @extend .template--2col;
     grid-gap: $pad-lg;
-    grid-template-columns: 1fr 400px;
+    grid-auto-rows: minmax(max-content, 1fr) 1fr;
+    grid-template-columns: 1fr;
     align-items: center;
-    margin: 0 0 0 $pad-lg;
+    margin: 0 0 $pad;
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: 1fr 400px;
+      margin: 0 0 0 $pad-lg;
+      overflow: hidden;
+    }
+
+    & > div {
+      padding: $pad-xs;
+    }
   }
 
   &--side-image {
     @extend .template--2col;
     grid-gap: 0;
     align-items: center;
-    margin: 0;
+    margin: 0 0 $pad;
 
     .copy {
       margin: 0 $pad-lg;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      margin: 0;
     }
   }
 
@@ -75,8 +139,8 @@
     overflow: hidden;
 
     .template__content {
-      color: $color-3;
       padding: $pad-lg;
+      color: $color-3;
     }
 
     h2, h3, h4 {
@@ -84,31 +148,39 @@
     }
 
     img {
-      filter: brightness(50%);
+      z-index: -100;
+      position: absolute;
+      top: 0;
+      width: 100vw;
       height: 100vh;
       object-fit: cover;
-      position: absolute;
-        top: 0;
-      width: 100vw;
-      z-index: -100;
+      filter: brightness(50%);
     }
   }
 
   &--quote {
+    grid-gap: $pad;
     display: grid;
-      align-items: center;
-      grid-gap: $pad;
-      grid-template-columns: max-content 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
     padding: $pad-lg;
+
+    img {
+      margin: 0 auto;
+    }
+
+    @media screen and (min-width: $screen-tablet) {
+      grid-template-columns: max-content 1fr;
+    }
   }
 
   &--quote-alt {
-    display: grid;
-      align-items: center;
       grid-gap: 0;
+    display: grid;
       grid-template-rows: 50vh 50vh;
-    padding: 0;
+      align-items: center;
     margin: -5vh 0;
+    padding: 0;
 
     .blockquote__top {
       position: relative;
@@ -116,33 +188,33 @@
       height: 100%;
 
       &::before {
-        content: '';
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
         position: absolute;
         top: 0;
         left: 0;
-        background-color: $color-1;
-        text-align: center;
         width: 100%;
         height: 100%;
-        -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%);
+        background-color: $color-1;
+        text-align: center;
         clip-path: polygon(0 0, 100% 0, 100% 66%, 0 100%);
+        content: '';
         }
 
       .blockquote__image {
         position: absolute;
         bottom: -75px;
         left: 50%;
-        transform: translateX(-50%);
         width: 300px;
         height: 300px;
+        transform: translateX(-50%);
       }
     }
 
     blockquote {
       margin: $pad-xlg;
-      text-align: center;
       margin: auto;
       padding: 0;
+      text-align: center;
 
       &::before {
         display: none;

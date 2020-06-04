@@ -6,7 +6,7 @@
     </div>
     </div>
   </aside>
-  <div class="grid grid-2col">
+  <div class="grid grid-1col grid-2col--md">
     <div>
       <h4>Navigate</h4>
       <p>Using the LiveDeck remote is as simple as pressing the giant next button.</p>

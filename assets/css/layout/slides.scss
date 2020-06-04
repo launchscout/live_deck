@@ -6,18 +6,26 @@
   min-height: 100vh;
   overflow-x: hidden;
 
-  @media screen and (min-width: $screen-desktop) {
+  @media screen and (min-width: $screen-tablet) {
     grid-template-rows: 5vh 90vh 5vh;
     overflow: hidden;
   }
 
   &__content {
-    margin: $pad-xs $pad-xlg;
+    margin: $pad-xs;
+
+    @media screen and (min-width: $screen-tablet) {
+      margin: $pad-xs $pad-xlg;
+    }
   }
 
   &__header, &__footer {
     box-sizing: border-box;
-    padding: 0 $pad;
+    padding: 0 $pad-xs;
+
+    @media screen and (min-width: $screen-tablet) {
+      padding: 0 $pad;
+    }
   }
 
   &__footer {
@@ -33,7 +41,13 @@
     .footer {
       &__caption {
         font-weight: 400;
-        line-height: 1;
+        line-height: 1.2;
+        font-size: 0.7em;
+
+        @media screen and (min-width: $screen-tablet) {
+          line-height: 1;
+          font-size: 1em;
+        }
       }
 
       &--left {
