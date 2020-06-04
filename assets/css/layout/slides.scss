@@ -20,6 +20,10 @@
     padding: 0 $pad;
   }
 
+  &--current, &--next {
+    text-align: center;
+  }
+
   &__footer {
     display: grid;
     font-size: 14px;

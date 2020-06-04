@@ -2,6 +2,7 @@
   <div class="speaker__container">
     <div class="speaker__slides">
       <div class="slide--current">
+        <h2>Current Slide</h2>
         <div class="thumbnail__container">
           <div
             data-testid="active-slide-preview"
@@ -12,6 +13,7 @@
       </div>
       <%= if @presentation.active_index < @presentation.last_index do %>
         <div class="slide--next">
+          <h2>Next Slide</h2>
           <div class="thumbnail__container">
             <div
               data-testid="next-slide-preview"
