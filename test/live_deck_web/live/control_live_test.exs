@@ -92,6 +92,14 @@ defmodule LiveDeckWeb.ControlLiveTest do
   describe "thumbnail drawer" do
     setup [:mount, :open_thumbnail_drawer]
 
+    test "renders desktop thumbails for desktop view", %{html: html} do
+      assert html =~ ~s(data-testid=\"desktop-thumbnail-view\")
+    end
+
+    test "renders mobile thumbails for mobile view", %{view: view} do
+      assert render_hook(view, "resize", %{"width" => "800"}) =~ ~s(data-testid=\"mobile-thumbnail-view\")
+    end
+
     test "renders thumbnails for each slide in the presentation", %{html: html} do
       presentation = LiveDeck.Controls.get_presentation()
 
