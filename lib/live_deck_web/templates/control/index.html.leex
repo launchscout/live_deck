@@ -2,11 +2,25 @@
   <div class="speaker__container">
     <div class="speaker__slides">
       <div class="slide--current">
-        <h2>Current Slide</h2>
+        <div class="thumbnail__container">
+          <div
+            data-testid="active-slide-preview"
+            class="thumbnail">
+            <iframe src="/thumbnails/<%= @presentation.active_index %>"></iframe>
+          </div>
+        </div>
       </div>
-      <div class="slide--next">
-        <h2>Next Slide</h2>
-      </div>
+      <%= if @presentation.active_index < @presentation.last_index do %>
+        <div class="slide--next">
+          <div class="thumbnail__container">
+            <div
+              data-testid="next-slide-preview"
+              class="thumbnail">
+              <iframe src="/thumbnails/<%= @presentation.active_index + 1%>"></iframe>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="speaker__notes">
       <p class="notes"><%= @current_slide.notes %></p>
@@ -31,7 +45,7 @@
     <section class="remote__header">
       <div class="remote__count header__count">
         <div class="count__grid">
-          <div class="count--curent" data-current-slide=<%= @current_slide_index %>>
+          <div class="count--curent" data-current-slide=<%= @presentation.active_index %>>
             <%= @current_slide_index %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
           </div>
         </div>

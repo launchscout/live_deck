@@ -54,6 +54,18 @@ defmodule LiveDeckWeb.ControlLiveTest do
 
       refute render(view) =~ ~s(Next: )
     end
+
+    # check for desktop view
+    test "renders the active slide preview in desktop view", %{html: html} do
+      assert html =~ ~s(data-testid="active-slide-preview")
+    end
+
+    test "renders the next slide preview in desktop view if existent", %{view: view} do
+      presentation = LiveDeck.Controls.get_presentation()
+      LiveDeck.Controls.set_current_slide(presentation.last_index)
+
+      refute render(view) =~ ~s(data-testid="next-slide-preview")
+    end
   end
 
   describe "notes modal" do
