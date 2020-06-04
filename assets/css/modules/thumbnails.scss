@@ -9,6 +9,11 @@
   -webkit-transform: scale(0.22);
   -webkit-transform-origin: 0 0;
 
+  &__track {
+    width: max-content;
+    overflow-x: scroll;
+  }
+
  &__container {
    width: calc(1440px * 0.22);
    height: calc(900px * 0.22);
