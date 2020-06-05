@@ -44,6 +44,18 @@ For more info visit:
 https://github.com/karolsluszniak/ex_check
 https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
 
+## Deck Conifguration
+The deck theme, slide order, slide backgrounds, and slide notes can be configured in the ***lib/live_deck/presentations/config.ex*** file. Read more about the the congiuration settings [here](https://github.com/gaslight/live_deck/wiki/Deck-Configuration).
+
+## Deck Themes
+Live Deck includes beautiful themes that change the colors and typeography of the whole deck.  Themes also include several background options for slides. View all the deck themes [here](https://github.com/gaslight/live_deck/wiki/Deck-Theme).
+
+## Deck Templates
+Live Deck includes many different slide layouts we call slide templates. View all the deck templates [here](https://github.com/gaslight/live_deck/wiki/Deck-Slide-Templates).
+
+## Deck Remote and Presenter Mode
+Your presentation can be control through a seperate webpage we call the remote. The remote adapts to presenter mode whenviewing on a desktop or laptop. Learn more about the deck remote [here](https://github.com/gaslight/live_deck/wiki/Deck-Remote-and-Presentation-Mode).
+
 ## More Info
 
   * Phoenix Docs: https://hexdocs.pm/phoenix
