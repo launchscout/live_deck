@@ -3,7 +3,7 @@
 # LiveDeck
 LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and LiveView. The web-based slide deck features provide the ability to display real-time data and for engaging audience interactions. The deck comes with several themes and slides templates to create beautiful presentations out of the box.
 
-![alt text](/assets/images/live-deck-sample-1.jpg "Live Deck Remote")
+![alt text](/tress/assets/static/images/live-deck-sample-1.jpg "Live Deck Remote")
 ![alt text](/assets/images/live-deck-sample-2.jpg "Live Deck Default Slide Theme")
 ![alt text](/assets/images/live-deck-sample-3.jpg "Live Deck Presenter Mode")
 
