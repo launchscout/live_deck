@@ -65,7 +65,7 @@ defmodule LiveDeck.Presentations.Config do
   end
 
   defp notes(for: "template_2_col.html") do
-    "I am some more notes for your reading pleasure while you are presenting."
+    "Mention that the config file can set deck theme, slide backgrounds, slide order, and slide notes."
   end
 
   defp notes(_), do: ""
