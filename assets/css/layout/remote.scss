@@ -1,43 +1,43 @@
 .remote {
-  align-items: center;
-  background: $color-3;
   display: grid;
+  z-index: 500;
+  position: relative;
   grid-template-rows: max-content 1fr max-content;
+  align-items: center;
   height: 100vh;
   margin: 0;
-  position: relative;
-  z-index: 500;
+  background: $color-3;
 
   @media screen and (min-width: $screen-desktop) {
-    box-shadow: 0px 0px 55px rgba($color-1, 0.1);
     grid-template-rows: max-content 1fr minmax(max-content, 250px);
     max-width: 500px;
+    box-shadow: 0px 0px 55px rgba($color-1, 0.1);
   }
 
   &__header {
-    align-items: center;
-    background: $color-3;
     box-sizing: border-box;
     display: grid;
+    z-index: 50;
+    position: relative;
     grid-template-columns: 15vw 1fr 15vw;
+    align-items: center;
+    width: 100vw;
     height: 10vh;
     margin-bottom: $pad-xs;
     padding: $pad-sm;
-    position: relative;
-    width: 100vw;
-    z-index: 50;
+    background: $color-3;
 
     @media screen and (min-width: $screen-desktop) {
       grid-template-columns: auto;
-      text-align: center;
       max-width: 500px;
+      text-align: center;
     }
   }
 
   &__logo {
     img {
-      max-height: 10vh;
       max-width: none;
+      max-height: 10vh;
     }
 
     @media screen and (min-width: $screen-desktop) {
@@ -85,42 +85,42 @@
   }
 
   &__nav {
-    font-size: 5rem;
     height: auto;
     margin: $pad auto;
+    font-size: 5rem;
     transition: all 0.5 ease;
 
     button {
-      background: linear-gradient(160deg, $color-6, $color-5);
-      border-radius: 50%;
-      box-shadow: 0px 0px 25px rgba(27, 61, 113, 0.05), inset 0px 0px 55px rgba(30, 33, 105, 0.45);
       display: inline-block;
+      width: 250px;
       height: 250px;
       padding: 0.3em;
       transform: scale(1.0, 1.0);
+      border-radius: 50%;
+      background: linear-gradient(160deg, $color-6, $color-5);
+      box-shadow: 0px 0px 25px rgba(27, 61, 113, 0.05), inset 0px 0px 55px rgba(30, 33, 105, 0.45);
       transition: all 0.5s ease;
-      width: 250px;
 
       @media screen and (min-width: $screen-tablet) {
-        height: 280px;
         width: 280px;
+        height: 280px;
       }
 
       @media screen and (max-height: 600px) {
-        height: 150px;
         width: 150px;
+        height: 150px;
       }
 
       &:hover, &:active {
+        transform: scale(0.95, 0.95);
         box-shadow: 0px 0px 35px rgba(27, 61, 113, 0.33), inset 0px 0px 55px rgba(30, 33, 105, 0.65);
         cursor: pointer;
-        transform: scale(0.95, 0.95);
       }
 
       &:focus {
         transform: scale(0.9, 0.9);
-        outline: none;
         border: none;
+        outline: none;
       }
     }
   }
@@ -134,21 +134,21 @@
   }
 
   &__footer {
-    align-items: center;
-    background: $color-3;
     box-sizing: border-box;
     display: grid;
+    z-index: 100;
+    position: relative;
     grid-template-columns: 1fr max-content 2fr max-content;
+    align-items: center;
+    width: 100vw;
     max-height: 10vh;
     padding: $pad-sm;
-    position: relative;
-    width: 100vw;
-    z-index: 100;
+    background: $color-3;
 
     @media screen and (min-width: $screen-desktop) {
       grid-template-columns: auto;
-      text-align: center;
       max-width: 500px;
+      text-align: center;
     }
   }
 
@@ -160,11 +160,11 @@
       &__grid {
         display: grid;
         grid-template-columns: repeat(3, max-content);
-        margin: 0 auto;
         width: auto;
+        margin: 0 auto;
         p {
-          color: $color-6;
           display: inline-block;
+          color: $color-6;
         }
 
         @media screen and (min-width: $screen-desktop) {
@@ -173,12 +173,12 @@
       }
 
       &--curent, &--total {
+        display: block;
         align-items: center;
+        padding: 4px;
         border-radius: 50%;
         color: $color-5;
-        display: block;
         font-size: 1.3rem;
-        padding: 4px;
         text-align: center;
       }
 
@@ -187,7 +187,7 @@
       }
 
       &--total {
-        margin: 18px 0 0 -5px;;
+        margin: 18px 0 0 -5px;
       }
     }
   }
@@ -196,10 +196,10 @@
     &--next {
       h2 {
         -webkit-text-fill-color: unset;
+        margin: 0 8px $pad;
         color: $color-1;
         font-size: 1.5rem;
         font-weight: 400;
-        margin: 0 8px $pad;
         word-break: break-word;
 
         @media screen and (min-height: 700px) {
@@ -211,15 +211,15 @@
     &--prev {
       h3 {
         -webkit-text-fill-color: unset;
+        margin-bottom: $pad;
         color: $color-1;
         font-size: 1.2rem;
         font-weight: 400;
-        margin-bottom: $pad;
         word-break: break-word;
 
         @media screen and (min-height: 700px) {
-          font-size: 1.4rem;
           margin-bottom: $pad-xlg;
+          font-size: 1.4rem;
         }
       }
     }

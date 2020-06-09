@@ -1,11 +1,14 @@
-<div class="speaker__page">
+<div class="speaker__page" phx-hook="PresenterModeHook">
   <div class="speaker__container">
+    <%= if @view_attributes.thumbnail_type == :desktop do %>
+      <%= render "_presenter_mode.html", presentation: @presentation, current_slide: @current_slide %>
+    <% end %>
   </div>
   <div class="remote" data-testid="remote-page">
     <section class="remote__header">
       <div class="remote__count header__count">
         <div class="count__grid">
-          <div class="count--curent" data-current-slide=<%= @current_slide_index %>>
+          <div class="count--curent" data-current-slide=<%= @presentation.active_index %>>
             <%= @current_slide_index %></div> <p>/</p> <div class="count--total"><%= @presentation.last_index + 1 %>
           </div>
         </div>
@@ -85,26 +88,9 @@
         <% end %>
       </div>
     </section>
-    <div class="menu__drawer <%= @view_attributes.menu_drawer %>">
-      <button phx-click="toggle_menu" class="menu__close">
-        close
-      </button>
-      <nav class="u-padded">
-        <ul>
-        <%= for index <- 0..@presentation.last_index do %>
-          <li class="thumbnail__container">
-            <div 
-              phx-click="set_slide_index" 
-              phx-value-index="<%= index %>" 
-              data-testid="thumbnail-<%= index %>"
-              class="thumbnail">
-              <iframe src="/thumbnails/<%= index %>"></iframe>
-            </div>
-          </li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+    <%= if @view_attributes.thumbnail_type == :mobile do %>
+      <%= render "_mobile_thumbnail_drawer.html", presentation: @presentation, view_attributes: @view_attributes %>
+    <% end %>
     <%= if @view_attributes.show_notes? do %>
       <%= render "_notes_modal.html", presentation: @presentation, current_slide_index: @current_slide_index, current_slide: @current_slide %>
     <% end %>

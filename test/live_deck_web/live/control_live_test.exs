@@ -56,6 +56,21 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
   end
 
+  describe "presenter mode" do
+    setup [:mount, :set_desktop_size]
+
+    test "renders the active slide preview in desktop view", %{view: view} do
+      assert render(view) =~ ~s(data-testid="active-slide-preview")
+    end
+
+    test "renders the next slide preview in desktop view if existent", %{view: view} do
+      presentation = LiveDeck.Controls.get_presentation()
+      LiveDeck.Controls.set_current_slide(presentation.last_index)
+
+      refute render(view) =~ ~s(data-testid="next-slide-preview")
+    end
+  end
+
   describe "notes modal" do
     setup :mount
     @toggle_notes "toggle_notes"
@@ -77,14 +92,32 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
   end
 
+  describe "thumbnail track desktop" do
+    setup [:mount, :set_desktop_size]
+
+    test "renders the thumbnail track", %{view: view} do
+      assert render(view) =~ ~s(data-testid=\"desktop-thumbnail-view\")
+    end
+
+    test "updates the presentation slide to the slide at the index clicked on", %{view: view} do
+      view |> element(~s([data-testid="thumbnail-4"])) |> render_click()
+      assert LiveDeck.Controls.get_presentation().active_index == 4
+    end
+  end
+
   describe "thumbnail drawer" do
     setup [:mount, :open_thumbnail_drawer]
 
-    test "renders thumbnails for each slide in the presentation", %{html: html} do
+    test "renders mobile thumbails for mobile view", %{view: view} do
+      assert render_hook(view, "resize", %{"width" => 800}) =~
+               ~s(data-testid=\"mobile-thumbnail-view\")
+    end
+
+    test "renders thumbnails for each slide in the presentation", %{view: view} do
       presentation = LiveDeck.Controls.get_presentation()
 
       for slide_index <- 0..presentation.last_index do
-        assert html =~ "<iframe src=\"/thumbnails/#{slide_index}\">"
+        assert render(view) =~ "<iframe src=\"/thumbnails/#{slide_index}\">"
       end
     end
 
@@ -113,7 +146,13 @@ defmodule LiveDeckWeb.ControlLiveTest do
   @toggle_menu "toggle_menu"
 
   defp open_thumbnail_drawer(context) do
+    render_hook(context.view, "resize", %{"width" => 800})
     render_click(context.view, @toggle_menu)
+    context
+  end
+
+  defp set_desktop_size(context) do
+    render_hook(context.view, "resize", %{"width" => 1280})
     context
   end
 end

@@ -7,6 +7,7 @@ defmodule LiveDeckWeb.ControlLive do
   alias LiveDeck.Controls.Timer
   require Logger
   @valid_actions ~w(next prev)
+  @breakpoint 1200
 
   defmodule ViewAttributes do
     @moduledoc """
@@ -16,7 +17,16 @@ defmodule LiveDeckWeb.ControlLive do
     defstruct timer_start_class: "",
               show_notes?: false,
               menu_class: "",
-              menu_drawer: ""
+              menu_drawer: "",
+              thumbnail_type: nil
+
+    @type t() :: %__MODULE__{
+            timer_start_class: String.t(),
+            show_notes?: boolean(),
+            menu_class: String.t(),
+            menu_drawer: String.t(),
+            thumbnail_type: nil | :desktop | :mobile
+          }
   end
 
   def mount(_params, _session, socket) do
@@ -103,6 +113,14 @@ defmodule LiveDeckWeb.ControlLive do
      assign_view_attributes(socket, %ViewAttributes{
        socket.assigns.view_attributes
        | show_notes?: !socket.assigns.view_attributes.show_notes?
+     })}
+  end
+
+  def handle_event("resize", %{"width" => width}, socket) do
+    {:noreply,
+     assign_view_attributes(socket, %ViewAttributes{
+       socket.assigns.view_attributes
+       | thumbnail_type: if(width >= @breakpoint, do: :desktop, else: :mobile)
      })}
   end
 

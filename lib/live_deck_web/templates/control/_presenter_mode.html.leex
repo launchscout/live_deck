@@ -1,0 +1,42 @@
+<div class="speaker__slides">
+  <div class="slide--current">
+    <h2>Current Slide</h2>
+    <div class="thumbnail__container">
+      <div
+        data-testid="active-slide-preview"
+        class="thumbnail">
+        <iframe src="/thumbnails/<%= @presentation.active_index %>"></iframe>
+      </div>
+    </div>
+  </div>
+  <%= if @presentation.active_index < @presentation.last_index do %>
+    <div class="slide--next">
+      <h2>Next Slide</h2>
+      <div class="thumbnail__container">
+        <div
+          data-testid="next-slide-preview"
+          class="thumbnail">
+          <iframe src="/thumbnails/<%= @presentation.active_index + 1%>"></iframe>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="speaker__notes">
+  <p class="notes"><%= @current_slide.notes %></p>
+</div>
+<div class="speaker__thumbnails">
+  <div data-testid="desktop-thumbnail-view" class="thumbnail__track">
+    <%= for index <- 0..@presentation.last_index do %>
+      <div class="thumbnail__container">
+        <div
+          phx-click="set_slide_index"
+          phx-value-index="<%= index %>"
+          data-testid="thumbnail-<%= index %>"
+          class="thumbnail">
+          <iframe src="/thumbnails/<%= index %>"></iframe>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
