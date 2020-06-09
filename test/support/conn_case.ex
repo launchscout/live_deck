@@ -1,3 +1,4 @@
+# coveralls-ignore-start
 defmodule LiveDeckWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
@@ -38,3 +39,5 @@ defmodule LiveDeckWeb.ConnCase do
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end
+
+# coveralls-ignore-stop

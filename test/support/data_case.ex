@@ -1,3 +1,4 @@
+# coveralls-ignore-start
 defmodule LiveDeck.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
@@ -53,3 +54,5 @@ defmodule LiveDeck.DataCase do
     end)
   end
 end
+
+# coveralls-ignore-stop

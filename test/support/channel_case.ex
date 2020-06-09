@@ -1,3 +1,4 @@
+# coveralls-ignore-start
 defmodule LiveDeckWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
@@ -37,3 +38,5 @@ defmodule LiveDeckWeb.ChannelCase do
     :ok
   end
 end
+
+# coveralls-ignore-stop
