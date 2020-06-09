@@ -4,9 +4,9 @@
     ],
     "plugins": [
         ["prismjs", {
-            "languages": ["elixir", "markdown", "javascript", "css"],
+            "languages": ["elixir", "markdown", "javascript", "css", "html"],
             "plugins": ["line-numbers"],
-            "theme": "default",
+            "theme": "okaidia",
             "css": true
         }]
     ]

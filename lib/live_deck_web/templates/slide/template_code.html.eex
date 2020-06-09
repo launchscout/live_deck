@@ -1,0 +1,18 @@
+<section class="slide__content">
+  <pre class="lang-elixir">
+    <code>
+    defmodule LiveDeck.Presentations.Config do
+
+      @default_background "back--1"
+      @default_slides [
+        %{filename: "template_title.html", background_color: "back--2"},
+        %{filename: "template_right_aside.html", title: "Created With..."}
+      ]
+
+      defp notes(for: "template_2_col.html") do
+        "Here are notes for your reading pleasure while you are presenting."
+      end
+    end
+    </code>
+  </pre>
+</section>
