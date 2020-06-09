@@ -1,4 +1,4 @@
-<div class="speaker__page">
+<div class="speaker__page" phx-hook="PresenterModeHook">
   <div class="speaker__container">
     <%= if @view_attributes.thumbnail_type == :desktop do %>
       <%= render "_presenter_mode.html", presentation: @presentation, current_slide: @current_slide %>

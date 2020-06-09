@@ -1,7 +1,9 @@
 import { BackgroundClassHook } from './backgroundClassHook';
+import { PresenterModeHook } from './presenterModeHook'
 
 const Hooks = {
-  BackgroundClassHook
+  BackgroundClassHook,
+  PresenterModeHook
 }
 
 export default Hooks;
