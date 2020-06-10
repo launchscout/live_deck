@@ -54,7 +54,7 @@ LiveDeck includes beautiful themes that change the colors and typeography of the
 LiveDeck includes many different slide layouts we call slide templates. View all the deck templates [here](https://github.com/gaslight/live_deck/wiki/Deck-Slide-Templates).
 
 ## Deck Remote and Presenter Mode
-Your presentation can be controlled through a seperate webpage we call the remote. The remote adapts to presenter mode when viewing on a desktop or laptop. Learn more about the deck remote [here](https://github.com/gaslight/live_deck/wiki/Deck-Remote-and-Presentation-Mode).
+Your presentation can be controlled through a seperate webpage we call the remote. The remote adapts to presenter mode when viewed on a desktop or laptop. Learn more about the deck remote [here](https://github.com/gaslight/live_deck/wiki/Deck-Remote-and-Presentation-Mode).
 
 ## More Info
 
