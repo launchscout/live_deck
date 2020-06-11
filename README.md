@@ -5,7 +5,6 @@ LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and Liv
 
 ![alt text](assets/static/images/live-deck-sample-1.jpg?raw=true=250x "Live Deck Remote")
 ![alt text](assets/static/images/live-deck-sample-2.jpg?raw=true=250x "Live Deck Default Slide Theme")
-![alt text](assets/static/images/live-deck-sample-3.jpg?raw=true=250x "Live Deck Presenter Mode")
 
 [![Coverage Status](https://coveralls.io/repos/github/gaslight/live_deck/badge.svg)](https://coveralls.io/github/gaslight/live_deck)
 [![CircleCI](https://circleci.com/gh/gaslight/live_deck.svg?style=svg)](https://circleci.com/gh/gaslight/live_deck)
