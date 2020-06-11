@@ -1,4 +1,4 @@
-![alt text](assets/static/images/live-deck-logo-full.png?raw=true=300x "Live Deck Logo")
+![alt text](assets/static/images/dill-blue-haired.png?raw=true=300x "Live Deck Logo")
 
 # LiveDeck
 LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and LiveView. The web-based slide deck features provide the ability to display real-time data and for engaging audience interactions. The deck comes with several themes and slides templates to create beautiful presentations out of the box.
