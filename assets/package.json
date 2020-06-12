@@ -3,8 +3,8 @@
   "license": "MIT",
   "scripts": {
     
-    "build": "cp -R ./static/* ../priv/static && parcel build ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
-    "watch": "cp -R ./static/* ../priv/static && parcel watch ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
+    "build": "cp -R ./static/* ../priv/static && cp -R ./static/fonts/* ../priv/static/css && parcel build ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
+    "watch": "cp -R ./static/* ../priv/static && cp -R ./static/fonts/* ../priv/static/css && parcel watch ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
     "eslint": "eslint js/**"
   },
   "dependencies": {

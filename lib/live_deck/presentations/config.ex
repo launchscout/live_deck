@@ -37,6 +37,14 @@ defmodule LiveDeck.Presentations.Config do
   # This is for testing purposes
   @dummy List.first(@default_slides).filename
 
+  @doc """
+  Define the css theme file you want to use here.
+  """
+  @spec theme() :: String.t()
+  def theme do
+    "app-live-deck.css"
+  end
+
   def slides do
     @default_slides
     |> insert_notes()
