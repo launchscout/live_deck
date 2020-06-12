@@ -1,11 +1,10 @@
-![alt text](assets/static/images/live-deck-logo-full.png?raw=true=300x "Live Deck Logo")
+![alt text](assets/static/images/dill-blue-haired.png?raw=true=300x "Live Deck Logo")
 
 # LiveDeck
 LiveDeck is an interactive presentation deck built with Elixir, Phoenix, and LiveView. The web-based slide deck features provide the ability to display real-time data and for engaging audience interactions. The deck comes with several themes and slides templates to create beautiful presentations out of the box.
 
 ![alt text](assets/static/images/live-deck-sample-1.jpg?raw=true=250x "Live Deck Remote")
 ![alt text](assets/static/images/live-deck-sample-2.jpg?raw=true=250x "Live Deck Default Slide Theme")
-![alt text](assets/static/images/live-deck-sample-3.jpg?raw=true=250x "Live Deck Presenter Mode")
 
 [![Coverage Status](https://coveralls.io/repos/github/gaslight/live_deck/badge.svg)](https://coveralls.io/github/gaslight/live_deck)
 [![CircleCI](https://circleci.com/gh/gaslight/live_deck.svg?style=svg)](https://circleci.com/gh/gaslight/live_deck)
@@ -44,17 +43,17 @@ For more info visit:
 https://github.com/karolsluszniak/ex_check
 https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
 
-## Deck Conifguration
-The deck theme, slide order, slide backgrounds, and slide notes can be configured in the ***lib/live_deck/presentations/config.ex*** file. Read more about the the congiuration settings [here](https://github.com/gaslight/live_deck/wiki/Deck-Configuration).
+## Deck Configuration
+The deck theme, slide order, slide backgrounds, and slide notes can be configured in the ***lib/live_deck/presentations/config.ex*** file. Read more about the the configuration settings [here](https://github.com/gaslight/live_deck/wiki/Deck-Configuration).
 
 ## Deck Themes
-Live Deck includes beautiful themes that change the colors and typeography of the whole deck.  Themes also include several background options for slides. View all the deck themes [here](https://github.com/gaslight/live_deck/wiki/Deck-Theme).
+LiveDeck includes beautiful themes that change the colors and typeography of the whole deck. Themes also include several background options for slides. View all the deck themes [here](https://github.com/gaslight/live_deck/wiki/Deck-Theme).
 
 ## Deck Templates
-Live Deck includes many different slide layouts we call slide templates. View all the deck templates [here](https://github.com/gaslight/live_deck/wiki/Deck-Slide-Templates).
+LiveDeck includes many different slide layouts we call slide templates. View all the deck templates [here](https://github.com/gaslight/live_deck/wiki/Deck-Slide-Templates).
 
 ## Deck Remote and Presenter Mode
-Your presentation can be control through a seperate webpage we call the remote. The remote adapts to presenter mode whenviewing on a desktop or laptop. Learn more about the deck remote [here](https://github.com/gaslight/live_deck/wiki/Deck-Remote-and-Presentation-Mode).
+Your presentation can be controlled through a seperate webpage we call the remote. The remote adapts to presenter mode when viewed on a desktop or laptop. Learn more about the deck remote [here](https://github.com/gaslight/live_deck/wiki/Deck-Remote-and-Presentation-Mode).
 
 ## More Info
 

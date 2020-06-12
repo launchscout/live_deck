@@ -32,7 +32,7 @@
     @media screen and (min-width: $screen-tablet) {
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
-      min-height: none;
+      min-height: 0;
     }
   }
 

@@ -30,6 +30,10 @@ defmodule LiveDeck.Presentations.Config do
     },
     %{filename: "template_left_aside.html", title: "Deck remote", background_color: "back--2"},
     %{filename: "template_2_col.html", title: "Configure Your Deck", background_color: "back--3"},
+    %{
+      filename: "template_code.html",
+      title: "Using The Config File"
+    },
     %{filename: "template_quote_alt.html"},
     %{filename: "template_4_col.html", title: "LiveDeck Roadmap"},
     %{filename: "template_full_image.html"}
