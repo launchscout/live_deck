@@ -43,7 +43,7 @@ For more info visit:
 https://github.com/karolsluszniak/ex_check
 https://hexdocs.pm/ex_check/0.9.0/Mix.Tasks.Check.html#content
 
-## Deck Conifguration
+## Deck Configuration
 The deck theme, slide order, slide backgrounds, and slide notes can be configured in the ***lib/live_deck/presentations/config.ex*** file. Read more about the the configuration settings [here](https://github.com/gaslight/live_deck/wiki/Deck-Configuration).
 
 ## Deck Themes
