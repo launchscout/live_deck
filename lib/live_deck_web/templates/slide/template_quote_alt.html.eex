@@ -1,7 +1,7 @@
 <section class="slide__content template--quote-alt">
   <div class="blockquote__top">
     <div class="blockquote__image">
-      <img src="/josie.jpg" alt="josie" />
+      <img src="/images/josie.jpg" alt="josie" />
     </div>
   </div>
   <blockquote>
