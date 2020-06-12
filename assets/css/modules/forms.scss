@@ -49,7 +49,7 @@ select {
   padding: $pad-xxs ;
   overflow: hidden;
   border: solid 3px $color-4;
-  background: url(/images/icons/dropdown.svg) no-repeat right $color-4;
+  background: url(../static/images/icons/dropdown.svg) no-repeat right $color-4;
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -2,8 +2,9 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "deploy": "webpack --mode production",
-    "watch": "webpack --mode development --watch"
+    "build": "parcel build ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
+    "watch": "parcel watch ./js/app.js ./css/app.scss ./css/app-live-deck.scss ./css/app-crimson-command.scss --out-dir ../priv/static --public-url ./",
+    "eslint": "eslint js/**"
   },
   "dependencies": {
     "babel-plugin-prismjs": "^2.0.1",
@@ -24,6 +25,8 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.13.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.4.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.3.1",
     "style-loader": "^1.1.3",

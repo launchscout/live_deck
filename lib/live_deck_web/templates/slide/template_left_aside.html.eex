@@ -2,7 +2,7 @@
   <aside>
     <div class="aside_content">
     <div class="u-padded">
-      <img src="/images/remote.png" alt="LiveDeck Remote" style="border-radius:5px;" />
+      <img src="/js/images/remote.png" alt="LiveDeck Remote" style="border-radius:5px;" />
     </div>
     </div>
   </aside>

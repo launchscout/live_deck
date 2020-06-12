@@ -1,36 +1,36 @@
 //BASE STYLES
 @import
-"/base/reset",
-"/base/variables",
-"/base/typeography";
+"./base/reset",
+"./base/variables",
+"./base/typeography";
 
 //LAYOUT STYLES
 @import
-"/layout/base",
-"/layout/grid",
-"/layout/slides",
-"/layout/speaker",
-"/layout/remote",
-"/layout/templates";
+"./layout/base",
+"./layout/grid",
+"./layout/slides",
+"./layout/speaker",
+"./layout/remote",
+"./layout/templates";
 
 //MODULES STYLES
 @import
-"modules/blockquote",
-"/modules/aside",
-"/modules/icons",
-"/modules/forms",
-"/modules/modal",
-"/modules/thumbnails",
-"/modules/menu",
-"/modules/timer",
-"/modules/notes",
-"/modules/lists",
-"/modules/buttons",
-"/modules/images",
-"/modules/error-page";
+"./modules/blockquote",
+"./modules/aside",
+"./modules/icons",
+"./modules/forms",
+"./modules/modal",
+"./modules/thumbnails",
+"./modules/menu",
+"./modules/timer",
+"./modules/notes",
+"./modules/lists",
+"./modules/buttons",
+"./modules/images",
+"./modules/error-page";
 
 //STATES STYLES
 @import
-"/states/colors",
-"/states/background",
-"/states/utilities";
+"./states/colors",
+"./states/background",
+"./states/utilities";

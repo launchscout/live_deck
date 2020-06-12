@@ -33,7 +33,7 @@ $full--color-gradient-2: linear-gradient(-45deg, $color-12, $color-12, $color-11
 $live-deck-main: 'Inter', sans-serif;
 
 body {
-  //background: url(/images/themes/live-deck-theme/wave-background.svg);
+  background: url(../static/images/themes/live-deck-theme/wave-background.svg);
   background-color: $color-2;
   color: $color-1;
   font-family: $live-deck-main;

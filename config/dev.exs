@@ -24,11 +24,16 @@ config :live_deck, LiveDeckWeb.Endpoint,
   check_origin: false,
   watchers: [
     node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
+      "./assets/node_modules/parcel-bundler/bin/cli.js",
+      "watch",
+      "./assets/js/app.js",
+      "./assets/css/app.scss",
+      "./assets/css/app-live-deck.scss",
+      "./assets/css/app-crimson-command.scss",
+      "--out-dir",
+      "priv/static",
+      "--public-url",
+      "./"
     ]
   ]
 

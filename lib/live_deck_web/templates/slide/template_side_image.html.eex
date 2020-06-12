@@ -4,6 +4,6 @@
     <p>As a web-based app,the presentation deck and the deck remote can be shared on any device.</p>
   </div>
   <div class="image--right image--fill">
-    <img src="/images/live-deck-on-mobile.jpg" alt="gaslight" />
+    <img src="/js/images/live-deck-on-mobile.jpg" alt="gaslight" />
   </div>
 </section>
