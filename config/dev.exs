@@ -23,17 +23,10 @@ config :live_deck, LiveDeckWeb.Endpoint,
   code_reloader: true,
   check_origin: false,
   watchers: [
-    node: [
-      "./assets/node_modules/parcel-bundler/bin/cli.js",
+    npm: [
+      "run",
       "watch",
-      "./assets/js/app.js",
-      "./assets/css/app.scss",
-      "./assets/css/app-live-deck.scss",
-      "./assets/css/app-crimson-command.scss",
-      "--out-dir",
-      "priv/static",
-      "--public-url",
-      "./"
+      cd: Path.expand("../assets", __DIR__)
     ]
   ]
 

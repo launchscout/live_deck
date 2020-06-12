@@ -24,7 +24,7 @@
     <div class="error-page__content">
       <div class="error-page__illustration">
         <h4 class="error-page__header">Doh!</h4>
-        <img src="/js/images/error-monster.svg" alt="error-monster"/>
+        <img src="/images/error-monster.svg" alt="error-monster"/>
       </div>
       <h4>Whoops, that page is gone!</h4>
       <p class="u-push-top--xs">Let's head back to where you came from.</p>
