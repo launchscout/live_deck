@@ -198,8 +198,9 @@
         -webkit-text-fill-color: unset;
         margin: 0 8px $pad;
         color: $color-1;
+        font-family: $font-secondary;
         font-size: 1.5rem;
-        font-weight: 400;
+        font-weight: 600;
         word-break: break-word;
 
         @media screen and (min-height: 700px) {
@@ -213,8 +214,9 @@
         -webkit-text-fill-color: unset;
         margin-bottom: $pad;
         color: $color-1;
+        font-family: $font-secondary;
         font-size: 1.2rem;
-        font-weight: 400;
+        font-weight: 600;
         word-break: break-word;
 
         @media screen and (min-height: 700px) {

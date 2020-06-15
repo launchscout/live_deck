@@ -46,7 +46,7 @@ defmodule LiveDeck.Presentations.Config do
   """
   @spec theme() :: String.t()
   def theme do
-    "app-live-deck.css"
+    "theme-live-deck.css"
   end
 
   def slides do
