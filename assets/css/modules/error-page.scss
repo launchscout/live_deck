@@ -45,7 +45,7 @@
     position: relative;
 
     &::before {
-      content: url("/images/error-x-01.svg");
+      content: url("../static/images/error-x-01.svg");
       display: block;
       position: absolute;
         top: 30px;
@@ -53,7 +53,7 @@
     }
 
     &::after {
-      content: url("/images/error-x-02.svg");
+      content: url("../static/images/error-x-02.svg");
       display: block;
       position: absolute;
         top: -40px;
