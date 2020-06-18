@@ -1,0 +1,212 @@
+//LIVEDCK THEME
+//COLOR OVERRIDES
+$color-1: #003049;
+$color-2: #FAF9EF;
+$color-3: #F5F3E0;
+$color-4: #D62828;
+$color-5: #DF5353;
+$color-6: #F77F00;
+$color-7: #FF931F;
+$color-8: #FCC14A;
+$color-9: #FDCF72;
+
+
+//FONTS OVERRIDES
+$poho-main: 'Frank Ruhl Libre', serif;
+
+body {
+  background-color: $color-1;
+  color: $color-2;
+  font-family: $poho-main;
+  font-weight: 500;
+}
+
+//TYPE OVERIDES
+h1, h2, h3, h4, h5 {
+  font-family: $poho-main;
+  font-weight: 800;
+  line-height: 1;
+}
+
+h2, h3, h4 {
+  color: $color-6;
+}
+
+blockquote,
+.blockquote {
+  color: $color-2;
+  font-weight: 600;
+
+  &::before {
+    background: $color-5;
+  }
+}
+
+ul {
+  li {
+    &::before {
+      background: $color-4;
+    }
+  }
+}
+
+//GLOABL DECK OVERIDES
+.header {
+  z-index: 50;
+
+  &__title {
+    svg {
+      fill: $color-2;
+    }
+  }
+
+  &__date {
+    color: $color-2;
+  }
+}
+
+.footer {
+  z-index: 50;
+
+  &__caption {
+    color: $color-2;
+  }
+}
+
+//TEMPLATE OVERIDES
+aside {
+  background-color: $color-3;
+  color: $color-2;
+}
+
+.template--split {
+  aside {
+    h2, h3, h4, h5, p {
+      color: $color-2;
+    }
+  }
+}
+
+.template--full-image {
+  img {
+    filter: brightness(90%) grayscale(100%);
+  }
+
+  .template__content {
+    background: transparent;
+    position: relative;
+    z-index: 50;
+
+    h1, h2, h3, h4, h5 {
+      color: $color-2;
+      font-weight: 600;
+    }
+  }
+
+  &::after {
+    content: '';
+    background-color: $color-1;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    background-size: 3200% 3200%;
+    z-index: 20;
+  }
+}
+
+.template--quote-alt {
+  .blockquote__top::before {
+    background-color: $color-3;
+  }
+}
+
+//BACKGROUND OPTIONS
+body.back--2 {
+  background-color: transparent;
+  background-image: url('../static/images/live-deck-on-mobile.jpg');
+  background-size: cover;
+
+  h1, h2, h3, h4, h5, p {
+    color: $color-2;
+  }
+
+  blockquote,
+  .blockquote {
+    &::before {
+      background: $color-2;
+    }
+  }
+
+  aside {
+    background: $color-1;
+  }
+
+  .template--full-image {
+    &::after {
+      content: '';
+      background-color: $color-3;
+    }
+  }
+
+  .template--quote-alt {
+    .blockquote__top::before {
+      animation: none;
+      background:  rgba($color-1, 0.1);
+    }
+  }
+
+  ul {
+    li {
+      &::before {
+        background: $color-2;
+      }
+    }
+  }
+}
+
+body.back--3 {
+  background-color: $color-2;
+  color: $color-3;
+
+  h1, h2, h3, h4, h5 {
+    color: $color-3;
+  }
+
+  p {
+    color: $color-1;
+  }
+
+  blockquote,
+  .blockquote {
+    color: $color-3;
+    &::before {
+      background: $color-5;
+    }
+  }
+
+  .template--split {
+    aside {
+      background-color: $color-1;
+      h2, h3, h4, h5, p {
+        color: $color-2;
+      }
+    }
+  }
+
+  .template--left-aside, .template--right-aside {
+    background-color: $color-2;
+    color: $color-3;
+
+    aside {
+      background-color: $color-1;
+      color: $color-2;
+
+      h1, h2, h3, h4, h5, p {
+        color: $color-2;
+      }
+    }
+  }
+}

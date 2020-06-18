@@ -51,8 +51,9 @@
     h1 {
       -webkit-text-fill-color: unset;
       color: $color-1;
+      font-family: $font-secondary;
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 600;
 
       @media screen and (min-width: $screen-tablet) {
         font-size: 2rem;
