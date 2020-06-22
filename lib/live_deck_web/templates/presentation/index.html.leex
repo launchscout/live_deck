@@ -1,5 +1,8 @@
+<%= if File.exists?("lib/live_deck_web/templates/background/#{LiveDeck.Presentations.Config.theme()}.html.eex") do %>
+  <%= render(LiveDeckWeb.BackgroundView, "#{LiveDeck.Presentations.Config.theme()}.html", assigns) %>
+<% end %>
 <section class="slide">
-<link rel="stylesheet" href="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/css/#{LiveDeck.Presentations.Config.theme()}") %>" >
+<link rel="stylesheet" href="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/css/#{LiveDeck.Presentations.Config.theme()}.css") %>" >
   <header class="slide__header">
     <div class="header__title">
       <svg version="1.1"  x="0px" y="0px" viewBox="0 0 445 421" style="enable-background:new 0 0 445 421;" xml:space="preserve">

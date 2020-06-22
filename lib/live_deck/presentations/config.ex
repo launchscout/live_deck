@@ -42,11 +42,11 @@ defmodule LiveDeck.Presentations.Config do
   @dummy List.first(@default_slides).filename
 
   @doc """
-  Define the css theme file you want to use here.
+  Provide the theme name you want to use here. This name must coincide with a stylesheet in assets/css, and optionally a theme's template background in templates/background/
   """
   @spec theme() :: String.t()
   def theme do
-    "theme-live-deck.css"
+    "theme-live-deck"
   end
 
   def slides do
