@@ -5,11 +5,23 @@
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
+  position: relative;
+  z-index: 10;
 
   @media screen and (min-width: $screen-tablet) {
     grid-template-rows: 5vh 90vh 5vh;
     overflow: hidden;
   }
+
+&__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
 
   &__content {
     margin: $pad-xs;

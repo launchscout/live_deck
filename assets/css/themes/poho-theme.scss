@@ -3,8 +3,8 @@
 $color-1: #003049;
 $color-2: #FAF9EF;
 $color-3: #F5F3E0;
-$color-4: #D62828;
-$color-5: #DF5353;
+$color-4: #BF0C0C;
+$color-5: #D62828;
 $color-6: #F77F00;
 $color-7: #FF931F;
 $color-8: #FCC14A;
@@ -12,24 +12,76 @@ $color-9: #FDCF72;
 
 
 //FONTS OVERRIDES
-$poho-main: 'Frank Ruhl Libre', serif;
+$poho-main: 'Playfair Display', serif;
+$poho-secondary: 'Roboto Slab', serif;
 
 body {
   background-color: $color-1;
   color: $color-2;
   font-family: $poho-main;
   font-weight: 500;
+  position: relative;
+}
+
+.slide__background {
+  background-color: $color-4;
+  display: none;
+}
+
+.blob {
+  &--1 {
+    position: absolute;
+    width: 1850px;
+    height: 1850px;
+    bottom: -70%;
+    left: -35%;
+  }
+
+  &--2 {
+    position: absolute;
+    width: 2050px;
+    height: 2050px;
+    top: -60%;
+    left: -35%;
+  }
+
+  &--3 {
+    position: absolute;
+    width: 1850px;
+    height: 1850px;
+    top: -60%;
+    right: -35%;
+  }
+
+  &--4 {
+    position: absolute;
+    width: 2050px;
+    height: 2050px;
+    bottom: -60%;
+    right: -35%;
+  }
+}
+
+pre {
+  background-color: lighten($color-1, 2%);
+  border-radius: 35px;
+  color: $color-2;
 }
 
 //TYPE OVERIDES
 h1, h2, h3, h4, h5 {
+  color: $color-8;
   font-family: $poho-main;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1;
 }
 
-h2, h3, h4 {
-  color: $color-6;
+h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+p {
+  font-family: $poho-secondary;
 }
 
 blockquote,
@@ -56,7 +108,7 @@ ul {
 
   &__title {
     svg {
-      fill: $color-2;
+      fill: $color-8;
     }
   }
 
@@ -69,20 +121,30 @@ ul {
   z-index: 50;
 
   &__caption {
-    color: $color-2;
+    color: $color-7;
   }
 }
 
 //TEMPLATE OVERIDES
 aside {
-  background-color: $color-3;
-  color: $color-2;
+  background-color: $color-8;
+  color: $color-1;
+
+  h2, h3, h4 {
+    color: $color-1;
+  }
 }
 
 .template--split {
   aside {
-    h2, h3, h4, h5, p {
-      color: $color-2;
+    background-color: $color-9;
+
+    h2, h3, h4, h5 {
+      color: $color-4;
+    }
+
+    p {
+      color: $color-1;
     }
   }
 }
@@ -98,8 +160,12 @@ aside {
     z-index: 50;
 
     h1, h2, h3, h4, h5 {
-      color: $color-2;
+      color: $color-9;
       font-weight: 600;
+    }
+
+    p {
+      color: $color-2;
     }
   }
 
@@ -111,7 +177,7 @@ aside {
     height: 100vh;
     top: 0;
     left: 0;
-    opacity: 0.8;
+    opacity: 0.85;
     background-size: 3200% 3200%;
     z-index: 20;
   }
@@ -119,18 +185,64 @@ aside {
 
 .template--quote-alt {
   .blockquote__top::before {
-    background-color: $color-3;
+    background-color: $color-9;
   }
 }
 
 //BACKGROUND OPTIONS
 body.back--2 {
-  background-color: transparent;
-  background-image: url('../static/images/live-deck-on-mobile.jpg');
-  background-size: cover;
+
+  .header {
+    z-index: 50;
+
+    &__title {
+      svg {
+        fill: $color-8;
+      }
+    }
+
+    &__date {
+      color: $color-2;
+    }
+  }
+
+  .footer {
+    z-index: 50;
+
+    &__caption {
+      color: $color-7;
+    }
+  }
 
   h1, h2, h3, h4, h5, p {
     color: $color-2;
+  }
+
+  .slide__background {
+    background-color: $color-6;
+    display: block;
+  }
+
+  .blob {
+    &--1 path {
+      fill: darken($color-4, 5%);
+      animation: morpheus 40s linear infinite;
+    }
+
+    &--2 path {
+      fill: $color-1;
+      animation: morpheus2 35s linear infinite;
+    }
+
+    &--3 path {
+      fill: $color-8;
+      animation: morpheus3 40s linear infinite;
+    }
+
+    &--4 path {
+      fill: lighten($color-1, 3%);
+      animation: morpheus2 45s linear infinite reverse;
+    }
   }
 
   blockquote,
@@ -141,20 +253,23 @@ body.back--2 {
   }
 
   aside {
-    background: $color-1;
+    background: lighten($color-1, 5%);
   }
 
   .template--full-image {
+    img {
+      opacity: 0.5;
+    }
+
     &::after {
-      content: '';
-      background-color: $color-3;
+      background-color: transparent;
     }
   }
 
   .template--quote-alt {
     .blockquote__top::before {
       animation: none;
-      background:  rgba($color-1, 0.1);
+      background-color: $color-8;
     }
   }
 
@@ -168,20 +283,58 @@ body.back--2 {
 }
 
 body.back--3 {
-  background-color: $color-2;
-  color: $color-3;
+  color: $color-1;
 
-  h1, h2, h3, h4, h5 {
-    color: $color-3;
+  .header {
+    &__title {
+      svg {
+        fill: $color-1;
+      }
+    }
+  }
+
+  h1 {
+    color: $color-1;
+  }
+
+  h2, h3, h4, h5 {
+    color: darken($color-4, 5%);
   }
 
   p {
     color: $color-1;
   }
 
+  .slide__background {
+    background-color: $color-9;
+    display: block;
+  }
+
+  .blob {
+    &--1 path {
+      fill: $color-8;
+      animation: morpheus 40s linear infinite;
+    }
+
+    &--2 path {
+      fill: darken($color-8, 5%);
+      animation: morpheus2 35s linear infinite;
+    }
+
+    &--3 path {
+      fill: $color-7;
+      animation: morpheus3 40s linear infinite;
+    }
+
+    &--4 path {
+      fill: darken($color-8, 2%);
+      animation: morpheus2 45s linear infinite reverse;
+    }
+  }
+
   blockquote,
   .blockquote {
-    color: $color-3;
+    color: $color-1;
     &::before {
       background: $color-5;
     }
@@ -196,17 +349,80 @@ body.back--3 {
     }
   }
 
-  .template--left-aside, .template--right-aside {
-    background-color: $color-2;
-    color: $color-3;
-
-    aside {
+  .template--quote-alt {
+    .blockquote__top::before {
+      animation: none;
       background-color: $color-1;
-      color: $color-2;
+    }
+  }
+
+  .template--full-image {
+    img {
+      opacity: 0.3;
+    }
+
+    h1, h2, h3, h4, h5, p {
+      color: $color-1;
+    }
+
+    &::after {
+      background-color: transparent;
+    }
+  }
+
+  .template--left-aside, .template--right-aside {
+    aside {
+      background-color: rgba($color-9, 0.6);
+      color: $color-1;
 
       h1, h2, h3, h4, h5, p {
-        color: $color-2;
+        color: $color-1;
       }
     }
+  }
+}
+
+@keyframes morpheus {
+  0% {
+    d:path("M34.7,-61.2C39.7,-57.2,35,-37.3,35.3,-24.5C35.6,-11.7,40.8,-5.8,44,1.9C47.3,9.6,48.6,19.2,49,33.3C49.5,47.4,49.2,66,40.9,76.9C32.6,87.8,16.3,91,5.4,81.5C-5.4,72.1,-10.8,50,-19.5,39.4C-28.2,28.7,-40.2,29.4,-51.9,24.8C-63.6,20.1,-75,10,-77.2,-1.2C-79.3,-12.5,-72.2,-25.1,-62.9,-33.9C-53.7,-42.8,-42.2,-48,-31.3,-48.7C-20.5,-49.4,-10.2,-45.6,2.3,-49.5C14.8,-53.5,29.6,-65.2,34.7,-61.2Z");
+  }
+  35% {
+    d:path("M18.8,-36.9C24,-29.6,27.5,-23.8,27.2,-17.8C27,-11.9,23,-6,28.8,3.3C34.6,12.6,50.1,25.2,49.8,30.3C49.5,35.3,33.4,32.7,22.5,42.8C11.6,53,5.8,76,-4.7,84.2C-15.3,92.4,-30.5,85.8,-38.6,74C-46.7,62.2,-47.7,45.1,-46.2,31.9C-44.7,18.7,-40.8,9.4,-46.1,-3.1C-51.4,-15.5,-65.9,-31,-64.5,-39.1C-63.1,-47.3,-45.7,-48.2,-32.3,-50.7C-18.9,-53.1,-9.4,-57.2,-1.3,-55C6.8,-52.7,13.7,-44.1,18.8,-36.9Z");
+  }
+  65% {
+    d:path("M27.4,-46C40.1,-40.1,58.2,-42.1,68.3,-35.7C78.4,-29.4,80.5,-14.7,76.3,-2.4C72.1,9.8,61.5,19.6,53.6,29.7C45.7,39.8,40.3,50.1,31.8,56.5C23.3,62.9,11.6,65.3,1.8,62.3C-8.1,59.2,-16.2,50.7,-23.7,43.7C-31.1,36.7,-37.9,31.3,-39,24.2C-40.1,17.2,-35.6,8.6,-32.3,1.9C-28.9,-4.7,-26.6,-9.4,-29.7,-23.6C-32.7,-37.8,-40.9,-61.5,-36.9,-72.4C-32.8,-83.2,-16.4,-81.2,-4.5,-73.3C7.3,-65.5,14.7,-51.8,27.4,-46Z");
+  }
+  100% {
+    d:path("M34.7,-61.2C39.7,-57.2,35,-37.3,35.3,-24.5C35.6,-11.7,40.8,-5.8,44,1.9C47.3,9.6,48.6,19.2,49,33.3C49.5,47.4,49.2,66,40.9,76.9C32.6,87.8,16.3,91,5.4,81.5C-5.4,72.1,-10.8,50,-19.5,39.4C-28.2,28.7,-40.2,29.4,-51.9,24.8C-63.6,20.1,-75,10,-77.2,-1.2C-79.3,-12.5,-72.2,-25.1,-62.9,-33.9C-53.7,-42.8,-42.2,-48,-31.3,-48.7C-20.5,-49.4,-10.2,-45.6,2.3,-49.5C14.8,-53.5,29.6,-65.2,34.7,-61.2Z");
+  }
+}
+
+@keyframes morpheus2 {
+  0% {
+    d:path("M38.9,-69.5C46.8,-62.9,46.9,-45,48.6,-31.5C50.4,-18.1,53.9,-9,55.8,1.1C57.7,11.2,58,22.5,53.7,31.6C49.4,40.7,40.5,47.7,30.8,56.7C21.1,65.6,10.5,76.5,-2.1,80.1C-14.7,83.7,-29.4,80,-43.3,73.5C-57.2,67,-70.4,57.6,-75.2,44.9C-80,32.2,-76.5,16.1,-73,2C-69.6,-12.1,-66.2,-24.2,-60,-34.5C-53.8,-44.9,-44.8,-53.4,-34.3,-58.4C-23.9,-63.5,-11.9,-64.9,1.8,-68.1C15.6,-71.2,31.1,-76,38.9,-69.5Z");
+  }
+  35% {
+    d:path("M22.1,-31.2C33,-32.1,49,-34.8,51,-29.9C53.1,-25,41.1,-12.5,37.6,-2.1C34,8.4,38.9,16.8,39.9,27C40.9,37.2,38.1,49.3,30.9,55.6C23.6,62,11.8,62.8,-1,64.5C-13.8,66.2,-27.6,68.9,-33.7,61.9C-39.8,54.8,-38.2,38,-42.3,26.1C-46.4,14.1,-56,7.1,-60.8,-2.7C-65.5,-12.5,-65.3,-25,-61,-36.7C-56.8,-48.3,-48.5,-59,-37.7,-58C-26.8,-57.1,-13.4,-44.5,-3.9,-37.8C5.7,-31.1,11.3,-30.2,22.1,-31.2Z");
+  }
+  65% {
+    d:path("M24.4,-47.2C28.6,-39.8,26.8,-27.1,33.6,-18.4C40.4,-9.6,55.8,-4.8,63.8,4.6C71.8,14,72.4,28.1,68.5,42C64.7,55.8,56.4,69.5,44.2,72C32,74.5,16,65.8,-0.2,66.1C-16.3,66.4,-32.7,75.6,-40.5,70.6C-48.3,65.6,-47.6,46.3,-48.8,32.2C-50,18.1,-53.2,9,-59,-3.4C-64.9,-15.8,-73.5,-31.6,-67.4,-37.3C-61.3,-42.9,-40.4,-38.4,-26.7,-40.2C-13,-42.1,-6.5,-50.3,1.8,-53.4C10.1,-56.5,20.2,-54.5,24.4,-47.2Z");
+  }
+  100% {
+    d:path("M38.9,-69.5C46.8,-62.9,46.9,-45,48.6,-31.5C50.4,-18.1,53.9,-9,55.8,1.1C57.7,11.2,58,22.5,53.7,31.6C49.4,40.7,40.5,47.7,30.8,56.7C21.1,65.6,10.5,76.5,-2.1,80.1C-14.7,83.7,-29.4,80,-43.3,73.5C-57.2,67,-70.4,57.6,-75.2,44.9C-80,32.2,-76.5,16.1,-73,2C-69.6,-12.1,-66.2,-24.2,-60,-34.5C-53.8,-44.9,-44.8,-53.4,-34.3,-58.4C-23.9,-63.5,-11.9,-64.9,1.8,-68.1C15.6,-71.2,31.1,-76,38.9,-69.5Z");
+  }
+}
+
+@keyframes morpheus3 {
+  0% {
+    d:path("M15.3,-34.3C20.5,-23.4,26,-20.8,27.9,-16.5C29.7,-12.2,27.8,-6.1,33.2,3.1C38.6,12.3,51.2,24.6,52.6,34.4C53.9,44.2,44,51.6,33.3,55.9C22.7,60.3,11.3,61.8,-1.3,64C-13.9,66.2,-27.8,69.3,-38,64.6C-48.1,59.9,-54.5,47.5,-54.6,35.5C-54.8,23.4,-48.6,11.7,-52.2,-2.1C-55.9,-15.9,-69.2,-31.8,-65.4,-37.4C-61.6,-43,-40.5,-38.4,-26.7,-44.3C-13,-50.3,-6.5,-66.9,-0.7,-65.6C5,-64.3,10,-45.1,15.3,-34.3Z");
+  }
+  35% {
+    d:path("M43.7,-75.6C57.6,-67.7,70.6,-57.9,70.3,-45C70,-32.1,56.5,-16.1,52.6,-2.2C48.7,11.6,54.5,23.2,51,29.6C47.6,36,34.9,37.3,24.9,42.8C14.9,48.4,7.4,58.1,-4.2,65.3C-15.7,72.5,-31.5,77.1,-40.7,71.2C-50,65.2,-52.8,48.6,-61.2,35C-69.7,21.4,-83.8,10.7,-86.8,-1.7C-89.8,-14.1,-81.6,-28.3,-72.2,-40.2C-62.7,-52,-51.9,-61.6,-39.7,-70.5C-27.4,-79.4,-13.7,-87.5,0.6,-88.6C14.9,-89.6,29.8,-83.5,43.7,-75.6Z");
+  }
+  65% {
+    d:path("M32.2,-53C38.8,-52,39.2,-37.4,38.1,-26.3C37.1,-15.2,34.5,-7.6,33.6,-0.6C32.6,6.5,33.2,13,32.4,20.7C31.5,28.5,29.1,37.4,23.5,50.1C17.8,62.9,8.9,79.4,1.9,76.1C-5,72.7,-10.1,49.4,-16.8,37.3C-23.6,25.2,-32,24.3,-39.1,19.9C-46.2,15.6,-52,7.8,-58.7,-3.9C-65.5,-15.6,-73.3,-31.2,-67.7,-38.3C-62.2,-45.3,-43.4,-43.9,-29.8,-40.9C-16.3,-37.8,-8.2,-33.2,2.3,-37.2C12.8,-41.3,25.6,-53.9,32.2,-53Z");
+  }
+  100% {
+    d:path("M15.3,-34.3C20.5,-23.4,26,-20.8,27.9,-16.5C29.7,-12.2,27.8,-6.1,33.2,3.1C38.6,12.3,51.2,24.6,52.6,34.4C53.9,44.2,44,51.6,33.3,55.9C22.7,60.3,11.3,61.8,-1.3,64C-13.9,66.2,-27.8,69.3,-38,64.6C-48.1,59.9,-54.5,47.5,-54.6,35.5C-54.8,23.4,-48.6,11.7,-52.2,-2.1C-55.9,-15.9,-69.2,-31.8,-65.4,-37.4C-61.6,-43,-40.5,-38.4,-26.7,-44.3C-13,-50.3,-6.5,-66.9,-0.7,-65.6C5,-64.3,10,-45.1,15.3,-34.3Z");
   }
 }
