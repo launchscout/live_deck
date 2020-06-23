@@ -31,13 +31,14 @@
 
     h2 {
       -webkit-text-fill-color: unset;
+      width: 100%;
+      overflow: hidden;
       color: $color-5;
+      font-family: $font-secondary;
       font-size: 2em;
       font-weight: 500;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
