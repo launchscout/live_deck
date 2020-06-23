@@ -28,7 +28,7 @@ defmodule LiveDeck.MixProject do
   def application do
     [
       mod: {LiveDeck.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :timex]
     ]
   end
 
@@ -56,6 +56,7 @@ defmodule LiveDeck.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:timex, "~> 3.0"},
       {:ex_check, ">= 0.0.0", only: :dev, runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:sobelow, ">= 0.0.0", only: :dev, runtime: false}
