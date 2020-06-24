@@ -1,4 +1,4 @@
-<%= if File.exists?("lib/live_deck_web/templates/background/#{LiveDeck.Presentations.Config.theme()}.html.eex") do %>
+<%= if background_exists?() do %>
   <%= render(LiveDeckWeb.BackgroundView, "#{LiveDeck.Presentations.Config.theme()}.html", assigns) %>
 <% end %>
 <section class="slide">

@@ -1,3 +1,6 @@
+<%= if LiveDeckWeb.PresentationView.background_exists?() do %>
+  <%= render(LiveDeckWeb.BackgroundView, "#{LiveDeck.Presentations.Config.theme()}.html", assigns) %>
+<% end %>
 <section class="slide" data-testid="thumbnail-<%= @slide.title %>">
 <link rel="stylesheet" href="<%= Routes.static_path(LiveDeckWeb.Endpoint, "/css/#{LiveDeck.Presentations.Config.theme()}.css") %>" >
   <header class="slide__header">
