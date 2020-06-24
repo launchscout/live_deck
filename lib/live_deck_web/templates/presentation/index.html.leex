@@ -1,4 +1,4 @@
-<%= if File.exists?("lib/live_deck_web/templates/background/#{LiveDeck.Presentations.Config.theme()}.html.eex") do %>
+<%= if background_exists?() do %>
   <%= render(LiveDeckWeb.BackgroundView, "#{LiveDeck.Presentations.Config.theme()}.html", assigns) %>
 <% end %>
 <section class="slide">
@@ -23,7 +23,7 @@
         c11.8,32.8-8.4,39.5-35.1,23c0.4-0.8,0.7-1.6,0.7-2.5v-37.6h253.9v106.2c0,0.6,0.2,1.1,0.3,1.7C344,289.3,339.7,288,335.5,285.8z"/>
       </svg>
     </div>
-    <p class="header__date">Jan 5th, 2020</p>
+    <p class="header__date"><%= current_date() %></p>
   </header>
 
   <section phx-hook="BackgroundClassHook" data-background-class="<%= @slide.background_color %>" data-testid="PresentationsLiveView">
