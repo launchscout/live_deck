@@ -44,6 +44,21 @@ defmodule LiveDeckWeb.PresentationViewTest do
     end
   end
 
+  describe "background_exists?/1" do
+    test "returns true if the exists_fun evaluates to true" do
+      exists_fun = fn file_name ->
+        String.contains?(file_name, LiveDeck.Presentations.Config.theme())
+      end
+
+      assert PresentationView.background_exists?(exists_fun)
+    end
+
+    test "returns false if exists_fun evaluates to false" do
+      fun = fn _ -> false end
+      refute PresentationView.background_exists?(fun)
+    end
+  end
+
   defp calendar(with_date: day_of_month) do
     fn -> {{2020, 7, day_of_month}, {}} end
   end
