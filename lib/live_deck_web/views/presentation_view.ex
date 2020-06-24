@@ -7,8 +7,8 @@ defmodule LiveDeckWeb.PresentationView do
         "lib/live_deck_web/templates/background/#{LiveDeck.Presentations.Config.theme()}.html.eex"
       )
 
-  def current_date do
-    {year, month, day} = elem(:calendar.local_time(), 0)
+  def current_date(local_time_fun \\ &:calendar.local_time/0) do
+    {year, month, day} = elem(local_time_fun.(), 0)
     "#{Timex.month_name(month)} #{day_suffix(day)}, #{year}"
   end
 
