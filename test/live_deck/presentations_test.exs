@@ -58,10 +58,10 @@ defmodule LiveDeck.PresentationsTest do
     end
   end
 
-  describe "prev_slide/1" do
+  describe "prev_content/1" do
     test "updates active index if there is a previous slide" do
       assert %Presentation{active_index: 0} =
-               Presentations.prev_slide(%Presentation{active_index: 1})
+               Presentations.prev_content(%Presentation{active_index: 1})
     end
 
     test "is a no-op when the active index is 0" do
@@ -71,7 +71,7 @@ defmodule LiveDeck.PresentationsTest do
         last_index: 3
       }
 
-      assert presentation == Presentations.prev_slide(presentation)
+      assert presentation == Presentations.prev_content(presentation)
     end
   end
 

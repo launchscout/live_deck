@@ -29,12 +29,12 @@ defmodule LiveDeck.Presentations.Presentation do
   end
 
   @doc """
-  Moves to the previous slide of the Presentation.
+  Moves to the previous piece of content for the Presentation.
   """
-  @spec prev_slide(t()) :: t()
-  def prev_slide(%__MODULE__{active_index: 0} = presentation), do: presentation
+  @spec prev_content(t()) :: t()
+  def prev_content(%__MODULE__{active_index: 0} = presentation), do: presentation
 
-  def prev_slide(%__MODULE__{active_index: index} = presentation) do
+  def prev_content(%__MODULE__{active_index: index} = presentation) do
     %__MODULE__{presentation | active_index: index - 1}
   end
 

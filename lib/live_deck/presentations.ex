@@ -57,10 +57,10 @@ defmodule LiveDeck.Presentations do
   end
 
   @doc """
-  Navigates to the previous slide
+  Navigates to the previous content
   """
-  @spec prev_slide(Presentation.t()) :: Presentation.t()
-  def prev_slide(presentation) do
-    Presentation.prev_slide(presentation)
+  @spec prev_content(Presentation.t()) :: Presentation.t()
+  def prev_content(presentation) do
+    Presentation.prev_content(presentation)
   end
 end

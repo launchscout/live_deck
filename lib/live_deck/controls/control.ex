@@ -37,9 +37,9 @@ defmodule LiveDeck.Controls.Control do
     end)
   end
 
-  def prev_slide do
+  def prev_content do
     Agent.get_and_update(__MODULE__, fn state ->
-      updated_presentation = Presentations.prev_slide(state)
+      updated_presentation = Presentations.prev_content(state)
       {updated_presentation, updated_presentation}
     end)
   end

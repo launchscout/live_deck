@@ -44,7 +44,7 @@ defmodule LiveDeck.Controls do
   end
 
   def navigate(:prev) do
-    presentation = Control.prev_slide()
+    presentation = Control.prev_content()
     publish("presentation_update", presentation)
     presentation
   end
