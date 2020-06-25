@@ -3,8 +3,8 @@
     <h3>An Open Source Slide Deck Project That Utilizes Elixir, Phoenix, and LiveView.</h3>
   </div>
   <aside>
-    <div class="aside_content">
-    <div class="u-padded">
+    <div class="aside__content">
+    <div class="aside__image">
       <img src="/images/dill-orange-haired.svg" alt="Live Deck Dill" />
     </div>
     <p>github.com<br />/gaslight/<br />live_deck</p>

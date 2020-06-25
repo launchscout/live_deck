@@ -7,13 +7,10 @@
   height: 100vh;
 
   &__window {
-    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
-    flex-direction: column;
     width: 85vw;
-    height: 85vh;
     padding: $pad-sm;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 25px;
@@ -25,12 +22,9 @@
   }
 
   &__header {
-
-    flex-shrink: 1;
     text-align: center;
 
     h2 {
-      -webkit-text-fill-color: unset;
       width: 100%;
       overflow: hidden;
       color: $color-5;
@@ -43,12 +37,12 @@
   }
 
   &__body {
-    flex-grow: 1;
     margin: $pad-sm 0;
-    padding: $pad-sm;
+    padding: $pad;
     overflow-y: auto;
     border-radius: 25px;
     background-color:  darken($color-3, 3%);
+    font-size: 1.1em;
 
     p {
       font-size: 1.6em;
@@ -67,7 +61,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba($color-1, 0.7);
+    background-color: rgba($color-2, 0.7);
     content: '';
   }
 }

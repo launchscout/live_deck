@@ -36,7 +36,12 @@
     }
 
     p {
+      margin-top: $pad-xs;
       font-weight: 200;
+    }
+
+    a {
+      margin-top: $pad;
     }
   }
   &__header {

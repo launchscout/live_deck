@@ -12,4 +12,8 @@ aside {
   @media screen and (min-width: $screen-tablet) {
     height: 100vh;
   }
+
+  &__image {
+    padding: $pad;
+  }
 }
