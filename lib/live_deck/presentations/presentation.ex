@@ -17,14 +17,14 @@ defmodule LiveDeck.Presentations.Presentation do
         }
 
   @doc """
-  Moves to the next slide of the Presentation.
+  Moves to the next piece of content for the Presentation.
   """
-  @spec next_slide(t()) :: t()
-  def next_slide(%__MODULE__{active_index: active, last_index: last} = presentation)
+  @spec next_content(t()) :: t()
+  def next_content(%__MODULE__{active_index: active, last_index: last} = presentation)
       when active == last,
       do: presentation
 
-  def next_slide(%__MODULE__{active_index: index} = presentation) do
+  def next_content(%__MODULE__{active_index: index} = presentation) do
     %__MODULE__{presentation | active_index: index + 1}
   end
 

@@ -49,11 +49,11 @@ defmodule LiveDeck.Presentations do
   end
 
   @doc """
-  Navigates to the next slide
+  Navigates to the next content
   """
-  @spec next_slide(Presentation.t()) :: Presentation.t()
-  def next_slide(presentation) do
-    Presentation.next_slide(presentation)
+  @spec next_content(Presentation.t()) :: Presentation.t()
+  def next_content(presentation) do
+    Presentation.next_content(presentation)
   end
 
   @doc """

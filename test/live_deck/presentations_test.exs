@@ -42,9 +42,9 @@ defmodule LiveDeck.PresentationsTest do
     end
   end
 
-  describe "next_slide/1" do
+  describe "next_content/1" do
     test "updates active index if there is a next slide" do
-      assert %Presentation{active_index: 1} = Presentations.load() |> Presentations.next_slide()
+      assert %Presentation{active_index: 1} = Presentations.load() |> Presentations.next_content()
     end
 
     test "is a no-op when the active index is the last index" do
@@ -54,7 +54,7 @@ defmodule LiveDeck.PresentationsTest do
         last_index: 3
       }
 
-      assert presentation == Presentations.next_slide(presentation)
+      assert presentation == Presentations.next_content(presentation)
     end
   end
 

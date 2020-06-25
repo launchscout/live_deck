@@ -38,7 +38,7 @@ defmodule LiveDeck.Controls do
 
   @spec navigate(:next | :prev) :: Presentations.presentation()
   def navigate(:next) do
-    presentation = Control.next_slide()
+    presentation = Control.next_content()
     publish("presentation_update", presentation)
     presentation
   end
