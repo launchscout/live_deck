@@ -36,11 +36,10 @@ ul {
       margin-left: $pad-xlg;
       animation: bulletTextIn 1s ease forwards;
       transform: translateX(-4rem);
-      font-size: 2rem;
     }
 
     @media screen and (min-width: $screen-desktop) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
   }
 }

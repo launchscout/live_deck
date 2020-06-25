@@ -1,5 +1,9 @@
 .template {
 
+  &--title {
+    align-items: center;
+  }
+
   &--2col {
     grid-gap: $pad-lg;
     display: grid;
@@ -221,4 +225,9 @@
       }
     }
   }
+}
+
+//COLUMN ULITITIES
+.col--center {
+  align-self: center;
 }

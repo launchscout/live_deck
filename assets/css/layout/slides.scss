@@ -1,12 +1,12 @@
 //SLIDE STYLES
 .slide {
   display: grid;
+  z-index: 10;
+  position: relative;
   grid-template-rows: 5vh minmax(90vh, auto) 5vh;
   align-items: center;
   min-height: 100vh;
   overflow-x: hidden;
-  position: relative;
-  z-index: 10;
 
   @media screen and (min-width: $screen-tablet) {
     grid-template-rows: 5vh 90vh 5vh;
@@ -14,13 +14,13 @@
   }
 
 &__background {
+  z-index: 1;
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   min-height: 100vh;
   overflow: hidden;
-  z-index: 1;
 }
 
   &__content {
@@ -28,6 +28,10 @@
 
     @media screen and (min-width: $screen-tablet) {
       margin: $pad-xs $pad-xlg;
+    }
+
+    p {
+      line-height: 1.5;
     }
   }
 
@@ -46,23 +50,22 @@
 
   &__footer {
     display: grid;
-    font-size: 14px;
+    z-index: 10;
+    position: relative;
     grid-template-columns: repeat(2, 1fr);
     height: 5vh;
     max-height: 5vh;
     overflow: hidden;
-    position: relative;
-    z-index: 10;
+    font-size: 14px;
 
     .footer {
       &__caption {
-        font-weight: 400;
-        line-height: 1.2;
         font-size: 0.7em;
+        line-height: 1.2;
 
         @media screen and (min-width: $screen-tablet) {
-          line-height: 1;
           font-size: 1em;
+          line-height: 1;
         }
       }
 
@@ -71,7 +74,6 @@
       }
 
       &--right {
-        font-weight: 400;
         text-align: right;
       }
     }
@@ -79,11 +81,11 @@
 
   &__header {
     display: grid;
-    font-size: 18px;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
     z-index: 10;
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    font-size: 18px;
 
     .header {
       &__title {
@@ -98,7 +100,6 @@
 
       &__date {
         font-weight: 200;
-        line-height: 1;
         text-align: right;
       }
     }
