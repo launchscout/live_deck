@@ -29,14 +29,6 @@ defmodule LiveDeck.PresentationsTest do
       end)
     end
 
-    test "orders slide based off config", %{presentation: presentation} do
-      first_slide = List.first(presentation.slides)
-      last_slide = List.last(presentation.slides)
-
-      assert first_slide.position == 0
-      assert last_slide.position == length(presentation.slides) - 1
-    end
-
     test "inserts notes on slides", %{presentation: presentation} do
       assert Enum.all?(presentation.slides, fn slide -> slide.notes end)
     end

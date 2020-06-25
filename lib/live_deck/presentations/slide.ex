@@ -25,13 +25,12 @@ defmodule LiveDeck.Presentations.Slide do
 
   @spec all() :: list(t())
   def all do
-    for {slide, position} <- Config.slides() |> Enum.with_index() do
+    for slide <- Config.slides() do
       struct = struct(__MODULE__, slide)
 
       %__MODULE__{
         struct
         | title: format_title(slide[:title] || slide.filename),
-          position: position,
           notes: slide.notes
       }
     end
