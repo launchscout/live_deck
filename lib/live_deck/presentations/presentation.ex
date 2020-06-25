@@ -56,7 +56,7 @@ defmodule LiveDeck.Presentations.Presentation do
     %__MODULE__{
       slides: slides,
       active_index: 0,
-      last_index: length(slides) - 1
+      last_index: last_index(for: slides)
     }
   end
 
@@ -66,4 +66,16 @@ defmodule LiveDeck.Presentations.Presentation do
   @spec current_slide(t()) :: Slide.t()
   def current_slide(%__MODULE__{active_index: index, slides: slides}),
     do: Enum.at(slides, index)
+
+  defp last_index(for: slides) do
+    Enum.reduce(slides, 0, fn slide, running_total ->
+      case slide.reveals do
+        nil -> running_total
+        count when is_number(count) -> running_total + count
+        %{count: count} -> running_total + count
+      end
+    end)
+    |> Kernel.+(length(slides))
+    |> Kernel.-(1)
+  end
 end

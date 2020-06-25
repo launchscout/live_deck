@@ -22,7 +22,7 @@ defmodule LiveDeck.Presentations.Config do
       background_color: "back--3"
     },
     %{filename: "template_3_col.html", title: "What We Used"},
-    %{filename: "template_bullet_list.html", title: "Easy To Use"},
+    %{filename: "template_bullet_list.html", title: "Easy To Use", reveals: 4},
     %{
       filename: "template_side_image.html",
       title: "Configure Your Deck",
