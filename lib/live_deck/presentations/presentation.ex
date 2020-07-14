@@ -8,11 +8,13 @@ defmodule LiveDeck.Presentations.Presentation do
   @enforce_keys [:active_index]
   defstruct slides: [],
             active_index: 0,
+            active_reveal_index: 0,
             last_index: nil
 
   @type t() :: %__MODULE__{
           slides: list(Slide.title()),
           active_index: non_neg_integer(),
+          active_reveal_index: non_neg_integer(),
           last_index: non_neg_integer()
         }
 
@@ -24,8 +26,16 @@ defmodule LiveDeck.Presentations.Presentation do
       when active == last,
       do: presentation
 
-  def next_content(%__MODULE__{active_index: index} = presentation) do
-    %__MODULE__{presentation | active_index: index + 1}
+  def next_content(
+        %__MODULE__{active_index: index, active_reveal_index: reveal_index} = presentation
+      ) do
+    case current_slide(presentation) do
+      %Slide{reveals: %{count: reveal_count}} when reveal_count > reveal_index ->
+        %__MODULE__{presentation | active_reveal_index: reveal_index + 1}
+
+      _ ->
+        %__MODULE__{presentation | active_index: index + 1, active_reveal_index: 0}
+    end
   end
 
   @doc """

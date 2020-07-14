@@ -40,10 +40,21 @@ defmodule LiveDeck.PresentationsTest do
   end
 
   describe "next_content/1" do
-    setup :load_presentation
+    setup [:load_presentation, :fetch_first_slide_reveal_count]
 
-    test "updates active index if there is a next slide", %{presentation: presentation} do
-      assert %Presentation{active_index: 1} = Presentations.next_content(presentation)
+    test "updates the active reveal index if there are more reveals", %{
+      presentation: presentation
+    } do
+      assert %Presentation{active_reveal_index: 1} = Presentation.next_content(presentation)
+    end
+
+    test "updates active index there are no more reveals on the current slide AND not on last slide",
+         %{presentation: presentation, reveal_count: reveal_count} do
+      assert %Presentation{active_index: 1, active_reveal_index: 0} =
+               Presentations.next_content(%Presentation{
+                 presentation
+                 | active_reveal_index: reveal_count
+               })
     end
 
     test "is a no-op when the active index is the last index" do
@@ -120,5 +131,10 @@ defmodule LiveDeck.PresentationsTest do
 
   defp load_presentation(context) do
     Map.merge(context, %{presentation: Presentations.load()})
+  end
+
+  defp fetch_first_slide_reveal_count(context) do
+    reveal_count = Slide.all() |> hd() |> Map.get(:reveals) |> Map.get(:count)
+    Map.merge(context, %{reveal_count: reveal_count})
   end
 end

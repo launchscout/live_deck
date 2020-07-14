@@ -24,7 +24,7 @@ defmodule LiveDeck.Presentations.Slide do
           filename: String.t(),
           background_color: String.t(),
           title: String.t(),
-          reveals: pos_integer() | reveal,
+          reveals: reveal,
           position: non_neg_integer(),
           notes: String.t()
         }
@@ -38,7 +38,7 @@ defmodule LiveDeck.Presentations.Slide do
       %__MODULE__{
         struct
         | title: format_title(slide[:title] || slide.filename),
-          reveals: slide[:reveals] || 0,
+          reveals: clean_reveal(slide[:reveals]),
           notes: slide.notes
       }
     end
@@ -52,4 +52,7 @@ defmodule LiveDeck.Presentations.Slide do
     |> Enum.map(fn word -> String.capitalize(word) end)
     |> Enum.join(" ")
   end
+
+  defp clean_reveal(reveal) when is_integer(reveal), do: %{count: reveal}
+  defp clean_reveal(reveal), do: reveal
 end

@@ -8,7 +8,8 @@ defmodule LiveDeck.Presentations.Config do
     %{
       filename: "template_title.html",
       title: "LiveDeck Introduction",
-      background_color: "back--2"
+      background_color: "back--2",
+      reveals: %{count: 4, starting_with: :empty, operation: :replace}
     },
     %{
       filename: "template_right_aside.html",
