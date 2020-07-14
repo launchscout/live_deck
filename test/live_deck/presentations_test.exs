@@ -3,8 +3,6 @@ defmodule LiveDeck.PresentationsTest do
   alias LiveDeck.Presentations.{Presentation, Slide}
   use ExUnit.Case, async: false
 
-  @slides Slide.all()
-
   describe "load/0" do
     setup :load_presentation
 
@@ -14,20 +12,9 @@ defmodule LiveDeck.PresentationsTest do
       end
     end
 
-    test "returns a presentation with last_index value equal to no. of slides + no. of reveals",
+    test "returns a presentation with last_index value equal to the number of slides - 1",
          %{presentation: presentation} do
-      number_slides = length(@slides)
-
-      number_reveals =
-        Enum.reduce(@slides, 0, fn slide, running_total ->
-          case slide.reveals do
-            nil -> running_total + 0
-            %{count: count} -> running_total + count
-            count when is_number(count) -> running_total + count
-          end
-        end)
-
-      assert presentation.last_index == number_slides + number_reveals - 1
+      assert presentation.last_index == length(presentation.slides) - 1
     end
 
     test "strips .html and underscores out of the filename to create the title", %{

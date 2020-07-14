@@ -15,18 +15,16 @@ defmodule LiveDeck.Presentations.Slide do
     :notes
   ]
 
-  @type reveal ::
-          pos_integer()
-          | %{
-              required(:count) => pos_integer(),
-              optional(:starting_with) => :empty | :revealed,
-              optional(:operation) => :append | :prepend | :replace
-            }
+  @type reveal :: %{
+          required(:count) => pos_integer(),
+          optional(:starting_with) => :empty | :revealed,
+          optional(:operation) => :append | :prepend | :replace
+        }
   @type t :: %__MODULE__{
           filename: String.t(),
           background_color: String.t(),
           title: String.t(),
-          reveals: list(reveal),
+          reveals: pos_integer() | reveal,
           position: non_neg_integer(),
           notes: String.t()
         }
@@ -40,7 +38,7 @@ defmodule LiveDeck.Presentations.Slide do
       %__MODULE__{
         struct
         | title: format_title(slide[:title] || slide.filename),
-          reveals: slide[:reveals],
+          reveals: slide[:reveals] || 0,
           notes: slide.notes
       }
     end
