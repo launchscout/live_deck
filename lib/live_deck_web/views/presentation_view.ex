@@ -1,12 +1,10 @@
 defmodule LiveDeckWeb.PresentationView do
+  alias LiveDeck.Presentations.Config
   use LiveDeckWeb, :view
 
   @spec background_exists?((String.t() -> boolean())) :: boolean()
   def background_exists?(exists_fun \\ &File.exists?/1),
-    do:
-      exists_fun.(
-        "lib/live_deck_web/templates/background/#{LiveDeck.Presentations.Config.theme()}.html.eex"
-      )
+    do: exists_fun.("lib/live_deck_web/templates/background/#{Config.theme()}.html.eex")
 
   @spec current_date((() -> {{integer(), integer(), integer()}, any()})) :: String.t()
   def current_date(local_time_fun \\ &:calendar.local_time/0) do

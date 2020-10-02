@@ -15,7 +15,9 @@ defmodule LiveDeckWeb.ConnCase do
   by setting `use LiveDeckWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
+  alias LiveDeck.Repo
+  alias Phoenix.ConnTest
   use ExUnit.CaseTemplate
 
   using do
@@ -30,13 +32,13 @@ defmodule LiveDeckWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LiveDeck.Repo)
+    :ok = Sandbox.checkout(Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(LiveDeck.Repo, {:shared, self()})
+      Sandbox.mode(Repo, {:shared, self()})
     end
 
-    {:ok, conn: Phoenix.ConnTest.build_conn()}
+    {:ok, conn: ConnTest.build_conn()}
   end
 end
 

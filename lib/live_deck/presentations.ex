@@ -15,14 +15,14 @@ defmodule LiveDeck.Presentations do
   available slides from the lib/live_deck_web/templates/slide
   directory.
   """
-  @spec load() :: Presentation.t()
-  def load(), do: Presentation.new()
+  @spec load :: Presentation.t()
+  def load, do: Presentation.new()
 
   @doc """
   Subscribes to the presentations:lobby pubsub topic
   """
-  @spec subscribe() :: :ok | no_return()
-  def subscribe(), do: LiveDeckWeb.Endpoint.subscribe(@presentations_topic)
+  @spec subscribe :: :ok | no_return()
+  def subscribe, do: LiveDeckWeb.Endpoint.subscribe(@presentations_topic)
 
   @doc """
   Returns the title of the current slide

@@ -15,7 +15,8 @@ defmodule LiveDeckWeb.ChannelCase do
   by setting `use LiveDeckWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
-
+  alias Ecto.Adapters.SQL.Sandbox
+  alias LiveDeck.Repo
   use ExUnit.CaseTemplate
 
   using do
@@ -29,10 +30,10 @@ defmodule LiveDeckWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(LiveDeck.Repo)
+    :ok = Sandbox.checkout(Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(LiveDeck.Repo, {:shared, self()})
+      Sandbox.mode(Repo, {:shared, self()})
     end
 
     :ok

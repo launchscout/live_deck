@@ -1,5 +1,6 @@
 defmodule LiveDeckWeb.PresentationViewTest do
   use ExUnit.Case
+  alias LiveDeck.Presentations.Config
   alias LiveDeckWeb.PresentationView
 
   describe "current_date/1" do
@@ -47,7 +48,7 @@ defmodule LiveDeckWeb.PresentationViewTest do
   describe "background_exists?/1" do
     test "returns true if the exists_fun evaluates to true" do
       exists_fun = fn file_name ->
-        String.contains?(file_name, LiveDeck.Presentations.Config.theme())
+        String.contains?(file_name, Config.theme())
       end
 
       assert PresentationView.background_exists?(exists_fun)
