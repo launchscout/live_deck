@@ -1,4 +1,5 @@
 defmodule LiveDeckWeb.ControlLiveTest do
+  alias LiveDeck.Controls
   use LiveDeckWeb.ConnCase
   import Phoenix.LiveViewTest
 
@@ -14,6 +15,11 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
 
     test "clicking the next button increment the current slide", %{view: view} do
+      # Loop through all reveals on current slide
+      presentation = Controls.get_presentation()
+      reveal_count = presentation.slides |> List.first() |> Map.get(:reveals) |> Map.get(:count)
+      for _ <- 1..reveal_count, do: render_click(view, "next")
+      # Run assertion after looping through all reveals
       assert render_click(view, "next") =~ ~s(data-current-slide=\"2\")
     end
 
