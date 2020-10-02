@@ -42,6 +42,9 @@ defmodule LiveDeckWeb.ControlLiveTest do
     end
 
     test "does not render the notes button if the slide has no notes", %{view: view} do
+      presentation = Controls.get_presentation()
+      reveal_count = presentation.slides |> List.first() |> Map.get(:reveals) |> Map.get(:count)
+      for _ <- 1..reveal_count, do: render_click(view, "next")
       refute render_click(view, "next") =~ ~s(data-testid="notes-button")
     end
 
