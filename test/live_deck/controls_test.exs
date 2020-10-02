@@ -40,7 +40,14 @@ defmodule LiveDeck.ControlsTest do
   describe "navigate/1" do
     setup :subscribe
 
-    test "increments current slide of presentation when passed :next" do
+    test "increments the active_index and active_reveal_index when passed :next" do
+      presentation = Controls.get_presentation()
+      reveal_count = presentation.slides |> List.first() |> Map.get(:reveals) |> Map.get(:count)
+
+      for expected_index <- 1..reveal_count do
+        assert %Presentation{active_reveal_index: ^expected_index} = Controls.navigate(:next)
+      end
+
       assert %Presentation{active_index: 1} = Controls.navigate(:next)
     end
 
