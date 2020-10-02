@@ -12,6 +12,11 @@ defmodule LiveDeckWeb.PresentationLiveTest do
 
     test "subscribes to the controls:channel pubsub topic", %{view: view} do
       initial_view = render(view)
+
+      presentation = Controls.get_presentation()
+      reveal_count = presentation.slides |> List.first() |> Map.get(:reveals) |> Map.get(:count)
+      ## Loop through all reveals
+      for _ <- 1..reveal_count, do: Controls.navigate(:next)
       ## Publishes an event to the controls:channel that updates the slide
       Controls.navigate(:next)
       refute render(view) == initial_view
