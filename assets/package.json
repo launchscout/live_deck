@@ -12,7 +12,7 @@
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
     "postcss-cli": "^7.1.0",
-    "prismjs": "^1.19.0"
+    "prismjs": "^1.24.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
